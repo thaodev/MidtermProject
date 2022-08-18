@@ -1,0 +1,3 @@
+rootProject.name = 'BandMate'
+
+includeFlat 'JPABandMate'
