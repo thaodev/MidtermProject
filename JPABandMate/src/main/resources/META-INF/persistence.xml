@@ -11,9 +11,9 @@
     <!--entities -->
 
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bandmate?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
-      <property name="javax.persistence.jdbc.user" value="FIXME"/>
-      <property name="javax.persistence.jdbc.password" value="FIXME" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bandmatedb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
+      <property name="javax.persistence.jdbc.user" value="bandmateuser"/>
+      <property name="javax.persistence.jdbc.password" value="bandmateuser" />
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
       <property name="hibernate.show_sql" value="true" />
