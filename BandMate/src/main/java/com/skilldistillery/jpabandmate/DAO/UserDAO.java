@@ -1,5 +1,10 @@
 package com.skilldistillery.jpabandmate.DAO;
 
-public interface UserDAO {
+import com.skilldistillery.jpabandmate.entities.User;
 
-}
+public interface UserDAO {
+	User findById(int userId);
+	}
+	
+	
+

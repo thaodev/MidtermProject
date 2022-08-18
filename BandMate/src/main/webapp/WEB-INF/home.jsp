@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>Welcome to Band Mate</h1>
+	${SMOKETEST}
 </body>
 </html>
