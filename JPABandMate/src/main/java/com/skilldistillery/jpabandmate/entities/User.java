@@ -1,7 +1,9 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +24,31 @@ public class User {
 
 	private String role;
 
+	private String phone;
+
+	private String email;
+
+	@Column(name = "fisrt_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	private int admin;
+
+	private LocalDate DOB;
+
+	@Column(name = "profile_image_url")
+	private String profileImage;
+
+	private String bio;
+
+	// CONSTRUCTOR
 	public User() {
 		super();
 	}
+
+	// METHODS
 
 	public int getId() {
 		return id;
@@ -66,6 +90,70 @@ public class User {
 		this.role = role;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+
+	public LocalDate getDOB() {
+		return DOB;
+	}
+
+	public void setDOB(LocalDate dOB) {
+		DOB = dOB;
+	}
+
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -83,9 +171,10 @@ public class User {
 		return id == other.id;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+//				+ ", role=" + role + "]";
+//	}
+
 }
