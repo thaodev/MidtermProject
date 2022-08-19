@@ -7,55 +7,48 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Table;
 
-
 @Embeddable
-@Table(name="followed_band")
-public class FollowedBand implements Serializable {
+@Table(name="band_member")
+public class BandMemberId implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="user_id")
-	private int userId;
+	@Column(name="musician_id")
+	private int musicianId;
 	
 	@Column(name="band_id")
 	private int bandId;
 	
-	
-	//CONSTRUCTOR
-	public FollowedBand() {
+
+
+	public BandMemberId() {
 		super();
 	}
 
 	
-	//METHODS
-	public int getUserId() {
-		return userId;
+	public int getMusicianId() {
+		return musicianId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setMusicianId(int musicianId) {
+		this.musicianId = musicianId;
 	}
-
 
 	public int getBandId() {
 		return bandId;
 	}
 
-
 	public void setBandId(int bandId) {
 		this.bandId = bandId;
 	}
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(bandId, userId);
+		return Objects.hash(bandId, musicianId);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -65,16 +58,20 @@ public class FollowedBand implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FollowedBand other = (FollowedBand) obj;
-		return bandId == other.bandId && userId == other.userId;
+		BandMemberId other = (BandMemberId) obj;
+		return bandId == other.bandId && musicianId == other.musicianId;
 	}
 
 
 //	@Override
 //	public String toString() {
-//		return "FollowedBand [userId=" + userId + ", bandId=" + bandId + "]";
+//		return "BandMember [musicianId=" + musicianId + ", bandId=" + bandId + ", stageName=" + stageName + ", role="
+//				+ role + "]";
 //	}
 
+
+
+	
 	
 	
 }

@@ -1,23 +1,18 @@
 package com.skilldistillery.jpabandmate.entities;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-import org.hibernate.annotations.CreationTimestamp;
-
-@Embeddable
-public class PerformanceReview implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Entity
+@Table(name="performance_review")
+public class PerformanceReview {
 	
-	@Column(name="user_id")
-	private int userId;
-	
-	@Column(name="performance_id")
-	private int performanceId;
+	@EmbeddedId
+	private PerformanceReviewId id;
 	
 	private int rating;
 	
@@ -25,31 +20,18 @@ public class PerformanceReview implements Serializable {
 	private String ratingComment;
 	
 	@Column(name="review_date")
-	@CreationTimestamp
 	private LocalDateTime reviewDate;
 
 	
-	//CONSTRUCTOR
 	public PerformanceReview() {
-		super();
 	}
 
-	
-	//METHODS
-	public int getUserId() {
-		return userId;
+	public PerformanceReviewId getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getPerformanceId() {
-		return performanceId;
-	}
-
-	public void setPerformanceId(int performanceId) {
-		this.performanceId = performanceId;
+	public void setId(PerformanceReviewId id) {
+		this.id = id;
 	}
 
 	public int getRating() {
@@ -76,37 +58,4 @@ public class PerformanceReview implements Serializable {
 		this.reviewDate = reviewDate;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(performanceId, userId);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PerformanceReview other = (PerformanceReview) obj;
-		return performanceId == other.performanceId && userId == other.userId;
-	}
-
-	
-	
-//	@Override
-//	public String toString() {
-//		return "PerformanceReview [userId=" + userId + ", performanceId=" + performanceId + ", rating=" + rating
-//				+ ", ratingComment=" + ratingComment + ", reviewDate=" + reviewDate + "]";
-//	}
-	
-	
-	
 }

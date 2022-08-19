@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Musician {
@@ -30,6 +32,8 @@ public class Musician {
 	@Column(name="band_member_image_url")
 	private String bandMemberImage;
 
+	@ManyToMany(mappedBy = "followedMusicians")
+	private List<User> followers;
 	
 	//CONSTRUCTOR
 	public Musician() {
@@ -96,6 +100,16 @@ public class Musician {
 	}
 
 	
+	public List<User> getFollowers() {
+		return followers;
+	}
+
+
+	public void setFollowers(List<User> followers) {
+		this.followers = followers;
+	}
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
