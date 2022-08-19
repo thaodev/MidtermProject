@@ -9,14 +9,14 @@
     <class>com.skilldistillery.jpabandmate.entities.Address</class>
     <class>com.skilldistillery.jpabandmate.entities.Band</class>
     <class>com.skilldistillery.jpabandmate.entities.BandMember</class>
-    <class>com.skilldistillery.jpabandmate.entities.FollowedBand</class>
+    <class>com.skilldistillery.jpabandmate.entities.BandMemberId</class>
     <class>com.skilldistillery.jpabandmate.entities.Genre</class>
-    <class>com.skilldistillery.jpabandmate.entities.GenreHasBand</class>
     <class>com.skilldistillery.jpabandmate.entities.Instrument</class>
     <class>com.skilldistillery.jpabandmate.entities.Musician</class>
     <class>com.skilldistillery.jpabandmate.entities.Performance</class>
     <class>com.skilldistillery.jpabandmate.entities.PerformanceComment</class>
     <class>com.skilldistillery.jpabandmate.entities.PerformanceReview</class>
+    <class>com.skilldistillery.jpabandmate.entities.PerformanceReviewId</class>
     <class>com.skilldistillery.jpabandmate.entities.TicketSale</class>
     <class>com.skilldistillery.jpabandmate.entities.User</class>
     <class>com.skilldistillery.jpabandmate.entities.Venue</class>

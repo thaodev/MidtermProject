@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Band {
@@ -28,6 +32,9 @@ public class Band {
 	@Column(name="band_logo_url")
 	private String bandLogo;
 
+	@ManyToMany
+	@JoinTable(name="genre_has_band", joinColumns = @JoinColumn(name="band_id"), inverseJoinColumns = @JoinColumn(name="genre_id"))
+	private List<Genre> genres;
 	
 	
 	//CONSTRUCTOR
@@ -84,6 +91,16 @@ public class Band {
 	public void setBandLogo(String bandLogo) {
 		this.bandLogo = bandLogo;
 	}
+
+	public List<Genre> getGenres() {
+		return genres;
+	}
+
+
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
+	}
+
 
 	@Override
 	public int hashCode() {

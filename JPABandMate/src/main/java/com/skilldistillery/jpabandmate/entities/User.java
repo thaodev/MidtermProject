@@ -1,6 +1,7 @@
 package com.skilldistillery.jpabandmate.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class User {
@@ -42,7 +46,16 @@ public class User {
 	private String profileImage;
 
 	private String bio;
+	
+	@ManyToMany
+	@JoinTable(name="follow_musician", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="musician_id"))
+	private List<Musician> followedMusicians;
 
+	@ManyToMany
+	@JoinTable(name="follow_band", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="band_id"))
+	private List<Band> bands;
+	
+	
 	// CONSTRUCTOR
 	public User() {
 		super();
@@ -152,6 +165,22 @@ public class User {
 
 	public void setBio(String bio) {
 		this.bio = bio;
+	}
+
+	public List<Musician> getFollowedMusicians() {
+		return followedMusicians;
+	}
+
+	public void setFollowedMusicians(List<Musician> musicians) {
+		this.followedMusicians = musicians;
+	}
+
+	public List<Band> getBands() {
+		return bands;
+	}
+
+	public void setBands(List<Band> bands) {
+		this.bands = bands;
 	}
 
 	@Override
