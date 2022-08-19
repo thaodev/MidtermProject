@@ -92,7 +92,6 @@ CREATE TABLE IF NOT EXISTS `musician` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NULL,
-  `instrument` VARCHAR(45) NULL,
   `phone` VARCHAR(45) NULL,
   `bio` TEXT NULL,
   `vocals` TINYINT NULL,
@@ -438,8 +437,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `instrument`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (1, 'Rocky', 'Rockerson', NULL, '555-300-1129', 'I am the lead singer of my awesome band', 1, 'https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80');
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `instrument`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (2, 'Billy', 'Hammer', 'Guitar', '555-300-1128', 'I am the lead guitarist of my awesome band', 0, 'https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (1, 'Rocky', 'Rockerson', '555-300-1129', 'I am the lead singer of my awesome band', 1, 'https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (2, 'Billy', 'Hammer', '555-300-1128', 'I am the lead guitarist of my awesome band', 0, 'https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80');
 
 COMMIT;
 
