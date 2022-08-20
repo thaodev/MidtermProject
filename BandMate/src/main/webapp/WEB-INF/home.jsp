@@ -13,7 +13,7 @@
 <body>
 <main class="container-fluid">
 	<h1>Welcome to Band Mate</h1>
-	${SMOKETEST}
+	${SMOKETEST.getFirstName()}
 	
 	
 	
