@@ -23,6 +23,8 @@ User user = (User) session.getAttribute("loggedInUser");
 </head>
 <body>
 	<div class="container">
+	<div class="justify-content-center mb-5">FILLOUT THIS FORM TO BECOME OUR MEMBER</div>
+	<div class="">*indicate a mandatory field</div>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text">First Name</span>
