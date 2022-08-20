@@ -23,9 +23,9 @@ public class LoginController {
 		
 		User user = (User)session.getAttribute("loggedInUser");
 		if (user != null) {
-			return "login.do";
-		} else {
 			return "home";
+		} else {
+			return "login";
 		}
 	}
 	
@@ -51,7 +51,14 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		//logout.do remove user from session and redirects to index.do
 		session.removeAttribute("loggedInUser");
-		return "homeWLogin";
+		return "home";
 	}
+	
+	//Sign Up
+	@RequestMapping(path="signUp.do")
+	public String signUp() {
+		return "signUp";
+	}
+	
 
 }

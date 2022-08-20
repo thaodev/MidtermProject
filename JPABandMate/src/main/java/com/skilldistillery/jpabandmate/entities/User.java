@@ -39,7 +39,7 @@ public class User {
 	private Boolean admin;
 
 	@Column(name="date_of_birth")
-	private LocalDate DOB;
+	private LocalDate dob;
 
 	@Column(name = "profile_image_url")
 	private String profileImage;
@@ -134,12 +134,12 @@ public class User {
 		this.admin = admin;
 	}
 
-	public LocalDate getDOB() {
-		return DOB;
+	public LocalDate getDob() {
+		return dob;
 	}
 
-	public void setDOB(LocalDate dOB) {
-		DOB = dOB;
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
 	}
 
 	public String getProfileImage() {

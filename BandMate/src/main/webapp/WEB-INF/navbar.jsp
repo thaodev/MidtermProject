@@ -17,11 +17,9 @@
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
-	<form class="login.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Login
-</button> </form>| <form class="login.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Sign Up
-</button> </form>
+	<a href="login.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Login</a>| <a href="signUp.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Sign Up</a>
     </div>
   </div>
 </nav>
