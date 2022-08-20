@@ -60,5 +60,11 @@ class PerformanceCommentTest {
 		assertEquals("An Adaption", performanceComment.getPerformance().getName());
 		
 	}
+	
+	@Test
+	void test_PerformanceComment_to_PerformanceComment_mapping() {
+		assertNotNull(performanceComment);
+		assertTrue(performanceComment.getReplies().size() > 0);
+	}
 
 }
