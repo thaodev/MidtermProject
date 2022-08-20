@@ -34,6 +34,7 @@ class PerformanceCommentTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		performanceComment = em.find(PerformanceComment.class, 1);
+		
 	}
 
 	@AfterEach
