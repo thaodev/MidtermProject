@@ -8,6 +8,7 @@ public interface UserDAO {
 	User findById(int userId);
 	List<User> findAllUsers();
 	User getUserByUserNameAndPassword(String userName, String password);
+	User addUser(User user);
 	
 	}
 	
