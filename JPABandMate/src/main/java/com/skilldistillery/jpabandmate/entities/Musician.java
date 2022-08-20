@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Musician {
@@ -34,6 +35,9 @@ public class Musician {
 
 	@ManyToMany(mappedBy = "followedMusicians")
 	private List<User> followers;
+	
+	@OneToMany(mappedBy="musician")
+	private List<Instrument> instruments;
 	
 	//CONSTRUCTOR
 	public Musician() {
@@ -132,6 +136,16 @@ public class Musician {
 		return "Musician [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", instrument="
 				 + ", phone=" + phone + ", bio=" + bio + ", vocals=" + vocals + ", bandMemberImage="
 				+ bandMemberImage + "]";
+	}
+
+
+	public List<Instrument> getInstruments() {
+		return instruments;
+	}
+
+
+	public void setInstruments(List<Instrument> instruments) {
+		this.instruments = instruments;
 	}
 	
 	

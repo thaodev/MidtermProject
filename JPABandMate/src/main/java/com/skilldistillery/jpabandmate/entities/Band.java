@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Band {
@@ -35,6 +37,13 @@ public class Band {
 	@ManyToMany
 	@JoinTable(name="genre_has_band", joinColumns = @JoinColumn(name="band_id"), inverseJoinColumns = @JoinColumn(name="genre_id"))
 	private List<Genre> genres;
+	
+	@ManyToOne
+	@JoinColumn(name="manager_id")
+	private User manager;
+	
+	@OneToMany(mappedBy="band")
+	private List<Performance> performances;
 	
 	
 	//CONSTRUCTOR
@@ -117,6 +126,26 @@ public class Band {
 			return false;
 		Band other = (Band) obj;
 		return id == other.id;
+	}
+
+
+	public User getManager() {
+		return manager;
+	}
+
+
+	public void setManager(User manager) {
+		this.manager = manager;
+	}
+
+
+	public List<Performance> getPerformances() {
+		return performances;
+	}
+
+
+	public void setPerformances(List<Performance> performances) {
+		this.performances = performances;
 	}
 	
 	

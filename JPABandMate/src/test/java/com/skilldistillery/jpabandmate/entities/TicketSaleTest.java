@@ -2,7 +2,6 @@ package com.skilldistillery.jpabandmate.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,12 +13,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class TicketSaleTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
-
+	private TicketSale ticketSale;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABandMate");
@@ -33,42 +32,33 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		ticketSale = em.find(TicketSale.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		ticketSale = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-	}
-
-	@Test
-	void test_User_to_Band_manager_mapping() {
-		user = em.find(User.class, 3);
-		assertNotNull(user);
-		assertTrue(user.getManagedBands().size() > 0);
-
+	void test_TicketSale_entity_mapping() {
+		assertNotNull(ticketSale);
+		assertEquals(1, ticketSale.getId());
 	}
 	
 	@Test
-	void test_User_to_TicketSale_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getTicketPurchases().size() > 0);
+	void test_TicketSale_to_Performance_mapping() {
+		assertNotNull(ticketSale);
+		assertEquals("An Adaption", ticketSale.getPerformance().getName());
+		assertEquals("The Lamb Commander", ticketSale.getPerformance().getBand().getName());
 		
 	}
 	
 	@Test
-	void test_User_to_PerformanceComment_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getPerformanceComments().size() > 0);
+	void test_TicketSale_to_User_mapping() {
+		assertNotNull(ticketSale);
+		assertEquals("bandmateuser", ticketSale.getUser().getUsername());
 		
 	}
 

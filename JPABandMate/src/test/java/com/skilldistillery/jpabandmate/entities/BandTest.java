@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class BandTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Band band;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,42 +33,32 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		band = em.find(Band.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		band = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+	void test_Band_entity_mapping() {
+		assertNotNull(band);
+		assertEquals("Hammer of Rock", band.getName());
 	}
 
 	@Test
-	void test_User_to_Band_manager_mapping() {
-		user = em.find(User.class, 3);
-		assertNotNull(user);
-		assertTrue(user.getManagedBands().size() > 0);
+	void test_Band_to_User_manager_mapping() {
+		assertNotNull(band);
+		assertEquals("Rodney", band.getManager().getFirstName());
 
 	}
-	
+
 	@Test
-	void test_User_to_TicketSale_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getTicketPurchases().size() > 0);
-		
-	}
-	
-	@Test
-	void test_User_to_PerformanceComment_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getPerformanceComments().size() > 0);
+	void test_Band_to_Performance_mapping() {
+		assertNotNull(band);
+		assertTrue(band.getPerformances().size() > 0);
 		
 	}
 

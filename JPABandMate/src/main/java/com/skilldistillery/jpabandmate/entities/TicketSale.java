@@ -8,33 +8,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name = "ticket_sale")
 public class TicketSale {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="ticket_price")
+
+	@Column(name = "ticket_price")
 	private double ticketPrice;
-	
-	@Column(name="sale_date")
+
+	@Column(name = "sale_date")
 	@CreationTimestamp
 	private LocalDateTime saleDate;
+	
+	@ManyToOne
+	@JoinColumn(name="performance_id")
+	private Performance performance;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
-	
-	
-	//CONSTRUCTOR
+	// CONSTRUCTOR
 	public int getId() {
 		return id;
 	}
 
-	
-	
-	//METHODS
+	// METHODS
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -71,13 +79,26 @@ public class TicketSale {
 		TicketSale other = (TicketSale) obj;
 		return id == other.id;
 	}
-	
-	
+
+	public Performance getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(Performance performance) {
+		this.performance = performance;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 //	@Override
 //	public String toString() {
 //		return "TicketSale [id=" + id + ", ticketPrice=" + ticketPrice + ", saleDate=" + saleDate + "]";
 //	}
-	
-	
+
 }

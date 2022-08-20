@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class PerformanceTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Performance performance;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,42 +33,46 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		performance = em.find(Performance.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		performance = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+	void test_Performance_entity_mapping() {
+		assertNotNull(performance);
+		assertEquals("An Adaption", performance.getName());
 	}
 
 	@Test
-	void test_User_to_Band_manager_mapping() {
-		user = em.find(User.class, 3);
-		assertNotNull(user);
-		assertTrue(user.getManagedBands().size() > 0);
+	void test_Performance_to_band_mapping() {
+		assertNotNull(performance);
+		assertEquals("The Lamb Commander", performance.getBand().getName());
+
+	}
+
+	@Test
+	void test_Performance_to_Venue_mapping() {
+		assertNotNull(performance);
+		assertEquals(200, performance.getVenue().getCapacity());
+
+	}
+
+	@Test
+	void test_Performance_to_TicketSale_mapping() {
+		assertNotNull(performance);
+		assertTrue(performance.getTicketSales().size() > 0);
 
 	}
 	
 	@Test
-	void test_User_to_TicketSale_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getTicketPurchases().size() > 0);
-		
-	}
-	
-	@Test
-	void test_User_to_PerformanceComment_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getPerformanceComments().size() > 0);
+	void test_Performance_to_PerformanceComment_mapping() {
+		assertNotNull(performance);
+		assertTrue(performance.getPerformanceComments().size() > 0);
 		
 	}
 
