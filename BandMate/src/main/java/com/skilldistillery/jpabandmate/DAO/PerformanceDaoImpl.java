@@ -35,15 +35,35 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 		}
 	}
 	
+	@Override
 	public Performance createPerformance(Performance performance) {
 		em.persist(performance);
 		return performance;
 	}
 	
+	@Override
+	public boolean deletePerformance(int id) {
+		Performance performanceToDelete = em.find(Performance.class, id);
+		if(performanceToDelete != null) {
+			em.remove(performanceToDelete);
+			return true;
+		}
+		return false;
+	}
 	
-//	public boolean deletePerformance(Performance performance) {
-//		em.remove(performance);
-//		return false;
-//	}
+	@Override
+	public Performance editPerformance(Performance performance) {
+		Performance performanceToEdit = em.find(Performance.class, performance.getId());
+		if(performanceToEdit != null) {
+			performanceToEdit.getPerformanceDate();
+			performanceToEdit.getTicketPrice();
+			performanceToEdit.getName();
+			performanceToEdit.getStartTime();
+			performanceToEdit.getEndTime();
+			
+			
+		}
+		return performanceToEdit;
+	}
 	
 }
