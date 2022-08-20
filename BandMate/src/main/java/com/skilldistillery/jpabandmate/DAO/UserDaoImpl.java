@@ -20,6 +20,22 @@ public class UserDaoImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	
+
+	/*
+	 * CREATE 
+	 * */
+	
+	//Add User
+	@Override
+	public User addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/**
+	 * READ
+	 */
 	@Override
 	public User getUserByUserNameAndPassword(String userName, String password) {
 		List<User> allUsers = ((UserDaoImpl) em).findAllUsers();
@@ -51,4 +67,11 @@ public class UserDaoImpl implements UserDAO {
 		}
 	}
 
+	/**
+	 * UPDATE
+	 */
+	
+	/**
+	 * DELETE
+	 */
 }

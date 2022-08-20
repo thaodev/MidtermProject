@@ -23,57 +23,61 @@ User user = (User) session.getAttribute("loggedInUser");
 </head>
 <body>
 	<div class="container">
-	<div class="justify-content-center mb-5">FILLOUT THIS FORM TO BECOME OUR MEMBER</div>
-	<div class="">*indicate a mandatory field</div>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">First Name</span>
+		<div class="justify-content-center mb-5">FILLOUT THIS FORM TO
+			BECOME OF MEMBER OUR COMMUNITY</div>
+		<div style="font: italic">*indicate a mandatory field</div>
+		<form action="signUpForm.do" method="POST">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">First Name</span>
+				</div>
+				<input class="form-control" type="text" name="firstName"
+					placeholder="Enter First Name">
 			</div>
-			<input class="form-control" type="text" name="firstName"
-				placeholder="Enter First Name">
-		</div>
-		<br>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">Last Name</span>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Last Name</span>
+				</div>
+				<input class="form-control" type="text" name="lastName"
+					placeholder="Enter Last Name">
 			</div>
-			<input class="form-control" type="text" name="lastName"
-				placeholder="Enter Last Name">
-		</div>
-		<br>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">Username</span>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Username</span>
+				</div>
+				<input class="form-control" type="text" name="username"
+					placeholder="Enter Username">
 			</div>
-			<input class="form-control" type="text" name="username"
-				placeholder="Enter Username">
-		</div>
-		<br>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">Password</span>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Password</span>
+				</div>
+				<input class="form-control" type="text" name="password"
+					placeholder="Enter password">
 			</div>
-			<input class="form-control" type="text" name="password"
-				placeholder="Enter password">
-		</div>
-		<br>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">Email</span>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Email</span>
+				</div>
+				<input class="form-control" type="text" name="email"
+					placeholder="Enter Email">
 			</div>
-			<input class="form-control" type="text" name="email"
-				placeholder="Enter Email">
-		</div>
-		<br>
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text">Date Of Birth</span>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Date Of Birth</span>
+				</div>
+				<input class="form-control" type="date" name="dob"
+					placeholder="Enter Date Of Birth">
 			</div>
-			<input class="form-control" type="date" name="dob"
-				placeholder="Enter Date Of Birth">
-		</div>
-		<br>
-
+			<br>
+			
+			<button class="btn btn-info btn-lg btn-block" type="submit"> Submit</button>
+		</form>
 	</div>
 
 </body>
