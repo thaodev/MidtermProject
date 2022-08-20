@@ -34,6 +34,7 @@ class PerformanceCommentTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		performanceComment = em.find(PerformanceComment.class, 1);
+
 	}
 
 	@AfterEach
@@ -47,18 +48,25 @@ class PerformanceCommentTest {
 		assertNotNull(performanceComment);
 		assertEquals("This concert ruled, man!", performanceComment.getComment());
 	}
-	
+
 	@Test
 	void test_PerformanceComment_to_User_mapping() {
 		assertNotNull(performanceComment);
 		assertEquals("Sally", performanceComment.getUser().getFirstName());
 	}
-	
+
 	@Test
 	void test_PerformanceComment_to_Performance_mapping() {
 		assertNotNull(performanceComment);
 		assertEquals("An Adaption", performanceComment.getPerformance().getName());
-		
+
+	}
+
+	@Test
+	void test_PerformanceComment_to_PerformanceComment_mapping() {
+		assertNotNull(performanceComment);
+		assertTrue(performanceComment.getReplies().size() > 0);
+		assertEquals("No way, bro... Concert was traaash.", performanceComment.getReplies().get(0).getComment());
 	}
 
 }
