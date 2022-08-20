@@ -1,5 +1,10 @@
 package com.skilldistillery.jpabandmate.DAO;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -10,14 +15,40 @@ import com.skilldistillery.jpabandmate.entities.User;
 
 @Service
 @Transactional
-public class UserDaoImpl implements UserDAO{
-	
+public class UserDaoImpl implements UserDAO {
+
 	@PersistenceContext
-	private  EntityManager em;
+	private EntityManager em;
+
+	@Override
+	public User getUserByUserNameAndPassword(String userName, String password) {
+		List<User> allUsers = ((UserDaoImpl) em).findAllUsers();
+		User u = null;
+		for (User user : allUsers) {
+			if (user.getUsername().equals(userName) && user.getPassword().equals(password)) {
+				u = user;
+				break;
+			}
+		}
+		return u;
+	}
 
 	@Override
 	public User findById(int userId) {
 		return em.find(User.class, userId);
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		List<User> users = null;
+		String jpql = "SELECT u FROM User u";
+		users = em.createQuery(jpql, User.class).getResultList();
+		if (users != null) {
+			System.out.println(users);
+			return users;
+		} else {
+			return null;
+		}
 	}
 
 }

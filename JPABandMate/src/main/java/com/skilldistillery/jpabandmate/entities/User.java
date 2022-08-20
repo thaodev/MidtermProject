@@ -36,7 +36,7 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 
-	private int admin;
+	private Boolean admin;
 
 	@Column(name = "date_of_birth")
 	private LocalDate dateOfBirth;
@@ -45,16 +45,15 @@ public class User {
 	private String profileImage;
 
 	private String bio;
-	
+
 	@ManyToMany
-	@JoinTable(name="follow_musician", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="musician_id"))
+	@JoinTable(name = "follow_musician", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "musician_id"))
 	private List<Musician> followedMusicians;
 
 	@ManyToMany
-	@JoinTable(name="follow_band", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="band_id"))
+	@JoinTable(name = "follow_band", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "band_id"))
 	private List<Band> bands;
-	
-	
+
 	// CONSTRUCTOR
 	public User() {
 		super();
@@ -126,11 +125,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getAdmin() {
+	public Boolean getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(int admin) {
+	public void setAdmin(Boolean admin) {
 		this.admin = admin;
 	}
 
