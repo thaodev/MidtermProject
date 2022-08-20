@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -24,6 +25,8 @@ public class Address {
 	@Column(name="zip_code")
 	private String zipCode;
 
+	@OneToOne(mappedBy="address")
+    private User user;
 	
 	//CONSTRUCTOR
 	public Address() {
@@ -70,6 +73,16 @@ public class Address {
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

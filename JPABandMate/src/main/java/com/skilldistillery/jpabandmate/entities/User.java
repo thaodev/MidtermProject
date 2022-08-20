@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -43,6 +44,10 @@ public class User {
 
 	@Column(name = "profile_image_url")
 	private String profileImage;
+	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
 
 	private String bio;
 	
@@ -172,6 +177,14 @@ public class User {
 
 	public void setBands(List<Band> bands) {
 		this.bands = bands;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
