@@ -1,6 +1,6 @@
 package com.skilldistillery.jpabandmate.controllers;
 
-import java.util.List;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.http.HttpSession;
 
@@ -67,19 +67,32 @@ public class LoginController {
 	@RequestMapping(path = "signUpForm.do")
 	public String addUser(User user, Model model) {
 		boolean isUserAdded = false;
-		User userAdded = dao.addUser(user);
-		if (userAdded != null) {
-			isUserAdded = true;
+		
+
+		try {
+			User userAdded = dao.addUser(user);
+			if (userAdded != null) {
+				isUserAdded = true;
+
+				model.addAttribute("user", user);
+				model.addAttribute("isUserAdded", isUserAdded);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			if(e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
+				String errorMsg = "Unable to add since the username already exits. Please try again!";
+				model.addAttribute("errorMsg", errorMsg);
+			}
+			e.printStackTrace();
+			return "signUp.do";
 		}
-		model.addAttribute("user", user);
-		model.addAttribute("isUserAdded", isUserAdded);
 		return "redirect:userAdded.do";
 	}
 
 	@RequestMapping(path = "userAdded.do", method = RequestMethod.GET)
 	public String scheduleAdded() {
 		System.out.println("inside userAdded");
-		return "home";
+		return "loginResult";
 	}
 
 }

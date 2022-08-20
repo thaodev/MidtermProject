@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.skilldistillery.jpabandmate.entities.User"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,10 @@ User user = (User) session.getAttribute("loggedInUser");
 </c:choose>
 </head>
 <body>
+<c:if test="${not empty errorMsg }">
+	<p style="font-size:10px; font-color:red"><c:out value="${errorMsg}"/></p>
+	<c:out value="${errorMsg }"/>
+</c:if>
 	<div class="container">
 		<div class="text-center mb-3" style="font-size: 30px">BECOME OF
 			MEMBER OUR EXORTIC COMMUNITY</div>
