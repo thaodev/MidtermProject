@@ -23,7 +23,7 @@ User user = (User) session.getAttribute("loggedInUser");
 </head>
 <body>
 	<div class="container">
-		<div class="text-center mb-3">FILLOUT THIS FORM TO BECOME OF
+		<div class="text-center mb-3" style="font:30px">FILLOUT THIS FORM TO BECOME OF
 			MEMBER OUR EXORTIC COMMUNITY</div>
 		<div style="font: italic">*indicate a mandatory field</div>
 		<form action="signUpForm.do" method="POST">
@@ -93,10 +93,11 @@ User user = (User) session.getAttribute("loggedInUser");
 			</div>
 			<br>
 
-			<button class="btn btn-info btn-lg btn-block" type="submit">
+			<button class="btn btn-info btn-lg btn-block text-center" type="submit">
 				Submit</button>
 		</form>
 	</div>
-
+<jsp:include page="bootstrapFoot.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
