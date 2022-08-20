@@ -523,7 +523,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `performance_comment` (`id`, `user_id`, `performance_id`, `comment`, `comment_date`, `reply_to_id`) VALUES (1, 2, 1, 'This concert ruled, man!', NULL, 1);
+INSERT INTO `performance_comment` (`id`, `user_id`, `performance_id`, `comment`, `comment_date`, `reply_to_id`) VALUES (1, 2, 1, 'This concert ruled, man!', NULL, NULL);
+INSERT INTO `performance_comment` (`id`, `user_id`, `performance_id`, `comment`, `comment_date`, `reply_to_id`) VALUES (2, 3, 1, 'No way, bro... Concert was traaash.', NULL, 1);
 
 COMMIT;
 
