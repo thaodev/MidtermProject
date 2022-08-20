@@ -71,5 +71,11 @@ class UserTest {
 		assertTrue(user.getPerformanceComments().size() > 0);
 		
 	}
+	
+	@Test
+	void test_User_to_Address_mapping() {
+		assertNotNull(user);
+		assertEquals("San Francisco", user.getAddress().getCity());
+	}
 
 }
