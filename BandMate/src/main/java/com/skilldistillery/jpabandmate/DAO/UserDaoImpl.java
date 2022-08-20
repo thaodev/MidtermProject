@@ -31,7 +31,9 @@ public class UserDaoImpl implements UserDAO {
 	public User addUser(User user) {
 		// add user to user table 
 		em.persist(user);
-		
+		if (user.getAddress() != null) {
+			em.persist(user.getAddress());
+		}
 		//update the local user object
 		em.flush();
 		return user;
