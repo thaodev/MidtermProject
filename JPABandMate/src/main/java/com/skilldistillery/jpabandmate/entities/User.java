@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 
 @Entity
@@ -39,27 +42,35 @@ public class User {
 
 	private Boolean admin;
 
-	@Column(name="date_of_birth")
+	@Column(name = "date_of_birth")
 	private LocalDate dob;
 
 	@Column(name = "profile_image_url")
 	private String profileImage;
-	
+
 	@OneToOne
-	@JoinColumn(name="address_id")
+	@JoinColumn(name = "address_id")
 	private Address address;
 
 	private String bio;
-	
+
 	@ManyToMany
-	@JoinTable(name="follow_musician", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="musician_id"))
+	@JoinTable(name = "follow_musician", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "musician_id"))
 	private List<Musician> followedMusicians;
 
 	@ManyToMany
-	@JoinTable(name="follow_band", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="band_id"))
+	@JoinTable(name = "follow_band", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "band_id"))
 	private List<Band> bands;
-	
-	
+
+	@OneToMany(mappedBy = "manager")
+	private List<Band> managedBands;
+
+	@OneToMany(mappedBy = "user")
+	private List<TicketSale> ticketPurchases;
+
+	@OneToMany(mappedBy = "user")
+	private List<PerformanceComment> performanceComments;
+
 	// CONSTRUCTOR
 	public User() {
 		super();
@@ -202,6 +213,30 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return id == other.id;
+	}
+
+	public List<Band> getManagedBands() {
+		return managedBands;
+	}
+
+	public void setManagedBands(List<Band> managedBands) {
+		this.managedBands = managedBands;
+	}
+
+	public List<TicketSale> getTicketPurchases() {
+		return ticketPurchases;
+	}
+
+	public void setTicketPurchases(List<TicketSale> ticketPurchases) {
+		this.ticketPurchases = ticketPurchases;
+	}
+
+	public List<PerformanceComment> getPerformanceComments() {
+		return performanceComments;
+	}
+
+	public void setPerformanceComments(List<PerformanceComment> performanceComments) {
+		this.performanceComments = performanceComments;
 	}
 
 //	@Override

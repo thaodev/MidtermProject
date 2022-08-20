@@ -14,12 +14,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class VenueTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
-
+	private Venue venue;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABandMate");
@@ -33,42 +33,32 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		venue = em.find(Venue.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		venue = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-	}
-
-	@Test
-	void test_User_to_Band_manager_mapping() {
-		user = em.find(User.class, 3);
-		assertNotNull(user);
-		assertTrue(user.getManagedBands().size() > 0);
-
+	void test_Venue_entity_mapping() {
+		assertNotNull(venue);
+		assertEquals(200, venue.getCapacity());
 	}
 	
 	@Test
-	void test_User_to_TicketSale_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getTicketPurchases().size() > 0);
+	void test_Venue_to_Performance_mapping() {
+		assertNotNull(venue);
+		assertTrue(venue.getPerformances().size() > 0);
 		
 	}
 	
 	@Test
-	void test_User_to_PerformanceComment_mapping() {
-		user = em.find(User.class, 2);
-		assertNotNull(user);
-		assertTrue(user.getPerformanceComments().size() > 0);
+	void test_Venue_to_Address_mapping() {
+		assertNotNull(venue);
+		assertEquals("San Francisco", venue.getAddress().getCity());
 		
 	}
 
