@@ -38,12 +38,12 @@ DROP TABLE IF EXISTS `user` ;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NULL,
   `phone` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  `first_name` VARCHAR(45) NULL,
-  `last_name` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
   `admin` TINYINT NULL,
   `date_of_birth` DATE NULL,
   `address_id` INT NOT NULL,
@@ -386,16 +386,16 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, '555 River Road', 'Denver', 'Colorado', '80019');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, '789 Rock Pike', 'Denver', 'Colorado', '80019');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (3, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (4, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (5, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (6, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (7, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (8, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (9, NULL, NULL, NULL, NULL);
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (10, NULL, NULL, NULL, NULL);
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, '3601 Lyon St', 'San Francisco', 'California', '94123');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, '88 5th St', 'San Francisco', 'California', '94103');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (3, '900 Marin St', 'San Francisco', 'California', '94124');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (4, '19641 E Parker Square Dr', 'Parker', 'Colorado', '80134');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (5, '3317 E Colfax Ave', 'Denver', 'Colorado', '80206');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (6, '115 Wilcox St Suite 220', 'Castle Rock', 'Colorado', '80104');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (7, '1000 Broadway', 'Devner', 'Colorado', '80203');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (8, '11160 S Pikes Peak Dr', 'Parker', 'Colorado', '80138');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (9, '30 Coldbrook St NE', 'Grand Rapids', 'Michigan', '49503');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (10, '3304 Larimer St', 'Denver', 'Colorado', '80205');
 
 COMMIT;
 
@@ -418,10 +418,10 @@ COMMIT;
 START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (1, 'Hammer of Rock', 'Classic hard rock, a good time for all!', 2018, 3, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80', NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (3, 'The Lamb Commander', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (4, 'The Correction Screens', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (5, 'Flock Freeman', NULL, NULL, 3, NULL, NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', 'The smootheset of experimental free-form jazz, you\'re gonna love it.', 2013, 3, NULL, NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (3, 'The Lamb Commander', 'Straight out of Dallas, Texas, we are bringing southern metal to a town near you!', 2021, 3, NULL, NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (4, 'The Correction Screens', 'We will keep you dancing all night long with our sick beats and unparalleled energy.', NULL, 3, NULL, NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (5, 'Flock Freeman', 'A three piece country band like you\'ve never heard or seen before.', NULL, 3, NULL, NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (6, 'Hook Offense', NULL, NULL, 3, NULL, NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (7, 'Lilacs Locus', NULL, NULL, 3, NULL, NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (8, 'Housetop Sparkle', NULL, NULL, 3, NULL, NULL);
@@ -439,6 +439,9 @@ START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (1, 'Rocky', 'Rockerson', '555-300-1129', 'I am the lead singer of my awesome band', 1, 'https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80');
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (2, 'Billy', 'Hammer', '555-300-1128', 'I am the lead guitarist of my awesome band', 0, 'https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (3, 'Frank', 'Freeman', NULL, 'Singer and banjo player for Flock Freeman', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (4, 'Fran', 'Freeman', NULL, 'Drummer for Flock Freeman', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (5, 'Follie', 'Freeman', NULL, 'Guitarist for Flock Freeman', NULL, NULL);
 
 COMMIT;
 
@@ -520,7 +523,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `performance_comment` (`id`, `user_id`, `performance_id`, `comment`, `comment_date`, `reply_to_id`) VALUES (1, 2, 1, 'This concert ruled, man!', NULL, NULL);
+INSERT INTO `performance_comment` (`id`, `user_id`, `performance_id`, `comment`, `comment_date`, `reply_to_id`) VALUES (1, 2, 1, 'This concert ruled, man!', NULL, 1);
 
 COMMIT;
 
@@ -571,7 +574,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `ticket_sale` (`id`, `performance_id`, `user_id`, `ticket_price`, `sale_date`) VALUES (1, 1, 2, 20.00, NULL);
+INSERT INTO `ticket_sale` (`id`, `performance_id`, `user_id`, `ticket_price`, `sale_date`) VALUES (1, 1, 2, 20.00, '2022-07-15');
 
 COMMIT;
 

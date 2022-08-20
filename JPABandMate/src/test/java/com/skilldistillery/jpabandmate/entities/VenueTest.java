@@ -14,12 +14,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BandTest {
+class VenueTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Band band;
-
+	private Venue venue;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABandMate");
@@ -33,32 +33,32 @@ class BandTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		band = em.find(Band.class, 1);
+		venue = em.find(Venue.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		band = null;
+		venue = null;
 	}
 
 	@Test
-	void test_Band_entity_mapping() {
-		assertNotNull(band);
-		assertEquals("Hammer of Rock", band.getName());
+	void test_Venue_entity_mapping() {
+		assertNotNull(venue);
+		assertEquals(200, venue.getCapacity());
 	}
-
+	
 	@Test
-	void test_Band_to_User_manager_mapping() {
-		assertNotNull(band);
-		assertEquals("Rodney", band.getManager().getFirstName());
-
+	void test_Venue_to_Performance_mapping() {
+		assertNotNull(venue);
+		assertTrue(venue.getPerformances().size() > 0);
+		
 	}
-
+	
 	@Test
-	void test_Band_to_Performance_mapping() {
-		assertNotNull(band);
-		assertTrue(band.getPerformances().size() > 0);
+	void test_Venue_to_Address_mapping() {
+		assertNotNull(venue);
+		assertEquals("San Francisco", venue.getAddress().getCity());
 		
 	}
 

@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Venue {
@@ -24,7 +28,12 @@ public class Venue {
 
 	private String description;
 	
+	@OneToMany(mappedBy="venue")
+	private List<Performance> performances;
 	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
 	
 	
 	//CONSTRUCTOR
@@ -90,6 +99,22 @@ public class Venue {
 			return false;
 		Venue other = (Venue) obj;
 		return id == other.id;
+	}
+
+	public List<Performance> getPerformances() {
+		return performances;
+	}
+
+	public void setPerformances(List<Performance> performances) {
+		this.performances = performances;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 //	@Override

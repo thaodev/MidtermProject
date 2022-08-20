@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BandTest {
+class PerformanceTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Band band;
+	private Performance performance;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,32 +33,46 @@ class BandTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		band = em.find(Band.class, 1);
+		performance = em.find(Performance.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		band = null;
+		performance = null;
 	}
 
 	@Test
-	void test_Band_entity_mapping() {
-		assertNotNull(band);
-		assertEquals("Hammer of Rock", band.getName());
+	void test_Performance_entity_mapping() {
+		assertNotNull(performance);
+		assertEquals("An Adaption", performance.getName());
 	}
 
 	@Test
-	void test_Band_to_User_manager_mapping() {
-		assertNotNull(band);
-		assertEquals("Rodney", band.getManager().getFirstName());
+	void test_Performance_to_band_mapping() {
+		assertNotNull(performance);
+		assertEquals("The Lamb Commander", performance.getBand().getName());
 
 	}
 
 	@Test
-	void test_Band_to_Performance_mapping() {
-		assertNotNull(band);
-		assertTrue(band.getPerformances().size() > 0);
+	void test_Performance_to_Venue_mapping() {
+		assertNotNull(performance);
+		assertEquals(200, performance.getVenue().getCapacity());
+
+	}
+
+	@Test
+	void test_Performance_to_TicketSale_mapping() {
+		assertNotNull(performance);
+		assertTrue(performance.getTicketSales().size() > 0);
+
+	}
+	
+	@Test
+	void test_Performance_to_PerformanceComment_mapping() {
+		assertNotNull(performance);
+		assertTrue(performance.getPerformanceComments().size() > 0);
 		
 	}
 

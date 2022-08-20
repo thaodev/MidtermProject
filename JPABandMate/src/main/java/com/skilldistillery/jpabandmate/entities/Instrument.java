@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Instrument {
@@ -18,7 +20,9 @@ public class Instrument {
 	
 	private double price;
 
-	
+	@ManyToOne
+	@JoinColumn(name="musician_id")
+	private Musician musician;
 	
 	//CONSTRUCTOR
 	public Instrument() {
@@ -71,6 +75,16 @@ public class Instrument {
 	@Override
 	public String toString() {
 		return "Instrument [id=" + id + ", name=" + name + ", price=" + price + "]";
+	}
+
+
+	public Musician getMusician() {
+		return musician;
+	}
+
+
+	public void setMusician(Musician musician) {
+		this.musician = musician;
 	}
 	
 	

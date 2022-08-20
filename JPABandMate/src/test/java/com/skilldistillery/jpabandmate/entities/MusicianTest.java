@@ -14,12 +14,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BandTest {
+class MusicianTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Band band;
-
+	private Musician musician;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPABandMate");
@@ -33,33 +33,25 @@ class BandTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		band = em.find(Band.class, 1);
+		musician = em.find(Musician.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		band = null;
+		musician = null;
 	}
 
 	@Test
-	void test_Band_entity_mapping() {
-		assertNotNull(band);
-		assertEquals("Hammer of Rock", band.getName());
+	void test_Musician_entity_mapping() {
+		assertNotNull(musician);
+		assertEquals("Rocky", musician.getFirstName());
 	}
-
+	
 	@Test
-	void test_Band_to_User_manager_mapping() {
-		assertNotNull(band);
-		assertEquals("Rodney", band.getManager().getFirstName());
-
-	}
-
-	@Test
-	void test_Band_to_Performance_mapping() {
-		assertNotNull(band);
-		assertTrue(band.getPerformances().size() > 0);
-		
+	void test_Musician_to_Instrument_mapping() {
+		assertNotNull(musician);
+		assertTrue(musician.getInstruments().size() == 0);
 	}
 
 }

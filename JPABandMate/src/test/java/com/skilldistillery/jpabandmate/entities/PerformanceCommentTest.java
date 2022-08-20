@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BandTest {
+class PerformanceCommentTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Band band;
+	private PerformanceComment performanceComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,32 +33,31 @@ class BandTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		band = em.find(Band.class, 1);
+		performanceComment = em.find(PerformanceComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		band = null;
+		performanceComment = null;
 	}
 
 	@Test
-	void test_Band_entity_mapping() {
-		assertNotNull(band);
-		assertEquals("Hammer of Rock", band.getName());
+	void test_PerformanceComment_entity_mapping() {
+		assertNotNull(performanceComment);
+		assertEquals("This concert ruled, man!", performanceComment.getComment());
 	}
-
+	
 	@Test
-	void test_Band_to_User_manager_mapping() {
-		assertNotNull(band);
-		assertEquals("Rodney", band.getManager().getFirstName());
-
+	void test_PerformanceComment_to_User_mapping() {
+		assertNotNull(performanceComment);
+		assertEquals("Sally", performanceComment.getUser().getFirstName());
 	}
-
+	
 	@Test
-	void test_Band_to_Performance_mapping() {
-		assertNotNull(band);
-		assertTrue(band.getPerformances().size() > 0);
+	void test_PerformanceComment_to_Performance_mapping() {
+		assertNotNull(performanceComment);
+		assertEquals("An Adaption", performanceComment.getPerformance().getName());
 		
 	}
 

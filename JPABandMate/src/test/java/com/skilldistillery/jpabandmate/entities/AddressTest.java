@@ -42,9 +42,9 @@ class AddressTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_Address_entity_mapping() {
 		assertNotNull(address);
-		assertEquals("admin", address.getCity());
+		assertEquals("San Francisco", address.getCity());
 	}
 
 }

@@ -8,35 +8,43 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(name="performance_comment")
 public class PerformanceComment {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String comment;
-	
-	
-	@Column(name="comment_date")
+
+	@Column(name = "comment_date")
 	@CreationTimestamp
 	private LocalDateTime commentDate;
-	
-	@Column(name="reply_to_id")
-	private int reply;
 
+	@Column(name = "reply_to_id")
+	private int reply;
 	
+	@ManyToOne
+	@JoinColumn (name="user_id")
+	private User user;
 	
-	
-	//CONSTRUCTOR
+	@ManyToOne
+	@JoinColumn (name="performance_id")
+	private Performance performance;
+
+	// CONSTRUCTOR
 	public PerformanceComment() {
 		super();
 	}
 
-	//METHODS
+	// METHODS
 
 	public int getId() {
 		return id;
@@ -69,9 +77,7 @@ public class PerformanceComment {
 	public void setReply(int reply) {
 		this.reply = reply;
 	}
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -89,13 +95,26 @@ public class PerformanceComment {
 		return id == other.id;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Performance getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(Performance performance) {
+		this.performance = performance;
+	}
+
 //	@Override
 //	public String toString() {
 //		return "PerformanceComment [id=" + id + ", comment=" + comment + ", commentDate=" + commentDate + ", reply="
 //				+ reply + "]";
 //	}
-	
-	
-
 
 }

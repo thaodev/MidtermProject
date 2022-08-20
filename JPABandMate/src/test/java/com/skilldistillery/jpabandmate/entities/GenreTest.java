@@ -42,7 +42,7 @@ class GenreTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_Genre_entity_mapping() {
 		assertNotNull(genre);
 		assertEquals("Hard Rock", genre.getName());
 	}
