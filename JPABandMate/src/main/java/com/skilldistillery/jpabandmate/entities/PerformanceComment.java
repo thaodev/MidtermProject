@@ -1,6 +1,7 @@
 package com.skilldistillery.jpabandmate.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,12 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name="performance_comment")
+@Table(name = "performance_comment")
 public class PerformanceComment {
 
 	@Id
@@ -28,15 +30,19 @@ public class PerformanceComment {
 	@CreationTimestamp
 	private LocalDateTime commentDate;
 
-	@Column(name = "reply_to_id")
-	private int reply;
-	
 	@ManyToOne
-	@JoinColumn (name="user_id")
+	@JoinColumn(name = "reply_to_id")
+	private PerformanceComment reply;
+
+	@OneToMany(mappedBy = "reply")
+	private List<PerformanceComment> replies;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@ManyToOne
-	@JoinColumn (name="performance_id")
+	@JoinColumn(name = "performance_id")
 	private Performance performance;
 
 	// CONSTRUCTOR
@@ -70,11 +76,11 @@ public class PerformanceComment {
 		this.commentDate = commentDate;
 	}
 
-	public int getReply() {
+	public PerformanceComment getReply() {
 		return reply;
 	}
 
-	public void setReply(int reply) {
+	public void setReply(PerformanceComment reply) {
 		this.reply = reply;
 	}
 
@@ -109,6 +115,14 @@ public class PerformanceComment {
 
 	public void setPerformance(Performance performance) {
 		this.performance = performance;
+	}
+
+	public List<PerformanceComment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<PerformanceComment> replies) {
+		this.replies = replies;
 	}
 
 //	@Override

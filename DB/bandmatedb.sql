@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_name` VARCHAR(45) NOT NULL,
   `admin` TINYINT NULL,
   `date_of_birth` DATE NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `profile_image_url` VARCHAR(1000) NULL,
   `bio` TEXT NULL,
   PRIMARY KEY (`id`),
