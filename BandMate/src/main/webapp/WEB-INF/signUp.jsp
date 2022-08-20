@@ -23,7 +23,7 @@ User user = (User) session.getAttribute("loggedInUser");
 </head>
 <body>
 	<div class="container">
-		<div class="text-center mb-3" style="font:30px">FILLOUT THIS FORM TO BECOME OF
+		<div class="text-center mb-3" style="font-size:30px">BECOME OF
 			MEMBER OUR EXORTIC COMMUNITY</div>
 		<div style="font: italic">*indicate a mandatory field</div>
 		<form action="signUpForm.do" method="POST">
