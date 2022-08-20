@@ -26,13 +26,11 @@ public class User {
 
 	private Boolean enabled;
 
-	private String role;
-
 	private String phone;
 
 	private String email;
 
-	@Column(name = "fisrt_name")
+	@Column(name = "first_name")
 	private String firstName;
 
 	@Column(name = "last_name")
@@ -40,7 +38,8 @@ public class User {
 
 	private int admin;
 
-	private LocalDate DOB;
+	@Column(name = "date_of_birth")
+	private LocalDate dateOfBirth;
 
 	@Column(name = "profile_image_url")
 	private String profileImage;
@@ -95,14 +94,6 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
 	public String getPhone() {
 		return phone;
 	}
@@ -143,12 +134,12 @@ public class User {
 		this.admin = admin;
 	}
 
-	public LocalDate getDOB() {
-		return DOB;
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setDOB(LocalDate dOB) {
-		DOB = dOB;
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getProfileImage() {
