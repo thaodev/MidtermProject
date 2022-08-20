@@ -29,8 +29,12 @@ public class UserDaoImpl implements UserDAO {
 	//Add User
 	@Override
 	public User addUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		// add user to user table 
+		em.persist(user);
+		
+		//update the local user object
+		em.flush();
+		return user;
 	}
 	
 	/**

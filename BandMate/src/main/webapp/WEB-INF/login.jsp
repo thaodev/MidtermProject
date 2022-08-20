@@ -81,6 +81,7 @@ User user = (User) session.getAttribute("loggedInUser");
 			</div>
 		</div>
 	</section>
-
+<jsp:include page="bootstrapFoot.jsp" />
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

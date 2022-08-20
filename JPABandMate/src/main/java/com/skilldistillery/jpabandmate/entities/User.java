@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToMany;
+
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -45,6 +48,10 @@ public class User {
 	@Column(name = "profile_image_url")
 	private String profileImage;
 
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
 	private String bio;
 
 	@ManyToMany
@@ -54,14 +61,14 @@ public class User {
 	@ManyToMany
 	@JoinTable(name = "follow_band", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "band_id"))
 	private List<Band> bands;
-	
-	@OneToMany(mappedBy="manager")
+
+	@OneToMany(mappedBy = "manager")
 	private List<Band> managedBands;
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<TicketSale> ticketPurchases;
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<PerformanceComment> performanceComments;
 
 	// CONSTRUCTOR
@@ -181,6 +188,14 @@ public class User {
 
 	public void setBands(List<Band> bands) {
 		this.bands = bands;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
