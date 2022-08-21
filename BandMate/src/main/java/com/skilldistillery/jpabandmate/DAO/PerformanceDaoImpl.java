@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,15 +36,46 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 		}
 	}
 	
+	@Override
 	public Performance createPerformance(Performance performance) {
 		em.persist(performance);
 		return performance;
 	}
 	
+	@Override
+	public boolean deletePerformance(int id) {
+		Performance performanceToDelete = em.find(Performance.class, id);
+		if(performanceToDelete != null) {
+			em.remove(performanceToDelete);
+			return true;
+		}
+		return false;
+	}
 	
-//	public boolean deletePerformance(Performance performance) {
-//		em.remove(performance);
-//		return false;
-//	}
+	@Override
+	public Performance editPerformance(Performance performance) {
+		Performance performanceToEdit = em.find(Performance.class, performance.getId());
+		if(performanceToEdit != null) {
+			performanceToEdit.getPerformanceDate();
+			performanceToEdit.getTicketPrice();
+			performanceToEdit.getName();
+			performanceToEdit.getStartTime();
+			performanceToEdit.getEndTime();
+			
+			
+		}
+		return performanceToEdit;
+	}
+
+	@Override
+	public List<Performance> findPerformanceByKeyword(String keyword) {
+		List<Performance> performances = new ArrayList<>();
+		String jpql = "";
+		jpql = "SELECT p FROM Performance p WHERE p.name LIKE :kw";
+		performances = em.createQuery(jpql, Performance.class).setParameter("kw", "%" + keyword + "%")
+				.getResultList();
+		
+		return performances;
+	}
 	
 }
