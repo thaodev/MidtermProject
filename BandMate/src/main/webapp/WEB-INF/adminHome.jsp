@@ -20,56 +20,84 @@ body {
 </head>
 <body>
 	<div class=container>
-		<div class="row">
-			<div class="col">
-				<div class="card" style="width: 20rem;">
-					<div class="card-body">
-						<h4 class="card-title">Users</h4>
-						<h6 class="card-subtitle text-muted">Card subtitle</h6>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Illo, quas.</p>
-						<a class="btn btn-outline-primary" href="#">Read More</a>
+		<div class="card-columns">
+			<div class="row justify-content-md-center">
+				<div class="col	">
+					<div class="card float-right" style="width: 20rem;">
+						<div class="card-body bg-secondary">
+							<h4 class="card-title">Users</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-auto"></div>
+				<div class="col">
+					<div class="card" style="width: 20rem;">
+						<div class="card-body bg-success">
+							<h4 class="card-title">Events</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 20rem;">
-					<div class="card-body">
-						<h4 class="card-title">Events</h4>
-						<h6 class="card-subtitle text-muted">Card subtitle</h6>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Illo, quas.</p>
-						<a class="btn btn-outline-primary" href="#">Read More</a>
+			<div class="row justify-content-md-center">
+				<div class="col">
+					<div class="card float-right" style="width: 20rem;">
+						<div class="card-body bg-warning">
+							<h4 class="card-title">Venues</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-auto"></div>
+				<div class="col">
+					<div class="card" style="width: 20rem;">
+						<div class="card-body bg-info">
+							<h4 class="card-title">Musicians</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col">
+					<div class="card" style="width: 20rem;">
+						<div class="card-body bg-dark">
+							<h4 class="card-title">Bands</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-auto"></div>
+				<div class="col">
+					<div class="card" style="width: 20rem;">
+						<div class="card-body">
+							<h4 class="card-title">Comments</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-primary" href="#">Read More</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<div class="card" style="width: 20rem;">
-					<div class="card-body">
-						<h4 class="card-title">Venues</h4>
-						<h6 class="card-subtitle text-muted">Card subtitle</h6>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Illo, quas.</p>
-						<a class="btn btn-outline-primary" href="#">Read More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 20rem;">
-					<div class="card-body">
-						<h4 class="card-title">Musicians</h4>
-						<h6 class="card-subtitle text-muted">Card subtitle</h6>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Illo, quas.</p>
-						<a class="btn btn-outline-primary" href="#">Read More</a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
 	</div>
 	<jsp:include page="bootstrapFoot.jsp" />
 	<jsp:include page="footer.jsp" />

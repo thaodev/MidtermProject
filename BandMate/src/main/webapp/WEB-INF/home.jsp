@@ -9,6 +9,7 @@
 <title>Band Mate</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp" />
+
 <%
 User user = (User) session.getAttribute("loggedInUser");
 %>
@@ -25,13 +26,11 @@ User user = (User) session.getAttribute("loggedInUser");
 <body>
 
 	<div class="container-fluid">
+	<div class="text-center">
 		<h1>Welcome to Band Mate</h1>
+		<h4>Are you looking for next musical events to go? You stop at right place. Let explore below:</h4>
+	</div>
 		${SMOKETEST}
-		<form action="" class="form-group mx-sm-3 mb-2  ms-auto">
-			<input type="search" class="rounded" name="search" placeholder=""
-				aria-label="Search" aria-describedby="search-addon" />
-			<button type="submit" class="btn btn-secondary mb-2">Search</button>
-		</form>
 
 		<div class="container">
 			<div class="row">
@@ -53,8 +52,8 @@ User user = (User) session.getAttribute("loggedInUser");
 						<div class="carousel-inner ">
 							<div class="carousel-item active" data-bs-interval="5000">
 								<img
-									src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-									height="400px" class="d-block img-fluid " alt="">
+									src="https://images.unsplash.com/photo-1612443016610-00c5fa0ec439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+									height="400px" class="d-block img-fluid rounded" alt="">
 								<div class="carousel-caption d-none d-md-block">
 									<h5></h5>
 								</div>
@@ -62,7 +61,7 @@ User user = (User) session.getAttribute("loggedInUser");
 							<div class="carousel-item" data-bs-interval="5000">
 								<img
 									src="https://images.unsplash.com/photo-1528489496900-d841974f5290?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-									height="400px" class="d-block img-fluid " alt="">
+									height="400px" class="d-block img-fluid rounded" alt="">
 								<div class="carousel-caption d-none d-md-block">
 									<h5></h5>
 									<p></p>
@@ -71,7 +70,7 @@ User user = (User) session.getAttribute("loggedInUser");
 							<div class="carousel-item" data-bs-interval="5000">
 								<img
 									src="https://images.unsplash.com/photo-1508979822114-db019a20d576?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-									height="400px" class="d-block img-fluid " alt="war">
+									height="400px" class="d-block img-fluid rounded" alt="war">
 								<div class="carousel-caption d-none d-md-block">
 									<h5></h5>
 									<p></p>
@@ -80,7 +79,7 @@ User user = (User) session.getAttribute("loggedInUser");
 							<div class="carousel-item" data-bs-interval="5000">
 								<img
 									src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
-									height="400px" class="d-block img-fluid" alt="war">
+									height="400px" class="d-block img-fluid rounded" alt="war">
 								<div class="carousel-caption d-none d-md-block">
 									<h5></h5>
 									<p></p>
@@ -102,7 +101,71 @@ User user = (User) session.getAttribute("loggedInUser");
 			</div>
 		</div>
 
+		<div class="card-columns mr-auto mt-4">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<img class="card-img-top img-fluid"
+							src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+						<div class="card-body">
+							<h4 class="card-title">Card title that wraps to a new line</h4>
+							<p class="card-text">This is a longer card with supporting
+								text below as a natural lead-in to additional content. This
+								content is a little bit longer.</p>
+						</div>
+						<div class="text-center">
+							<form action="" class="form-group mx-sm-3 mb-2">
+								<input type="search" class="rounded" name="search"
+									placeholder="" aria-label="Search"
+									aria-describedby="search-addon" />
+								<button type="submit" class="btn btn-secondary mb-2">Search By Musician</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card">
+						<img class="card-img-top img-fluid"
+							src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+						<div class="card-body">
+							<h4 class="card-title">Card title that wraps to a new line</h4>
+							<p class="card-text">This is a longer card with supporting
+								text below as a natural lead-in to additional content. This
+								content is a little bit longer.</p>
+						</div>
+						<div class="text-center">
+							<form action="" class="form-group mx-sm-3 mb-2">
+								<input type="search" class="rounded" name="search"
+									placeholder="" aria-label="Search"
+									aria-describedby="search-addon" />
+								<button type="submit" class="btn btn-secondary mb-2">Search By Band</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col">
 
+					<div class="card">
+						<img class="card-img-top img-fluid"
+							src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+						<div class="card-body">
+							<h4 class="card-title">Card title that wraps to a new line</h4>
+							<p class="card-text">This is a longer card with supporting
+								text below as a natural lead-in to additional content. This
+								content is a little bit longer.</p>
+						</div>
+						<div class="text-center">
+							<form action="" class="form-group mx-sm-3 mb-2">
+								<input type="search" class="rounded" name="search"
+									placeholder="" aria-label="Search"
+									aria-describedby="search-addon" />
+								<button type="submit" class="btn btn-secondary mb-2">Search By Event</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 	</div>

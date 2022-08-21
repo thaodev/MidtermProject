@@ -29,7 +29,7 @@
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
-	<a href="login.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
+	<a href="logout.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
   Logout</a>
     </div>
   </div>

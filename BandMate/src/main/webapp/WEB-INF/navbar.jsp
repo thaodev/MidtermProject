@@ -15,6 +15,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Events</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Your Band</a>
+      </li>
     </ul>
 	<div class="navbar-nav ms-auto">
 	<a href="login.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
