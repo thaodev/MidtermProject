@@ -21,7 +21,8 @@ body {
 <body>
 	<div class=container>
 		<div class="card-columns">
-			<div class="row justify-content-md-center">
+			<div class="row">
+				<div class = "col"></div>
 				<div class="col	">
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-secondary">
@@ -29,11 +30,10 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-auto"></div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
 						<div class="card-body bg-success">
@@ -41,12 +41,14 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
+				<div class="col"></div>
 			</div>
-			<div class="row justify-content-md-center">
+			<div class="row">
+			<div class="col"></div>
 				<div class="col">
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-warning">
@@ -54,37 +56,38 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-auto"></div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
-						<div class="card-body bg-info">
+						<div class="card-body" style="background-color:pink">
 							<h4 class="card-title">Musicians</h4>
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
 						</div>
 
 					</div>
+					
 				</div>
+				<div class="col"></div>
 			</div>
-			<div class="row justify-content-md-center">
+			<div class="row">
+			<div class="col"></div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
-						<div class="card-body bg-dark">
+						<div class="card-body bg-info">
 							<h4 class="card-title">Bands</h4>
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-auto"></div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
 						<div class="card-body">
@@ -92,10 +95,11 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-primary" href="#">Read More</a>
+							<a class="btn btn-outline-white" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
+				<div class="col"></div>
 			</div>
 		</div>
 	</div>
