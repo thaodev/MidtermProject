@@ -1,9 +1,7 @@
 package com.skilldistillery.jpabandmate.DAO;
 
-import java.util.LinkedHashMap;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,9 +26,14 @@ public class UserDaoImpl implements UserDAO {
 	
 	//Add User
 	@Override
-	public User addUser(User user) {
+	public User addUser(User user) throws SQLIntegrityConstraintViolationException {
+		try {
 		// add user to user table 
 		em.persist(user);
+		} catch (Exception e) {
+			
+		}
+		
 		if (user.getAddress() != null) {
 			em.persist(user.getAddress());
 		}
