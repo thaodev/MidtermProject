@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.skilldistillery.jpabandmate.entities.User"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +23,12 @@ User user = (User) session.getAttribute("loggedInUser");
 </c:choose>
 </head>
 <body>
+<c:if test="${not empty errorMsg }">
+	<p style="font-size:10px; font-color:red"><c:out value="${errorMsg}"/></p>
+	<c:out value="${errorMsg }"/>
+</c:if>
 	<div class="container">
-		<div class="text-center mb-3" style="font-size:30px">BECOME OF
+		<div class="text-center mb-3" style="font-size: 30px">BECOME OF
 			MEMBER OUR EXORTIC COMMUNITY</div>
 		<div style="font-style: italic">*indicates a mandatory field</div>
 		<form action="signUpForm.do" method="POST">
@@ -37,9 +42,9 @@ User user = (User) session.getAttribute("loggedInUser");
 			<br>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text" >Last Name*</span>
+					<span class="input-group-text">Last Name*</span>
 				</div>
-				<input class="form-control" type="text"  required name="lastName"
+				<input class="form-control" type="text" required name="lastName"
 					placeholder="Enter Last Name">
 			</div>
 			<br>
@@ -47,7 +52,7 @@ User user = (User) session.getAttribute("loggedInUser");
 				<div class="input-group-prepend">
 					<span class="input-group-text">Username*</span>
 				</div>
-				<input class="form-control" type="text"  required name="username"
+				<input class="form-control" type="text" required name="username"
 					placeholder="Enter Username">
 			</div>
 			<br>
@@ -87,25 +92,50 @@ User user = (User) session.getAttribute("loggedInUser");
 				<div class="input-group-prepend">
 					<span class="input-group-text">Address</span>
 				</div>
-				<input class="form-control" type="text" name="address"
+				<input class="form-control" type="text" name="address.street"
 					placeholder="Enter Address">
 			</div>
 			<br>
+			<div class="input-group row mb-4">
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="form9Example3"
+							class="form-control input-custom" name="address.city" /> <label
+							class="form-label" for="form9Example3">City</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="form9Example4"
+							class="form-control input-custom" name="address.state" /> <label
+							class="form-label" for="form9Example4">State</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-outline">
+						<input type="text" id="form9Example4"
+							class="form-control input-custom" name="address.zipCode" /> <label
+							class="form-label" for="form9Example4">Zip</label>
+					</div>
+				</div>
+
+			</div>
 
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Tell us something about yourself</span>
+					<span class="input-group-text">Tell us something about
+						yourself</span>
 				</div>
 				<input class="form-control" type="text" name="bio"
 					placeholder="Enter your biography">
 			</div>
 			<br>
 
-			<button class="btn btn-info btn-lg btn-block text-center" type="submit">
-				Submit</button>
+			<button class="btn btn-info btn-lg btn-block text-center"
+				type="submit">Submit</button>
 		</form>
 	</div>
-<jsp:include page="bootstrapFoot.jsp" />
+	<jsp:include page="bootstrapFoot.jsp" />
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -31,7 +31,9 @@ public class UserDaoImpl implements UserDAO {
 	public User addUser(User user) {
 		// add user to user table 
 		em.persist(user);
-		
+		if (user.getAddress() != null) {
+			em.persist(user.getAddress());
+		}
 		//update the local user object
 		em.flush();
 		return user;
@@ -42,7 +44,7 @@ public class UserDaoImpl implements UserDAO {
 	 */
 	@Override
 	public User getUserByUserNameAndPassword(String userName, String password) {
-		List<User> allUsers = ((UserDaoImpl) em).findAllUsers();
+		List<User> allUsers = findAllUsers();
 		User u = null;
 		for (User user : allUsers) {
 			if (user.getUsername().equals(userName) && user.getPassword().equals(password)) {
