@@ -29,7 +29,7 @@ User user = (User) session.getAttribute("loggedInUser");
 		</p>
 		<c:out value="${errorMsg }" />
 	</c:if>
-	<div class="container">
+	<div class="container mx-auto">
 
 		<form action="updateUser.do" method="POST">
 			<input type="hidden" name="id" value="<c:out value= "${user.id}"/>" />
@@ -86,15 +86,15 @@ User user = (User) session.getAttribute("loggedInUser");
 				<span class="input-group-text">Admin</span>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio1"
+						name="inlineRadioOptions" id="inlineRadio3"
 						<c:if test="${user.admin == true }">checked</c:if> value="1">
-					<label class="form-check-label" for="inlineRadio1">Yes</label>
+					<label class="form-check-label" for="inlineRadio3">Yes</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio2"
+						name="inlineRadioOptions" id="inlineRadio4"
 						<c:if test="${user.admin == false}">checked</c:if> value="0">
-					<label class="form-check-label" for="inlineRadio2">No</label>
+					<label class="form-check-label" for="inlineRadio4">No</label>
 				</div>
 			</div>
 			<br>

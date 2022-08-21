@@ -91,7 +91,7 @@ body {
 				<div class="col">
 					<div class="card" style="width: 20rem;">
 						<div class="card-body">
-							<h4 class="card-title">Comments</h4>
+							<h4 class="card-title">Reviews</h4>
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>

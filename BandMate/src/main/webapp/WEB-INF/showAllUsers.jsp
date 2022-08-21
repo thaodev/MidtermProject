@@ -90,11 +90,9 @@ User user = (User) session.getAttribute("loggedInUser");
 			</tbody>
 		</table>
 		<div class="row ">
-			<div class="col-sm text-center  ">
-				<div style="margin-right: 10px">
-					<a href="addUser.do" class="btn btn-info" role="button"
-						aria-pressed="true">Add User</a>
-				</div>
+			<div class="col-sm text-center ">
+				<a href="addUser.do" class="btn btn-warning" role="button"
+					aria-pressed="true">Add User</a>
 			</div>
 		</div>
 	</div>
