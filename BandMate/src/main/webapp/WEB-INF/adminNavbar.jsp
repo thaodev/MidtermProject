@@ -17,7 +17,7 @@
           Management
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Users</a>
+          <a class="dropdown-item" href="showUser.do">Users</a>
           <a class="dropdown-item" href="#">Events</a>
           <a class="dropdown-item" href="#">Venues</a>
           <a class="dropdown-item" href="#">Musicians</a>
@@ -26,6 +26,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Quantity Review</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="showUser.do">User</a>
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
