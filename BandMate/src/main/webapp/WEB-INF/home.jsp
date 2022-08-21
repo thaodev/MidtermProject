@@ -28,9 +28,8 @@ User user = (User) session.getAttribute("loggedInUser");
 	<div class="container-fluid">
 	<div class="text-center">
 		<h1>Welcome to Band Mate</h1>
-		<h4>Are you looking for next musical events to go? You stop at right place. Let explore below:</h4>
+		<h4>Are you looking for your next musical experience? You found the right place. Explore below!</h4>
 	</div>
-		${SMOKETEST}
 
 		<div class="container">
 			<div class="row">
@@ -149,17 +148,18 @@ User user = (User) session.getAttribute("loggedInUser");
 						<img class="card-img-top img-fluid"
 							src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
 						<div class="card-body">
-							<h4 class="card-title">Card title that wraps to a new line</h4>
-							<p class="card-text">This is a longer card with supporting
-								text below as a natural lead-in to additional content. This
-								content is a little bit longer.</p>
+							<h4 class="card-title">Upcoming Performances</h4>
+							<p class="card-text"> Shop millions of live events and discover can't-miss concerts... 
+							
+							</p>
 						</div>
 						<div class="text-center">
-							<form action="" class="form-group mx-sm-3 mb-2">
-								<input type="search" class="rounded" name="search"
+							<form action="eventByKeyword.do" class="form-group mx-sm-3 mb-2">
+							<label for="keyword"></label>
+								<input type="search" class="rounded" name="keyword"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />
-								<button type="submit" class="btn btn-secondary mb-2">Search By Event</button>
+								<button type="submit" class="btn btn-secondary mb-2">Search By Name</button>
 							</form>
 						</div>
 					</div>

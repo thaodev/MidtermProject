@@ -10,5 +10,5 @@ public interface PerformanceDAO {
 	Performance createPerformance(Performance performance);
 	boolean deletePerformance(int id);
 	Performance editPerformance(Performance performance);
-	
+	List<Performance> findPerformanceByKeyword(String keyword);
 }
