@@ -25,7 +25,12 @@ public class LoginController {
 
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
-			return "home";
+			if (user.getAdmin()) {
+				return "adminHome";
+			} else {
+				return "home";
+			}
+
 		} else {
 			return "login";
 		}
@@ -44,8 +49,11 @@ public class LoginController {
 			return "home";
 		} else {
 			session.setAttribute("loggedInUser", user);
-
-			return "redirect:service.do";
+			if (user.getAdmin()) {
+				return "adminHome";
+			} else {
+				return "home";
+			}
 		}
 	}
 
@@ -67,7 +75,6 @@ public class LoginController {
 	@RequestMapping(path = "signUpForm.do")
 	public String addUser(User user, Model model) {
 		boolean isUserAdded = false;
-		
 
 		try {
 			User userAdded = dao.addUser(user);
@@ -79,7 +86,7 @@ public class LoginController {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			if(e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
+			if (e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
 				String errorMsg = "Unable to add since the username already exits. Please try again!";
 				model.addAttribute("errorMsg", errorMsg);
 			}

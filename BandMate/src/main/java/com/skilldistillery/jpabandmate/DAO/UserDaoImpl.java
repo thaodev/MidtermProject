@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDAO {
 	 */
 	@Override
 	public User getUserByUserNameAndPassword(String userName, String password) {
-		List<User> allUsers = ((UserDaoImpl) em).findAllUsers();
+		List<User> allUsers = findAllUsers();
 		User u = null;
 		for (User user : allUsers) {
 			if (user.getUsername().equals(userName) && user.getPassword().equals(password)) {
