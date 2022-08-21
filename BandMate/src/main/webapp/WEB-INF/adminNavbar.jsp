@@ -12,14 +12,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Management
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Users</a>
+          <a class="dropdown-item" href="#">Events</a>
+          <a class="dropdown-item" href="#">Venues</a>
+          <a class="dropdown-item" href="#">Musicians</a>
+          <a class="dropdown-item" href="#">Bands</a>
+        </div>
+      </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="#">Quantity Review</a>
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
 	<a href="login.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Login</a>| <a href="signUp.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Sign Up</a>
+  Logout</a>
     </div>
   </div>
 </nav>

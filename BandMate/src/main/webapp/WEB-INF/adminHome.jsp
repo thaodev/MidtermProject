@@ -9,29 +9,68 @@
 <title>Band Mate</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp" />
-
-<!-- Our Custom CSS -->
-<!--<link rel="stylesheet" href="css/style2.css"> -->
+<jsp:include page="adminNavbar.jsp" />
+<style>
+body {
+	background-image:
+		url("https://img.freepik.com/free-vector/musical-notes-with-sound-wave-background_1017-32863.jpg?w=996&t=st=1661054925~exp=1661055525~hmac=6701dec3cf9ce528260092c769a7fd00b098c6b62b37e3664874b3a6d7fa6faf")
+}
+</style>
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
-  </li>
-</ul>
-</nav>
-	
+	<div class=container>
+		<div class="row">
+			<div class="col">
+				<div class="card" style="width: 20rem;">
+					<div class="card-body">
+						<h4 class="card-title">Users</h4>
+						<h6 class="card-subtitle text-muted">Card subtitle</h6>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Illo, quas.</p>
+						<a class="btn btn-outline-primary" href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card" style="width: 20rem;">
+					<div class="card-body">
+						<h4 class="card-title">Events</h4>
+						<h6 class="card-subtitle text-muted">Card subtitle</h6>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Illo, quas.</p>
+						<a class="btn btn-outline-primary" href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="card" style="width: 20rem;">
+					<div class="card-body">
+						<h4 class="card-title">Venues</h4>
+						<h6 class="card-subtitle text-muted">Card subtitle</h6>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Illo, quas.</p>
+						<a class="btn btn-outline-primary" href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card" style="width: 20rem;">
+					<div class="card-body">
+						<h4 class="card-title">Musicians</h4>
+						<h6 class="card-subtitle text-muted">Card subtitle</h6>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Illo, quas.</p>
+						<a class="btn btn-outline-primary" href="#">Read More</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
 	<jsp:include page="bootstrapFoot.jsp" />
 	<jsp:include page="footer.jsp" />
 </body>
