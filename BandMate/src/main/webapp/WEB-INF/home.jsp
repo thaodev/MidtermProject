@@ -133,13 +133,11 @@ User user = (User) session.getAttribute("loggedInUser");
 							src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 							alt="">
 						<div class="card-body">
-							<h4 class="card-title">Card title that wraps to a new line</h4>
-							<p class="card-text">This is a longer card with supporting
-								text below as a natural lead-in to additional content. This
-								content is a little bit longer.</p>
+							<h4 class="card-title">Search for Bands</h4>
+							<p class="card-text">Find a band you've been waiting to see live on stage...</p>
 						</div>
 						<div class="text-center">
-							<form action="" class="form-group mx-sm-3 mb-2">
+							<form action="bandByKeyword.do" class="form-group mx-sm-3 mb-2">
 								<input type="search" class="rounded" name="search"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />

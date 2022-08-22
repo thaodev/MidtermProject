@@ -10,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Band;
+import com.skilldistillery.jpabandmate.entities.BandMember;
+import com.skilldistillery.jpabandmate.entities.BandMemberId;
 
 
 @Service
@@ -34,8 +36,7 @@ public class BandDaoImpl implements BandDAO {
 	@Override
 	public List<Band> findBandByKeyword(String keyword) {
 		List<Band> bands = new ArrayList<>();
-		String jpql = "";
-		jpql = "SELECT b FROM Band b WHERE b.name LIKE :kw";
+		String jpql = "SELECT b FROM Band b WHERE b.name LIKE :kw";
 		bands = em.createQuery(jpql, Band.class).setParameter("kw", "%" + keyword + "%")
 				.getResultList();
 		
@@ -56,14 +57,41 @@ public class BandDaoImpl implements BandDAO {
 	}
 	
 	@Override
+	public List<BandMember> findAllBandMembers() {
+		List<BandMember> bandMembers = null;
+		String jpql = "SELECT bm FROM BandMember bm";
+		bandMembers = em.createQuery(jpql, BandMember.class).getResultList();
+		if (bandMembers != null) {
+			System.out.println(bandMembers);
+			return bandMembers;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<BandMemberId> findAllBandMemberIds() {
+		List<BandMemberId> bandMemberIds = null;
+		String jpql = "SELECT bmi FROM BandMemberId bmi";
+		bandMemberIds = em.createQuery(jpql, BandMemberId.class).getResultList();
+		if (bandMemberIds != null) {
+			System.out.println(bandMemberIds);
+			return bandMemberIds;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
 	public Band editBand(Band band) {
 		Band bandToEdit = em.find(Band.class, band.getId());
 		if(bandToEdit != null) {
-			bandToEdit.getName();
-			bandToEdit.getDescription();
-			bandToEdit.getYearFormed();
-			bandToEdit.getBandImage();
-			bandToEdit.getBandLogo();
+			bandToEdit.setName(band.getName());
+			bandToEdit.setDescription(band.getDescription());
+			bandToEdit.setYearFormed(band.getYearFormed());
+			bandToEdit.setBandImage(band.getBandImage());
+			bandToEdit.setBandLogo(band.getBandLogo());
+			bandToEdit.setGenres(band.getGenres());
 			
 			
 		}
@@ -79,6 +107,8 @@ public class BandDaoImpl implements BandDAO {
 		}
 		return false;
 	}
+
+
 	
 
 	

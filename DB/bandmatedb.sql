@@ -501,6 +501,9 @@ START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (1, 1, 'Rocky Rockstar', 'Lead Singer');
 INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (1, 2, 'Hammer Man', 'Lead Guitarist');
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 3, 'Frank Freeman', 'Lead Singer');
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 4, 'Fran Freeman', 'Drummer');
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 5, 'Follie Freeman', 'Guitarist');
 
 COMMIT;
 
@@ -514,6 +517,13 @@ INSERT INTO `genre` (`id`, `name`, `description`) VALUES (1, 'Hard Rock', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (2, 'Metal', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (3, 'Pop', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (4, 'Country', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (5, 'Jazz', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (6, 'Blues', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (7, 'EDM', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (8, 'Disco', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (9, 'Grunge', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (10, 'Alternative', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (11, 'Folk', NULL);
 
 COMMIT;
 
@@ -566,6 +576,8 @@ COMMIT;
 START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (1, 1);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (4, 5);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (11, 5);
 
 COMMIT;
 
