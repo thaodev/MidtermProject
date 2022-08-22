@@ -29,7 +29,7 @@ if (session != null) {
         <a class="nav-link" href="showUser.do">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="bandPage.do">Bands</a>
+        <a class="nav-link" href="bandListPage.do">Bands</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Venues</a>

@@ -23,6 +23,7 @@ public class BandDaoImpl implements BandDAO {
 	
 	@Override
 	public Band createBand(Band band) {
+		band.setManager(null);
 		em.persist(band);
 		return band;
 	}

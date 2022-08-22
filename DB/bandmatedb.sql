@@ -418,16 +418,16 @@ COMMIT;
 START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (1, 'Hammer of Rock', 'Classic hard rock, a good time for all!', 2018, 3, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80', NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', 'The smootheset of experimental free-form jazz, you\'re gonna love it.', 2013, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (3, 'The Lamb Commander', 'Straight out of Dallas, Texas, we are bringing southern metal to a town near you!', 2021, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (4, 'The Correction Screens', 'We will keep you dancing all night long with our sick beats and unparalleled energy.', NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (5, 'Flock Freeman', 'A three piece country band like you\'ve never heard or seen before.', NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (6, 'Hook Offense', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (7, 'Lilacs Locus', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (8, 'Housetop Sparkle', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (9, 'Honeybee Races', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (10, 'Free Southland', NULL, NULL, 3, NULL, NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (11, 'Jam Accentuate', NULL, NULL, 3, NULL, NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', 'The smootheset of experimental free-form jazz, you\'re gonna love it.', 2013, 3, 'https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (3, 'The Lamb Commander', 'Straight out of Dallas, Texas, we are bringing southern metal to a town near you!', 2021, 3, 'https://images.unsplash.com/photo-1523311964370-42ac336c878b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (4, 'The Correction Screens', 'We will keep you dancing all night long with our sick beats and unparalleled energy.', 2012, 3, 'https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (5, 'Flock Freeman', 'A three piece country band like you\'ve never heard or seen before.', 1998, 3, 'https://images.unsplash.com/photo-1563019826-3016b0ddc9db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (6, 'Hook Offense', 'All blues, all day', 2000, 3, 'https://images.unsplash.com/photo-1610741620547-1191d693e43d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (7, 'Lilacs Locus', 'Psychedelic rock meets Scandinavian death metal', 2019, 3, 'https://images.unsplash.com/photo-1589186118523-34c03029a4b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (8, 'Housetop Sparkle', 'Post-grunge from Seattle area', 2017, 3, 'https://images.unsplash.com/photo-1520637645622-6740bb3491c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (9, 'Honeybee Races', 'Classical music with an electronic twist', 2006, 3, 'https://images.unsplash.com/photo-1573762462482-d8acd37ffa1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1479&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (10, 'Free Southland', 'Old school country from way down south', 1993, 3, 'https://images.unsplash.com/photo-1443928281170-6900dc50ac55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (11, 'Jam Accentuate', 'You bring the peanut butter, we bring the jam', 2021, 3, 'https://images.unsplash.com/photo-1500912239908-4ee48acb3a7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80', NULL);
 
 COMMIT;
 
@@ -524,6 +524,10 @@ INSERT INTO `genre` (`id`, `name`, `description`) VALUES (8, 'Disco', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (9, 'Grunge', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (10, 'Alternative', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (11, 'Folk', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (12, 'Psychedelic Rock', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (13, 'Death Metal', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (14, 'Post-Grunge', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (15, 'Classical', NULL);
 
 COMMIT;
 
@@ -578,6 +582,17 @@ USE `bandmatedb`;
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (1, 1);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (4, 5);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (11, 5);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (5, 2);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (2, 3);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (7, 4);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (6, 6);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (13, 7);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (2, 7);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (14, 8);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (15, 9);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (7, 9);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (4, 10);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (3, 11);
 
 COMMIT;
 
