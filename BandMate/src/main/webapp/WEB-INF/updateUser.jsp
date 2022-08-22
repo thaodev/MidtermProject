@@ -10,9 +10,11 @@
 <title>Sign Up Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%
-User user = (User) session.getAttribute("loggedInUser");
-out.println(user);
+<%-- <%
+if (session != null) {
+	User user = (User) session.getAttribute("loggedInUser");
+	//out.println(user.getUsername());
+}
 %>
 <c:choose>
 	<c:when test="${empty user}">
@@ -24,14 +26,15 @@ out.println(user);
 				<jsp:include page="navbar.jsp" />
 			</c:otherwise>
 		</c:choose>
-		
+
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="navbarWUserLoggedIn.jsp" />
 	</c:otherwise>
-</c:choose>
+</c:choose> --%>
 </head>
 <body>
+<jsp:include page="navbarController.jsp" />
 	<c:if test="${not empty errorMsg }">
 		<p style="font-size: 10px; font-color: red">
 			<c:out value="${errorMsg}" />
@@ -39,7 +42,7 @@ out.println(user);
 		<c:out value="${errorMsg }" />
 	</c:if>
 	<div class="container mt-3">
-			<h3 class="text-center">UPDATE USER INFORMATION</h3>
+		<h3 class="text-center">UPDATE USER INFORMATION</h3>
 		<form action="updateUser.do" method="POST">
 			<input type="hidden" name="id" value="<c:out value= "${user.id}"/>" />
 			<div class="input-group mb-3">
@@ -61,14 +64,14 @@ out.println(user);
 			<div class="input-group mb-3">
 				<span class="input-group-text">Enabled</span>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio"
-						name="enabled" id="inlineRadio1"
+					<input class="form-check-input" type="radio" name="enabled"
+						id="inlineRadio1"
 						<c:if test="${user.enabled == true }">checked</c:if> value="1">
 					<label class="form-check-label" for="inlineRadio1">Yes</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio"
-						name="enabled" id="inlineRadio2"
+					<input class="form-check-input" type="radio" name="enabled"
+						id="inlineRadio2"
 						<c:if test="${user.enabled == false}">checked</c:if> value="0">
 					<label class="form-check-label" for="inlineRadio2">No</label>
 				</div>
@@ -94,14 +97,14 @@ out.println(user);
 			<div class="input-group mb-3">
 				<span class="input-group-text">Admin Role</span>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio"
-						name="admin" id="inlineRadio3"
+					<input class="form-check-input" type="radio" name="admin"
+						id="inlineRadio3"
 						<c:if test="${user.admin == true }">checked</c:if> value="1">
 					<label class="form-check-label" for="inlineRadio3">Yes</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio"
-						name="admin" id="inlineRadio4"
+					<input class="form-check-input" type="radio" name="admin"
+						id="inlineRadio4"
 						<c:if test="${user.admin == false}">checked</c:if> value="0">
 					<label class="form-check-label" for="inlineRadio4">No</label>
 				</div>

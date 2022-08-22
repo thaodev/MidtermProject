@@ -91,6 +91,7 @@ public class UserDaoImpl implements UserDAO {
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setPhone(user.getPhone());
 		updatedUser.setDob(user.getDob());
+		updatedUser.setEnabled(user.getEnabled());
 		updatedUser.setProfileImage(user.getProfileImage());
 
 		Address updatedAddress = em.find(Address.class, user.getAddress().getId());

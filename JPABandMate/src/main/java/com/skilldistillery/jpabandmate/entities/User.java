@@ -41,7 +41,7 @@ public class User {
 	private Boolean admin;
 
 	@Column(name = "date_of_birth")
-	//@DateTimeFormat(pattern = "MM-dd-yyyy")
+//	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private LocalDate dob;
 
 	@Column(name = "profile_image_url")

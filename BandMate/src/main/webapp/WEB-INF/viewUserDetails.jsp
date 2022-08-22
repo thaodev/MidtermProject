@@ -10,21 +10,9 @@
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp" />
 
-<%
-User user = (User) session.getAttribute("loggedInUser");
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose>
-
 </head>
 <body>
-
+<jsp:include page="navbarController.jsp" />
 	<div class="container-fluid">
 	
  <!-- PAGINATION RIGHT -->
