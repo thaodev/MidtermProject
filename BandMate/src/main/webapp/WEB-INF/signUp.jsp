@@ -10,19 +10,10 @@
 <title>Sign Up Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%
-User user = (User) session.getAttribute("loggedInUser");
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose>
+
 </head>
 <body>
+<jsp:include page="navbarController.jsp" />
 <c:if test="${not empty errorMsg }">
 	<p style="font-size:10px; font-color:red"><c:out value="${errorMsg}"/></p>
 	<c:out value="${errorMsg }"/>

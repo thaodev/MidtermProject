@@ -79,7 +79,7 @@ public class UserDaoImpl implements UserDAO {
 	 * UPDATE
 	 */
 	@Override
-	public boolean updateUser(User user) {
+	public boolean updateUser(User user)  {
 		boolean isUpdated = false;
 		User updatedUser = em.find(User.class, user.getId());
 
@@ -91,6 +91,7 @@ public class UserDaoImpl implements UserDAO {
 		updatedUser.setEmail(user.getEmail());
 		updatedUser.setPhone(user.getPhone());
 		updatedUser.setDob(user.getDob());
+		updatedUser.setEnabled(user.getEnabled());
 		updatedUser.setProfileImage(user.getProfileImage());
 
 		Address updatedAddress = em.find(Address.class, user.getAddress().getId());

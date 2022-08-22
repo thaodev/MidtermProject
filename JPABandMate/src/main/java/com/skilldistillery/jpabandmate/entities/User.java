@@ -41,7 +41,7 @@ public class User {
 	private Boolean admin;
 
 	@Column(name = "date_of_birth")
-	//@DateTimeFormat(pattern = "MM-dd-yyyy")
+//	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private LocalDate dob;
 
 	@Column(name = "profile_image_url")
@@ -151,6 +151,11 @@ public class User {
 
 	public LocalDate getDob() {
 		return dob;
+	}
+	
+	public String getDob(LocalDate dob) {
+		
+		return dob.getMonthValue()+ "-" + dob.getDayOfMonth() + "-" + dob.getYear();
 	}
 
 	public void setDob(LocalDate dob) {

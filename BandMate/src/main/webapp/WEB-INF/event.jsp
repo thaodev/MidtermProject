@@ -9,17 +9,17 @@
 <title>Events</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp"/>
-<jsp:include page="navbar.jsp"/>
+
 </head>
 <body>
 
-
+<jsp:include page="navbarController.jsp" />
 
 <c:choose>
 	<c:when test="${! empty performances}">
 	
-		<table class="table table-stripped">
-			<thead class="table-dark"> 
+		<table class="table table-stripped mt-3">
+			<thead class="table-secondary"> 
 				<tr>
 					<th>ID</th>
 					<th>Date</th>

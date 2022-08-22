@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.skilldistillery.jpabandmate.entities.User"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
@@ -10,27 +9,12 @@
 <title>Sign Up Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%
-User user = (User) session.getAttribute("loggedInUser");
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<c:choose>
-			<c:when test="${user.getAdmin() == true }">
-				<jsp:include page="adminNavbar.jsp" />
-			</c:when>
-			<c:otherwise>
-				<jsp:include page="navbar.jsp" />
-			</c:otherwise>
-		</c:choose>
-		
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose>
+
+
 </head>
 <body>
+
+<jsp:include page="navbarController.jsp" />
 	<div class="row">
 		<!--  -->
 		<div class="col-md-3 offset-md-3"></div>
@@ -59,6 +43,7 @@ User user = (User) session.getAttribute("loggedInUser");
 
 				<tr class="table-info">
 					<th scope="col">Name</th>
+					<th scope="col">Birthday</th>
 					<th scope="col">Username</th>
 					<th scope="col">Street Address</th>
 					<th scope="col">City</th>
@@ -80,7 +65,8 @@ User user = (User) session.getAttribute("loggedInUser");
 						<c:param name="id" value="${user.id}" />
 					</c:url>
 					<tr>
-						<td>${user.firstName}${user.lastName}</td>
+						<td>${user.firstName} ${user.lastName}</td>
+						<td><c:out value="${user.dob}" /></td>
 						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.address.street}" /></td>
 						<td><c:out value="${user.address.city}" /></td>
@@ -90,7 +76,7 @@ User user = (User) session.getAttribute("loggedInUser");
 						<td><c:out value="${user.admin}" /></td>
 						<td><a href="${updateLink}">Update</a>|<a
 							href="${deleteLink}"
-							onclick="if(!(confirm('Are you sure you want to delete this schedule?'))) return false">Delete</a></td>
+							onclick="if(!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a></td>
 
 
 					</tr>
@@ -99,7 +85,7 @@ User user = (User) session.getAttribute("loggedInUser");
 		</table>
 		<div class="row ">
 			<div class="col-sm text-center ">
-				<a href="addUser.do" class="btn btn-warning" role="button"
+				<a href="signUp.do" class="btn btn-warning" role="button"
 					aria-pressed="true">Add User</a>
 			</div>
 		</div>
