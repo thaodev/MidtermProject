@@ -72,7 +72,7 @@ public class LoginController {
 	}
 
 	// Sign Up Form- CREATE User
-	@RequestMapping(path = "signUpForm.do")
+	@RequestMapping(path = "addUser.do")
 	public String addUser(User user, Model model) {
 		boolean isUserAdded = false;
 
