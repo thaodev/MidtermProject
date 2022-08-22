@@ -1,6 +1,6 @@
 package com.skilldistillery.jpabandmate.controllers;
 
-import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +75,7 @@ public class UserController {
 	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
 	public String userUpdated(Model model) {
 		List<User> users = dao.findAllUsers();
+		
 		model.addAttribute("users",users);
 		return "showAllUsers";
 	}
