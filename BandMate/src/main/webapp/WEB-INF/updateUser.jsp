@@ -12,10 +12,19 @@
 <jsp:include page="bootstrapHead.jsp" />
 <%
 User user = (User) session.getAttribute("loggedInUser");
+out.println(user);
 %>
 <c:choose>
 	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
+		<c:choose>
+			<c:when test="${user.getAdmin() == true }">
+				<jsp:include page="adminNavbar.jsp" />
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="navbar.jsp" />
+			</c:otherwise>
+		</c:choose>
+		
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="navbarWUserLoggedIn.jsp" />
@@ -29,8 +38,8 @@ User user = (User) session.getAttribute("loggedInUser");
 		</p>
 		<c:out value="${errorMsg }" />
 	</c:if>
-	<div class="container mx-auto">
-
+	<div class="container mt-3">
+			<h3 class="text-center">UPDATE USER INFORMATION</h3>
 		<form action="updateUser.do" method="POST">
 			<input type="hidden" name="id" value="<c:out value= "${user.id}"/>" />
 			<div class="input-group mb-3">
@@ -83,7 +92,7 @@ User user = (User) session.getAttribute("loggedInUser");
 			</div>
 			<br>
 			<div class="input-group mb-3">
-				<span class="input-group-text">Admin</span>
+				<span class="input-group-text">Admin Role</span>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
 						name="inlineRadioOptions" id="inlineRadio3"

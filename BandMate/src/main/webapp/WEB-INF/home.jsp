@@ -9,6 +9,8 @@
 <title>Band Mate</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp" />
+<!-- Custom styles for this template -->
+<link href="..css/myStyleSheet.css" rel="stylesheet">
 
 <%
 User user = (User) session.getAttribute("loggedInUser");
@@ -26,10 +28,11 @@ User user = (User) session.getAttribute("loggedInUser");
 <body>
 
 	<div class="container-fluid">
-	<div class="text-center">
-		<h1>Welcome to Band Mate</h1>
-		<h4>Are you looking for next musical events to go? You stop at right place. Let explore below:</h4>
-	</div>
+		<div class="text-center">
+			<h1>Welcome to Band Mate</h1>
+			<h4>Are you looking for next musical events to go? You stop at
+				right place. Let explore below:</h4>
+		</div>
 		${SMOKETEST}
 
 		<div class="container">
@@ -106,7 +109,8 @@ User user = (User) session.getAttribute("loggedInUser");
 				<div class="col">
 					<div class="card">
 						<img class="card-img-top img-fluid"
-							src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+							src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+							alt="">
 						<div class="card-body">
 							<h4 class="card-title">Card title that wraps to a new line</h4>
 							<p class="card-text">This is a longer card with supporting
@@ -118,7 +122,8 @@ User user = (User) session.getAttribute("loggedInUser");
 								<input type="search" class="rounded" name="search"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />
-								<button type="submit" class="btn btn-secondary mb-2">Search By Musician</button>
+								<button type="submit" class="btn btn-secondary mb-2">Search
+									By Musician</button>
 							</form>
 						</div>
 					</div>
@@ -126,7 +131,8 @@ User user = (User) session.getAttribute("loggedInUser");
 				<div class="col">
 					<div class="card">
 						<img class="card-img-top img-fluid"
-							src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+							src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+							alt="">
 						<div class="card-body">
 							<h4 class="card-title">Card title that wraps to a new line</h4>
 							<p class="card-text">This is a longer card with supporting
@@ -138,7 +144,8 @@ User user = (User) session.getAttribute("loggedInUser");
 								<input type="search" class="rounded" name="search"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />
-								<button type="submit" class="btn btn-secondary mb-2">Search By Band</button>
+								<button type="submit" class="btn btn-secondary mb-2">Search
+									By Band</button>
 							</form>
 						</div>
 					</div>
@@ -147,7 +154,8 @@ User user = (User) session.getAttribute("loggedInUser");
 
 					<div class="card">
 						<img class="card-img-top img-fluid"
-							src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+							src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+							alt="">
 						<div class="card-body">
 							<h4 class="card-title">Card title that wraps to a new line</h4>
 							<p class="card-text">This is a longer card with supporting
@@ -159,7 +167,8 @@ User user = (User) session.getAttribute("loggedInUser");
 								<input type="search" class="rounded" name="search"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />
-								<button type="submit" class="btn btn-secondary mb-2">Search By Event</button>
+								<button type="submit" class="btn btn-secondary mb-2">Search
+									By Event</button>
 							</form>
 						</div>
 					</div>

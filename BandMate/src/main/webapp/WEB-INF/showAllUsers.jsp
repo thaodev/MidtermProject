@@ -15,7 +15,15 @@ User user = (User) session.getAttribute("loggedInUser");
 %>
 <c:choose>
 	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
+		<c:choose>
+			<c:when test="${user.getAdmin() == true }">
+				<jsp:include page="adminNavbar.jsp" />
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="navbar.jsp" />
+			</c:otherwise>
+		</c:choose>
+		
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="navbarWUserLoggedIn.jsp" />
@@ -28,7 +36,7 @@ User user = (User) session.getAttribute("loggedInUser");
 		<div class="col-md-3 offset-md-3"></div>
 		<div class="col-md-3 offset-md-3">
 			<form action="searchByUserLastName.do"
-				class="form-group mx-sm-3 mb-2 ">
+				class="form-group mx-sm-3 mb-2 mt-2">
 				<input type="search" class="rounded" name="search"
 					placeholder="Search By Name" aria-label="Search"
 					aria-describedby="search-addon" />

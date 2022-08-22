@@ -13,7 +13,7 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Quantity Review</a>
+        <a class="nav-link" href="#">Tickets</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Events</a>
@@ -31,7 +31,7 @@
         <a class="nav-link" href="#">Musicians</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Reviews</a>
+        <a class="nav-link" href="#">Performance Reviews</a>
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">

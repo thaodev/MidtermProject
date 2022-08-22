@@ -10,6 +10,8 @@ public interface UserDAO {
 	List<User> findAllUsers();
 	User getUserByUserNameAndPassword(String userName, String password);
 	User addUser(User user) throws SQLIntegrityConstraintViolationException;
+	boolean updateUser(User user);
+	boolean deleteUser(int userId);
 	
 	}
 	

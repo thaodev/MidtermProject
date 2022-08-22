@@ -46,22 +46,22 @@ public class UserController {
 		
 		return "updateUser";
 	}
-//	@RequestMapping(path = "updateUser.do", method=RequestMethod.POST)
-//	public String updateuser(User user, Model model) {
-//		System.out.println("inside updateService");
-//		
-//		boolean isUpdatedSuccess = dao.updateUser(user);
-//		
-//		model.addAttribute("user",user);
-//		model.addAttribute("updateResult",isUpdatedSuccess);
-//		
-//		return "redirect:userUpdated.do";
-//	}
-//	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
-//	public String userUpdated(Model model) {
-//		List<User> users = dao.findAll();
-//		model.addAttribute("users",users);
-//		return "servicesDetails";
-//	}
+	@RequestMapping(path = "updateUser.do", method=RequestMethod.POST)
+	public String updateuser(User user, Model model) {
+		System.out.println("inside updateUser");
+		
+		boolean isUpdatedSuccess = dao.updateUser(user);
+		
+		model.addAttribute("user",user);
+		model.addAttribute("updateResult",isUpdatedSuccess);
+		
+		return "redirect:userUpdated.do";
+	}
+	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
+	public String userUpdated(Model model) {
+		List<User> users = dao.findAllUsers();
+		model.addAttribute("users",users);
+		return "showAllUsers";
+	}
 	
 }
