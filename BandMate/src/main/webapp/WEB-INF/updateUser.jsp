@@ -62,13 +62,13 @@ out.println(user);
 				<span class="input-group-text">Enabled</span>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio1"
+						name="enabled" id="inlineRadio1"
 						<c:if test="${user.enabled == true }">checked</c:if> value="1">
 					<label class="form-check-label" for="inlineRadio1">Yes</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio2"
+						name="enabled" id="inlineRadio2"
 						<c:if test="${user.enabled == false}">checked</c:if> value="0">
 					<label class="form-check-label" for="inlineRadio2">No</label>
 				</div>
@@ -95,13 +95,13 @@ out.println(user);
 				<span class="input-group-text">Admin Role</span>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio3"
+						name="admin" id="inlineRadio3"
 						<c:if test="${user.admin == true }">checked</c:if> value="1">
 					<label class="form-check-label" for="inlineRadio3">Yes</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio"
-						name="inlineRadioOptions" id="inlineRadio4"
+						name="admin" id="inlineRadio4"
 						<c:if test="${user.admin == false}">checked</c:if> value="0">
 					<label class="form-check-label" for="inlineRadio4">No</label>
 				</div>
