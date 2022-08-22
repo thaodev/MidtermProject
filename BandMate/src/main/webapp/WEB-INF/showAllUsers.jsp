@@ -44,7 +44,7 @@
 				<tr class="table-info">
 					<th scope="col">Name</th>
 					<th scope="col">Birthday</th>
-					<!-- <th scope="col">Username</th> -->
+					<th scope="col">Username</th>
 					<th scope="col">Street Address</th>
 					<th scope="col">City</th>
 					<th scope="col">Phone</th>
@@ -65,8 +65,9 @@
 						<c:param name="id" value="${user.id}" />
 					</c:url>
 					<tr>
-						<td>${user.firstName}${user.lastName}</td>
+						<td>${user.firstName} ${user.lastName}</td>
 						<td><c:out value="${user.dob}" /></td>
+						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.address.street}" /></td>
 						<td><c:out value="${user.address.city}" /></td>
 						<td><c:out value="${user.phone}" /></td>
@@ -75,7 +76,7 @@
 						<td><c:out value="${user.admin}" /></td>
 						<td><a href="${updateLink}">Update</a>|<a
 							href="${deleteLink}"
-							onclick="if(!(confirm('Are you sure you want to delete this schedule?'))) return false">Delete</a></td>
+							onclick="if(!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a></td>
 
 
 					</tr>

@@ -1,8 +1,10 @@
 package com.skilldistillery.jpabandmate.controllers;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,15 +52,25 @@ public class UserController {
 		return "updateUser";
 	}
 	@RequestMapping(path = "updateUser.do", method=RequestMethod.POST)
-	public String updateuser(User user, Model model) {
+	public String updateUser(User user, Model model) {
 		System.out.println("inside updateUser");
 		
-		boolean isUpdatedSuccess = dao.updateUser(user);
-		
 		model.addAttribute("user",user);
-		model.addAttribute("updateResult",isUpdatedSuccess);
-		
-		return "redirect:userUpdated.do";
+		try {
+			boolean isUpdatedSuccess = dao.updateUser(user);
+			
+			model.addAttribute("updateResult",isUpdatedSuccess);
+			
+			return "redirect:userUpdated.do";
+		} catch (DataIntegrityViolationException e) {
+			System.out.println("cause" + e.getCause());
+//			if (e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
+			String errorMsg = "Unable to add since the username already exits. Please try again!";
+			model.addAttribute("errorMsg", errorMsg);
+//			}
+			e.printStackTrace();
+			return "updateUser";
+		}
 	}
 	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
 	public String userUpdated(Model model) {

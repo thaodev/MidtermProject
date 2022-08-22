@@ -79,7 +79,7 @@ public class UserDaoImpl implements UserDAO {
 	 * UPDATE
 	 */
 	@Override
-	public boolean updateUser(User user) {
+	public boolean updateUser(User user)  {
 		boolean isUpdated = false;
 		User updatedUser = em.find(User.class, user.getId());
 

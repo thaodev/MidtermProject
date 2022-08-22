@@ -152,6 +152,11 @@ public class User {
 	public LocalDate getDob() {
 		return dob;
 	}
+	
+	public String getDob(LocalDate dob) {
+		
+		return dob.getMonthValue()+ "-" + dob.getDayOfMonth() + "-" + dob.getYear();
+	}
 
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
