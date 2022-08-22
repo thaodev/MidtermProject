@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*, java.time.format.DateTimeFormatter, com.skilldistillery.jpabandmate.entities.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +68,7 @@
 					</c:url>
 					<tr>
 						<td>${user.firstName} ${user.lastName}</td>
-						<td><c:out value="${user.dob}" /></td>
+						<td><c:out value="${user.dobFormatted}" /></td>
 						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.address.street}" /></td>
 						<td><c:out value="${user.address.city}" /></td>

@@ -1,6 +1,7 @@
 package com.skilldistillery.jpabandmate.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class User {
@@ -153,11 +155,16 @@ public class User {
 		return dob;
 	}
 	
-	public String getDob(LocalDate dob) {
-		
-		return dob.getMonthValue()+ "-" + dob.getDayOfMonth() + "-" + dob.getYear();
+	@Transient
+	public String getDobFormatted() {
+		String birthday = "";
+		if (dob != null) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		birthday = formatter.format(dob);
+		}
+		return birthday;
 	}
-
+	
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
