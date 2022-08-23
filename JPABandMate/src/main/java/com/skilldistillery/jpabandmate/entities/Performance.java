@@ -185,6 +185,7 @@ public class Performance {
 		return "Performance [id=" + id + ", performanceDate=" + performanceDate + ", ticketPrice=" + ticketPrice
 				+ ", name=" + name + ", venue name=" + venue.getName()  + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
+
 	
 	
 	

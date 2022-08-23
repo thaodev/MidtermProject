@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="text-center mb-3" style="font-size: 30px">Add a New Musician</div>
 		<div style="font-style: italic">*indicates a mandatory field</div>
-		<form action="createNewBand.do" method="POST">
+		<form action="createNewMusician.do" method="POST">
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">First Name*</span>
@@ -46,34 +46,39 @@
 					placeholder="Enter Musician Bio">
 			</div>
 			<br>
+			
+			
+			
+			
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Vocals</span>
+			 <span class="input-group-text">Vocals</span>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="vocals"
+						id="inlineRadioYes"
+						<c:if test="${musician.vocals == true }">checked</c:if> value="1">
+					<label class="form-check-label" for="inlineRadio1">Yes</label>
 				</div>
-				<input class="form-control" type="radio" id="vocals" name="vocals">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="vocals"
+						id="inlineRadioNo"
+						<c:if test="${musician.vocals == false}">checked</c:if> value="0">
+					<label class="form-check-label" for="inlineRadioNo">No</label>
+				</div>
 			</div>
 			<br>
+				
+				
+				
+				
+				
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Year Formed</span>
-				</div>
-				<input class="form-control" type="text" name="yearFormed"
-					placeholder="Enter Year Formed">
-			</div>
-			<br>
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Band Image(URL)</span>
+					<span class="input-group-text">Musician Image(URL)</span>
 				</div>
 				<input class="form-control" type="text" name="bandImage"
-					placeholder="Enter URL of an image of your band">
+					placeholder="Enter URL of an image of the musician">
 			</div>
 			<br>
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-				</div>
-				<input class="form-control" type="hidden" name="manager" value="${user}">
-			</div>
 				
 
 			<button class="btn btn-info btn-lg btn-block text-center"
