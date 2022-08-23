@@ -11,13 +11,13 @@
 			<jsp:include page="adminNavbar.jsp" />
 		</c:when>
 		<c:otherwise>
-			<jsp:include page="navbar.jsp" />
+			<jsp:include page="navbarWUserLoggedIn.jsp" />
 		</c:otherwise>
 	</c:choose>
 	
 </c:when>
 <c:otherwise>
-	<jsp:include page="navbarWUserLoggedIn.jsp" />
+	<jsp:include page="navbar.jsp" />
 </c:otherwise>
 </c:choose>
 

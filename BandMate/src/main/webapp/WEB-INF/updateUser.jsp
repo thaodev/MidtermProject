@@ -15,7 +15,7 @@
 <body>
 	<jsp:include page="navbarController.jsp" />
 	<c:if test="${not empty errorMsg }">
-<%-- 		<p style="font-size: 10px; font-color: red">
+		<%-- 		<p style="font-size: 10px; font-color: red">
 			<c:out value="${errorMsg}" />
 		</p> --%>
 		<c:out value="${errorMsg }" />
@@ -40,22 +40,29 @@
 					required name="lastName" placeholder="Enter Last Name">
 			</div>
 			<br>
-			<div class="input-group mb-3">
-				<span class="input-group-text">Enabled</span>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="enabled"
-						id="inlineRadio1"
-						<c:if test="${user.enabled == true }">checked</c:if> value="1">
-					<label class="form-check-label" for="inlineRadio1">Yes</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="enabled"
-						id="inlineRadio2"
-						<c:if test="${user.enabled == false}">checked</c:if> value="0">
-					<label class="form-check-label" for="inlineRadio2">No</label>
-				</div>
-			</div>
-			<br>
+			<c:choose>
+				<c:when test="${user.admin == false}">
+
+				</c:when>
+				<c:otherwise>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Enabled</span>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="enabled"
+								id="inlineRadio1"
+								<c:if test="${user.enabled == true }">checked</c:if> value="1">
+							<label class="form-check-label" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="enabled"
+								id="inlineRadio2"
+								<c:if test="${user.enabled == false}">checked</c:if> value="0">
+							<label class="form-check-label" for="inlineRadio2">No</label>
+						</div>
+					</div>
+					<br>
+				</c:otherwise>
+			</c:choose>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Username*</span>
@@ -73,22 +80,29 @@
 					placeholder="Enter password">
 			</div>
 			<br>
-			<div class="input-group mb-3">
-				<span class="input-group-text">Admin Role</span>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="admin"
-						id="inlineRadio3"
-						<c:if test="${user.admin == true }">checked</c:if> value="1">
-					<label class="form-check-label" for="inlineRadio3">Yes</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="admin"
-						id="inlineRadio4"
-						<c:if test="${user.admin == false}">checked</c:if> value="0">
-					<label class="form-check-label" for="inlineRadio4">No</label>
-				</div>
-			</div>
-			<br>
+			<c:choose>
+				<c:when test="${user.admin == false}">
+
+				</c:when>
+				<c:otherwise>
+					<div class="input-group mb-3">
+						<span class="input-group-text">Admin Role</span>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="admin"
+								id="inlineRadio3"
+								<c:if test="${user.admin == true }">checked</c:if> value="1">
+							<label class="form-check-label" for="inlineRadio3">Yes</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="admin"
+								id="inlineRadio4"
+								<c:if test="${user.admin == false}">checked</c:if> value="0">
+							<label class="form-check-label" for="inlineRadio4">No</label>
+						</div>
+					</div>
+					<br>
+				</c:otherwise>
+			</c:choose>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Email*</span>
@@ -154,9 +168,8 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Biography</span>
 				</div>
-				<input class="form-control" type="text"
-					value="${user.bio}" name="bio"
-					placeholder="">
+				<input class="form-control" type="text" value="${user.bio}"
+					name="bio" placeholder="">
 			</div>
 
 			<button class="btn btn-info btn-lg btn-block text-center"

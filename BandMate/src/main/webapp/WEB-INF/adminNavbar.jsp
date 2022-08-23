@@ -9,7 +9,7 @@ if (session != null) {
 }
 %> --%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">BANDMATE</a>
+	<a class="navbar-brand" href="home.do">BANDMATE</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
 		aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -20,9 +20,9 @@ if (session != null) {
 	<div class="collapse navbar-collapse justify-content-between"
 		id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto ">
-			<li class="nav-item active"><a class="nav-link" href="home.do">Home</a>
+			<li class="nav-item active"><a class="nav-link" href="adminHome.do">Home</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Tickets</a></li>
+			<li class="nav-item"><a class="nav-link" href="showTicket.do">Tickets</a></li>
 			<li class="nav-item"><a class="nav-link" href="eventPageAdmin.do">Events</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="showUser.do">Users</a>
@@ -42,25 +42,7 @@ if (session != null) {
 						data-toggle="button" aria-pressed="false"> Logout</a>
 
 				</div>
-				<%--  <div class="navbar-nav ms-auto text-white">
->>>>>>> 31c28d3509791ecb21cd0ebec6e04739e2d07f6e
-=======
-		<div class="navbar-nav ms-auto text-white">
-			<p class="mr-5 text-center">${user.username}</p>
-			<a href="logout.do" type="submit" class="btn btn-warning"
-				data-toggle="button" aria-pressed="false"> Logout</a>
-
-		</div>
-	</div>
-	<%--  <div class="navbar-nav ms-auto text-white">
->>>>>>> 04f897b7456fa67b4b58cc95c805e500451bf0b3
-    <c:out value="${user.username}"/>
-    </div>
-	<div class="navbar-nav ms-auto">
-	<a href="logout.do" type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Logout</a>
-    </div>
-  </div> --%>
+</div>
 </nav>
 
 

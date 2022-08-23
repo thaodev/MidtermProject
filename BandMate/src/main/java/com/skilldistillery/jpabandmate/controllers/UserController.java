@@ -2,6 +2,8 @@ package com.skilldistillery.jpabandmate.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,10 @@ public class UserController {
 	public String home(Model model) {
 		model.addAttribute("SMOKETEST", dao.findById(1));
 		return "home";
+	}
+	@RequestMapping(path= "adminHome.do")
+	public String adminHome(Model model) {
+		return "adminHome";
 	}
 	
 	
@@ -135,6 +141,20 @@ public class UserController {
 		System.out.println("inside getUserByName");
 		model.addAttribute("users", users);
 		return "showAllUsers" ;
+	}
+	
+	/**
+	 * VIEW 
+	 * */
+	@RequestMapping(path="viewProfile.do")
+	public String viewProfile(HttpSession session, Model model) {
+		 User user = (User) session.getAttribute("loggedInUser");
+		 if (user == null) {
+			 System.out.println("user is null");
+		 }
+		 model.addAttribute("user", user);
+		 System.out.println("Inside view profile page");
+		 return "viewProfile";
 	}
 	
 }

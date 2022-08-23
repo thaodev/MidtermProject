@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="home.do">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="eventPage.do">Events</a>
@@ -18,9 +18,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Your Band</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="viewProfile.do">Your Profile</a>
+      </li>
     </ul>
 	<div class="navbar-nav ms-auto">
-	<form class="login.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
+	<form class="logout.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
   Logout
 </button> </form>
     </div>
