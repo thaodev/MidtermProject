@@ -27,7 +27,7 @@ public class VenueDaoImpl implements VenueDAO {
 	@Override
 	public List<Venue> findAllVenue(){
 		List<Venue> venues = null;
-		String jpql = "SELECT p FROM Performance p";
+		String jpql = "SELECT v FROM Venue v";
 		venues = em.createQuery(jpql, Venue.class).getResultList();
 		if(venues != null ) {
 			System.out.println(venues);
@@ -55,14 +55,14 @@ public class VenueDaoImpl implements VenueDAO {
 	}
 	
 	@Override
-	public Venue editVenue(Venue Venue) {
-		Venue VenueToEdit = em.find(Venue.class, Venue.getId());
+	public Venue editVenue(Venue venue) {
+		Venue VenueToEdit = em.find(Venue.class, venue.getId());
 		if(VenueToEdit != null) {
-			VenueToEdit.getName();
-			VenueToEdit.getCapacity();
-			VenueToEdit.getAddress().getId();
-			VenueToEdit.getVenueImageUrl();
-			VenueToEdit.getDescription();
+			VenueToEdit.setName(venue.getName());
+			VenueToEdit.setCapacity(venue.getCapacity());
+			VenueToEdit.setAddress(venue.getAddress());
+			VenueToEdit.setVenueImageUrl(venue.getVenueImageUrl());
+			VenueToEdit.setDescription(venue.getDescription());
 			
 			
 		}

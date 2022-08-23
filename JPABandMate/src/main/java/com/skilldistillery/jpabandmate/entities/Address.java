@@ -102,12 +102,13 @@ public class Address {
 		Address other = (Address) obj;
 		return id == other.id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "" + street + ", " + city + ", " + state + " " + zipCode+ "";
+	}
 	
-//	@Override
-//	public String toString() {
-//		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zipCode="
-//				+ zipCode + "]";
-//	}
 	
 	
 }
