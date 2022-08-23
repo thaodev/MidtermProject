@@ -23,6 +23,28 @@ public class VenueController {
 		return "venueAdmin";
 	}
 	
+	@RequestMapping(path="deleteVenue.do")
+	public String deleteVenue(int venueId, Model model) {
+		dao.deleteVenue(venueId);
+		List<Venue> venue = dao.findAllVenue();
+		model.addAttribute("venues", venue);
+		return "venueAdmin";
+		
+	}
+	
+	@RequestMapping(path="createVenue.do")
+	public String createVenue(Model model) {
+		return "createVenue";
+	}
+	
+	@RequestMapping(path="submitCreateVenueForm.do")
+	public String submitVenue(Venue venue, Model model) {
+		venue = dao.createVenue(venue);
+		List<Venue> venues = dao.findAllVenue();
+		model.addAttribute("venues", venues);
+		return "venueAdmin";
+	}
+	
 	
 	
 }

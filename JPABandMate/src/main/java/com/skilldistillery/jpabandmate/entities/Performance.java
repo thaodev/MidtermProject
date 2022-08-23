@@ -1,8 +1,13 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.beans.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
 import java.util.ArrayList;
+
+import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -75,6 +80,18 @@ public class Performance {
 		this.performanceDate = performanceDate;
 	}
 
+	@Transient
+	public String getDateFormatted() {
+		String date = "";
+		if (performanceDate != null) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		date = formatter.format(performanceDate);
+		}
+		return date;
+	}
+	
+	
+	
 	public double getTicketPrice() {
 		return ticketPrice;
 	}
@@ -107,6 +124,17 @@ public class Performance {
 		this.endTime = endTime;
 	}
 
+	@Transient
+	public String getEndTimeFull() {
+		
+		return endTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+	}
+	
+	@Transient
+	public String getStartTimeFull() {
+		
+		return startTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+	}
 	
 	@Override
 	public int hashCode() {
@@ -164,7 +192,7 @@ public class Performance {
 	@Override
 	public String toString() {
 		return "Performance [id=" + id + ", performanceDate=" + performanceDate + ", ticketPrice=" + ticketPrice
-				+ ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+				+ ", name=" + name + ", venue name=" + venue.getName()  + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
 	
