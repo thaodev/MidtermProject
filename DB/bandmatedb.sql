@@ -106,7 +106,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `instrument` ;
 
 CREATE TABLE IF NOT EXISTS `instrument` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `price` DECIMAL NULL,
   `musician_id` INT NOT NULL,
@@ -126,7 +126,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `venue` ;
 
 CREATE TABLE IF NOT EXISTS `venue` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NULL,
   `capacity` INT NULL,
   `address_id` INT NOT NULL,
@@ -148,7 +148,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `performance` ;
 
 CREATE TABLE IF NOT EXISTS `performance` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `performance_date` DATE NULL,
   `ticket_price` DECIMAL NULL,
   `name` VARCHAR(45) NULL,
@@ -441,7 +441,7 @@ INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (2, 'Billy', 'Hammer', '555-300-1128', 'I am the lead guitarist of my awesome band', 0, 'https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80');
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (3, 'Frank', 'Freeman', NULL, 'Singer and banjo player for Flock Freeman', 1, NULL);
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (4, 'Fran', 'Freeman', NULL, 'Drummer for Flock Freeman', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (5, 'Follie', 'Freeman', NULL, 'Guitarist for Flock Freeman', NULL, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (5, 'Follie', 'Freeman', NULL, 'Guitarist for Flock Freeman', 0, NULL);
 
 COMMIT;
 
@@ -587,7 +587,7 @@ INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (2, 3);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (7, 4);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (6, 6);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (13, 7);
-INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (2, 7);
+INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (12, 7);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (14, 8);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (15, 9);
 INSERT INTO `genre_has_band` (`genre_id`, `band_id`) VALUES (7, 9);

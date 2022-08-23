@@ -55,7 +55,8 @@ public class BandController {
 		User user = (User) (session.getAttribute("loggedInUser"));
 		model.addAttribute("user", user);
 		model.addAttribute("band", band);
-		band = dao.createBand(band);
-		return "newBand";
+		band = dao.createBand(band, user);
+		System.out.println("Testing create new band - controller");
+		return "redirect:bandListPage.do";
 	}
 }

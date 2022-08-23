@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add New Band</title>
+<title>Add New Musician</title>
 
 <jsp:include page="bootstrapHead.jsp" />
 
@@ -19,53 +19,45 @@
 	<c:out value="${errorMsg }"/>
 </c:if>
 	<div class="container">
-		<div class="text-center mb-3" style="font-size: 30px">Add a New Band</div>
+		<div class="text-center mb-3" style="font-size: 30px">Add a New Musician</div>
 		<div style="font-style: italic">*indicates a mandatory field</div>
 		<form action="createNewBand.do" method="POST">
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Band Name*</span>
+					<span class="input-group-text">First Name*</span>
 				</div>
-				<input class="form-control" type="text" required name="name"
-					placeholder="Enter Band Name">
+				<input class="form-control" type="text" required name="firstName"
+					placeholder="Enter First Name">
 			</div>
 			<br>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Band Description*</span>
+					<span class="input-group-text">Last Name*</span>
 				</div>
-				<input class="form-control" type="text" required name="description"
-					placeholder="Enter Description">
+				<input class="form-control" type="text" required name="lastName"
+					placeholder="Enter Last Name">
 			</div>
 			<br>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Genre*</span>
-						<select name="genre" id="dropdown" required>
-							<option value="Hard Rock">Hard Rock</option>
-							<option value="Metal">Metal</option>
-							<option value="Pop">Pop</option>
-							<option value="Country">Country</option>
-							<option value="Jazz">Jazz</option>
-							<option value="Blues">Blues</option>
-							<option value="EDM">EDM</option>
-							<option value="Disco">Disco</option>
-							<option value="Grunge">Grunge</option>
-							<option value="Alternative">Alternative</option>
-							<option value="Folk">Folk</option>
-							<option value="Psychedelic Rock">Psychedelic Rock</option>
-							<option value="Death Metal">Death Metal</option>
-							<option value="Post-Grunge">Post-Grunge</option>
-							<option value="Classical">Classical</option>
-						</select> <br><br>
+					<span class="input-group-text">Musician Bio</span>
 				</div>
+				<input class="form-control" type="text" name="bio"
+					placeholder="Enter Musician Bio">
+			</div>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Vocals</span>
+				</div>
+				<input class="form-control" type="radio" id="vocals" name="vocals">
 			</div>
 			<br>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Year Formed</span>
 				</div>
-				<input class="form-control" type="text" required name="yearFormed"
+				<input class="form-control" type="text" name="yearFormed"
 					placeholder="Enter Year Formed">
 			</div>
 			<br>
@@ -77,6 +69,11 @@
 					placeholder="Enter URL of an image of your band">
 			</div>
 			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+				</div>
+				<input class="form-control" type="hidden" name="manager" value="${user}">
+			</div>
 				
 
 			<button class="btn btn-info btn-lg btn-block text-center"

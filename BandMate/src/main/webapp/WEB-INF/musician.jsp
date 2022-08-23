@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Band</title>
+<title>Musician</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp"/>
 
@@ -16,13 +16,13 @@
 <jsp:include page="navbarController.jsp" />
 
 <c:choose>
-	<c:when test="${not empty band}">
+	<c:when test="${not empty musician}">
 	
 		<table class="table table-stripped mt-3">
 			<thead class="table-secondary"> 
 				<tr>
 					<th></th>
-					<th>Band</th>
+					<th>Musician</th>
 					<th>Description</th>
 					<th>Genre</th>
 					<th>Year Formed</th>

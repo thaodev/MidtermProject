@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
 import com.skilldistillery.jpabandmate.entities.BandMemberId;
+import com.skilldistillery.jpabandmate.entities.User;
 
 
 @Service
@@ -22,9 +23,10 @@ public class BandDaoImpl implements BandDAO {
 	private EntityManager em;
 	
 	@Override
-	public Band createBand(Band band) {
-		band.setManager(null);
+	public Band createBand(Band band, User user) {
+		band.setManager(user);
 		em.persist(band);
+		System.out.println("testing create band method");
 		return band;
 	}
 
