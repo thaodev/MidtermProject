@@ -17,10 +17,10 @@
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser}">
 			<c:out value="${ sessionScope.loggedInUser.getUsername()}" />
+			out.println("user is " + sessionScope.loggedInUser.getUsername());
 		</c:when>
 		<c:otherwise></c:otherwise>
 	</c:choose>
-	out.println("user is " + user.getUsername());
 
 	<jsp:include page="navbarController.jsp" />
 

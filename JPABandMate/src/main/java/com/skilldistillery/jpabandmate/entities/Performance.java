@@ -160,6 +160,7 @@ public class Performance {
 		return "Performance [id=" + id + ", performanceDate=" + performanceDate + ", ticketPrice=" + ticketPrice
 				+ ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
+
 	
 	
 	

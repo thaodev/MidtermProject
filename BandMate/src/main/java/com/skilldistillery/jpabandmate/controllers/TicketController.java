@@ -1,8 +1,8 @@
 package com.skilldistillery.jpabandmate.controllers;
 
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.jpabandmate.DAO.PerformanceDAO;
 import com.skilldistillery.jpabandmate.DAO.TicketDAO;
+import com.skilldistillery.jpabandmate.entities.Performance;
 import com.skilldistillery.jpabandmate.entities.TicketSale;
 
 @Controller
@@ -24,13 +26,25 @@ public class TicketController {
 	
 	@RequestMapping(path = "showTicket.do")
 	public String tickets(Model model) {
-		List<TicketSale> ticketSales = dao.findAllTickets();
-		if (ticketSales == null) {
-			System.out.println("inside ticketshow controller, ticket sales list is null");
-		}
-		model.addAttribute("ticketSales",ticketSales);
 		
-		return "showAllTickets";
+		Map<Performance, Integer> ticketByEvent = dao.findTicketSortByEvent();
+		
+
+		model.addAttribute("ticketByEvent",ticketByEvent);
+		
+		return "ticketByEvent";
+	}
+	
+	@RequestMapping(path = "showTicketByEventDetails.do")
+	public String ticketByEventDetails(int eventId, Model model) {
+		System.out.println("inside ticketByEventDetails controller method");
+		System.out.println("event id" + eventId);
+		List<TicketSale> tickets = dao.findTicketByGivenEvent(eventId);
+		
+		
+		model.addAttribute("ticketSales",tickets);
+		
+		return "ticketByEventDetails";
 	}
 	
 	/**
