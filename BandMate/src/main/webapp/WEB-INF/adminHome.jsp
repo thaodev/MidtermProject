@@ -30,7 +30,7 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="showUser.do">View Details</a>
 						</div>
 					</div>
 				</div>

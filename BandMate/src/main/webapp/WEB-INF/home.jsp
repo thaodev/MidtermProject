@@ -10,7 +10,7 @@
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp" />
 <!-- Custom styles for this template -->
-<link href="..css/myStyleSheet.css" rel="stylesheet">
+<link href="css/myStyleSheet.css" rel="stylesheet">
 
 <%
 User user = (User) session.getAttribute("loggedInUser");

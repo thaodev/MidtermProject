@@ -10,35 +10,14 @@
 <title>Sign Up Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%-- <%
-if (session != null) {
-	User user = (User) session.getAttribute("loggedInUser");
-	//out.println(user.getUsername());
-}
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<c:choose>
-			<c:when test="${user.getAdmin() == true }">
-				<jsp:include page="adminNavbar.jsp" />
-			</c:when>
-			<c:otherwise>
-				<jsp:include page="navbar.jsp" />
-			</c:otherwise>
-		</c:choose>
 
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose> --%>
 </head>
 <body>
-<jsp:include page="navbarController.jsp" />
+	<jsp:include page="navbarController.jsp" />
 	<c:if test="${not empty errorMsg }">
-		<p style="font-size: 10px; font-color: red">
+<%-- 		<p style="font-size: 10px; font-color: red">
 			<c:out value="${errorMsg}" />
-		</p>
+		</p> --%>
 		<c:out value="${errorMsg }" />
 	</c:if>
 	<div class="container mt-3">
@@ -171,29 +150,14 @@ if (session != null) {
 
 			</div>
 
-			<%-- 			<div class="input-group mb-3">
+			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Tell us something about
-						yourself</span>
+					<span class="input-group-text">Biography</span>
 				</div>
-				<input class="form-control" type="text" value = "${user.bio}"name="bio"
-					placeholder="Enter your biography">
-			</div> --%>
-			<div class="card">
-				<div class="card-header">
-					<h5>
-						<a href="#collapse3" data-parent="#accordion"
-							data-toggle="collapse"> User's biography </a>
-					</h5>
-				</div>
-
-				<div id="collapse3" class="collapse">
-					<div class="card-body">
-						<c:out value="${user.bio}" />
-					</div>
-				</div>
+				<input class="form-control" type="text"
+					value="${user.bio}" name="bio"
+					placeholder="">
 			</div>
-			<br>
 
 			<button class="btn btn-info btn-lg btn-block text-center"
 				type="submit">Submit</button>

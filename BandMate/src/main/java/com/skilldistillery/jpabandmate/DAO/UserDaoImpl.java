@@ -1,6 +1,5 @@
 package com.skilldistillery.jpabandmate.DAO;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,14 +24,9 @@ public class UserDaoImpl implements UserDAO {
 
 	// Add User
 	@Override
-	public User addUser(User user) throws SQLIntegrityConstraintViolationException {
-		try {
+	public User addUser(User user){
 			// add user to user table
 			em.persist(user);
-		} catch (Exception e) {
-
-		}
-
 		if (user.getAddress() != null) {
 			em.persist(user.getAddress());
 		}
@@ -75,11 +69,19 @@ public class UserDaoImpl implements UserDAO {
 		}
 	}
 
+	@Override
+	public List<User> searchUserByName(String keyword) {
+		List<User> users = null;
+		String jpql="SELECT u FROM User u WHERE u.firstName LIKE  :keyword OR u.lastName LIKE :keyword";
+		users = em.createQuery(jpql, User.class).setParameter("keyword", "%" +keyword+"%").getResultList();
+		return users;
+	}
+
 	/**
 	 * UPDATE
 	 */
 	@Override
-	public boolean updateUser(User user)  {
+	public boolean updateUser(User user) {
 		boolean isUpdated = false;
 		User updatedUser = em.find(User.class, user.getId());
 
@@ -126,4 +128,5 @@ public class UserDaoImpl implements UserDAO {
 
 		return isDeleted;
 	}
+
 }

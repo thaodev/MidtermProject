@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*, java.time.format.DateTimeFormatter, com.skilldistillery.jpabandmate.entities.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
 		<!--  -->
 		<div class="col-md-3 offset-md-3"></div>
 		<div class="col-md-3 offset-md-3">
-			<form action="searchByUserLastName.do"
+			<form action="searchUserByName.do"
 				class="form-group mx-sm-3 mb-2 mt-2">
 				<input type="search" class="rounded" name="search"
 					placeholder="Search By Name" aria-label="Search"
@@ -29,11 +31,6 @@
 		</div>
 	</div>
 	<div class="container-fluid">
-		<!-- 	    <form action="searchByClient.do" class="form-inline float-left " >my-2 my-lg-0
-      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Type client name" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search By Client</button>
-    </form> -->
-
 		<div class="row text-center">
 			<h3>USER MASTER LIST</h3>
 		</div>
@@ -66,7 +63,7 @@
 					</c:url>
 					<tr>
 						<td>${user.firstName} ${user.lastName}</td>
-						<td><c:out value="${user.dob}" /></td>
+						<td><c:out value="${user.dobFormatted}" /></td>
 						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.address.street}" /></td>
 						<td><c:out value="${user.address.city}" /></td>

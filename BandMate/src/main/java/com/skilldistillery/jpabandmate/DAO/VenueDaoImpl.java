@@ -60,7 +60,7 @@ public class VenueDaoImpl implements VenueDAO {
 		if(VenueToEdit != null) {
 			VenueToEdit.setName(venue.getName());
 			VenueToEdit.setCapacity(venue.getCapacity());
-			VenueToEdit.setAddress(venue.getAddress().getId());
+			VenueToEdit.setAddress(venue.getAddress());
 			VenueToEdit.setVenueImageUrl(venue.getVenueImageUrl());
 			VenueToEdit.setDescription(venue.getDescription());
 			
