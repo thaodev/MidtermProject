@@ -23,8 +23,8 @@
 				<tr>
 					<th></th>
 					<th>Musician</th>
+					<th>Bands</th>
 					<th>Bio</th>
-					<th>Instruments</th>
 				</tr>
 			</thead>
 			
@@ -34,17 +34,20 @@
 				<tr>
 					<td><img src="${musician.bandMemberImage}" width="75px" height="75px"/></td>
 					
-					<td><a href="bandPage.do?id=${musician.id}">${musician.firstName} ${musician.lastName}</a></td>
-					<td> ${musician.bio}</td>
+					<td><a href="musicianPage.do?id=${musician.id}">${musician.firstName} ${musician.lastName}</a></td>
 					<td>
-					<c:forEach var="instrument" items="${instruments}">
+					<c:forEach var="member" items="${bandMembers}">
+						<c:forEach var="band" items="${bands}">
 						<c:choose>
-							<c:when test="${instrument.getMusician().getId() == musician.id}">
-							${instrument.name}<br>
+							<c:when test="${member.getId().musicianId == musician.id && member.getId().bandId == band.id}">
+							${band.name}<br>
 							</c:when>
 						</c:choose>
 					</c:forEach>
+					</c:forEach>
 					</td> 
+					<td> ${musician.bio}</td>
+					
 					
 				</tr>
 				

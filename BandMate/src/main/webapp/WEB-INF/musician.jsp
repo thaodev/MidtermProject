@@ -21,39 +21,47 @@
 		<table class="table table-stripped mt-3">
 			<thead class="table-secondary"> 
 				<tr>
-					<th></th>
+						<th></th>
 					<th>Musician</th>
-					<th>Description</th>
-					<th>Genre</th>
-					<th>Year Formed</th>
-					<th>Band Members</th>
+					<th>Bands</th>
+					<th>Bio</th>
+					<th>Instruments</th>
+					<th>Vocalist</th>
 				</tr>
 			</thead>
 			
 			<tbody>
+			
+				
 				<tr>
-					<td><img src="${band.bandImage}" width="200px" height="200px"/></td>
+					<td><img src="${musician.bandMemberImage}" width="75px" height="75px"/></td>
 					
-					<td>${band.name}</td>
-					<td>${band.description}</td>
-					<td>
-					<c:forEach var="genre" items="${band.genres}">
-					${genre.name}<br>
-					</c:forEach>
-					</td> 
-					<td>${band.yearFormed}</td>
+					<td>${musician.firstName} ${musician.lastName}</td>
 					<td>
 					<c:forEach var="member" items="${bandMembers}">
+						<c:forEach var="band" items="${bands}">
 						<c:choose>
-							<c:when test="${member.getId().bandId == band.id}">
-							${member.stageName}<br>
+							<c:when test="${member.getId().musicianId == musician.id && member.getId().bandId == band.id}">
+							${band.name}<br>
 							</c:when>
 						</c:choose>
 					</c:forEach>
+					</c:forEach>
 					</td> 
+					<td> ${musician.bio}</td>
+					<td>
+					<c:forEach var="instrument" items="${instruments}">
+						<c:choose>
+							<c:when test="${instrument.getMusician().id == musician.id}">
+							${instrument.name}<br>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<td> 
+					
 					
 				</tr>
-				
+			
 			
 			</tbody>
 		</table>
@@ -64,7 +72,7 @@
 	
 	
 	<c:otherwise>
-		<h3>No Bands Found</h3>
+		<h3>No Musicians Found</h3>
 	</c:otherwise>
 </c:choose>
 

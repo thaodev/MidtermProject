@@ -9,7 +9,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
+import com.skilldistillery.jpabandmate.entities.BandMemberId;
 import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
 
@@ -85,7 +87,7 @@ public class MusicianDaoImpl implements MusicianDAO {
 	@Override
 	public List<Instrument> findAllInstruments() {
 		List<Instrument> instruments = null;
-		String jpql = "SELECT in FROM Instrument in";
+		String jpql = "SELECT i FROM Instrument i";
 		instruments = em.createQuery(jpql, Instrument.class).getResultList();
 		if (instruments != null) {
 			System.out.println(instruments);
@@ -95,6 +97,43 @@ public class MusicianDaoImpl implements MusicianDAO {
 		}
 	}
 	
-
+	@Override
+	public List<Band> findAllBands(){
+		List<Band> bands = null;
+		String jpql = "SELECT b FROM Band b";
+		bands = em.createQuery(jpql, Band.class).getResultList();
+		if(bands != null ) {
+			System.out.println(bands);
+			return bands;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<BandMember> findAllBandMembers() {
+		List<BandMember> bandMembers = null;
+		String jpql = "SELECT bm FROM BandMember bm";
+		bandMembers = em.createQuery(jpql, BandMember.class).getResultList();
+		if (bandMembers != null) {
+			System.out.println(bandMembers);
+			return bandMembers;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<BandMemberId> findAllBandMemberIds() {
+		List<BandMemberId> bandMemberIds = null;
+		String jpql = "SELECT bmi FROM BandMemberId bmi";
+		bandMemberIds = em.createQuery(jpql, BandMemberId.class).getResultList();
+		if (bandMemberIds != null) {
+			System.out.println(bandMemberIds);
+			return bandMemberIds;
+		} else {
+			return null;
+		}
+	}
 	
 }
