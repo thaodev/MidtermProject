@@ -2,24 +2,50 @@ package com.skilldistillery.jpabandmate.DAO;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.skilldistillery.jpabandmate.entities.TicketSale;
 
+@Service
+@Transactional
 public class TicketDAOImpl implements TicketDAO {
-
+	@PersistenceContext
+	private EntityManager em;
+	
+	/*
+	 * READ*/
 	@Override
 	public List<TicketSale> findAllTickets() {
-		// TODO Auto-generated method stub
-		return null;
+		List<TicketSale> tickets = null;
+		String jpql = "SELECT t FROM Ticket t ";
+		tickets = em.createQuery(jpql, TicketSale.class).getResultList();
+		if (tickets != null) {
+			System.out.println(tickets);
+			return tickets;
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public TicketSale findTicketByEvent(int eventId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TicketSale> findTicketByEvent(int eventId) {
+		List<TicketSale> tickets = null;
+		String jpql ="SELECT t FROM Ticket t WHERE t.performance.id = :evenId";
+		tickets = em.createQuery(jpql, TicketSale.class).setParameter("evenId", eventId).getResultList();
+		if (tickets != null) {
+			System.out.println(tickets);
+			return tickets;
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public TicketSale findTicketByVenue(int venueId) {
+	public List<TicketSale> findTicketByVenue(int venueId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
