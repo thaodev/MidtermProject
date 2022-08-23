@@ -1,5 +1,7 @@
 package com.skilldistillery.jpabandmate.DAO;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Performance;
 import com.skilldistillery.jpabandmate.entities.TicketSale;
+import com.skilldistillery.jpabandmate.entities.User;
 
 @Service
 @Transactional
@@ -47,11 +50,17 @@ public class TicketDAOImpl implements TicketDAO {
 	}
 
 	@Override
-	public Map<Performance, Integer> findTicketSortByEvent() {
-		Map<Performance, Integer> ticketByEvent = new HashMap<Performance, Integer>();
+	public Map<Performance, int[]> findTicketSortByEvent() {
+		Map<Performance, int[]> ticketByEvent = new HashMap<Performance, int[]>();
 		List<Performance> events = performDao.findAllPerformance();
+		
 		for (Performance event : events) {
-			ticketByEvent.put(event, event.getTicketSales().size());
+			int[] listOfTicketvsCapacity = new int[2];
+			listOfTicketvsCapacity[0] = event.getTicketSales().size();
+			listOfTicketvsCapacity[1] = event.getVenue().getCapacity();
+			
+			ticketByEvent.put(event, listOfTicketvsCapacity);
+			System.out.println(Arrays.toString(listOfTicketvsCapacity));
 		}
 		return ticketByEvent;
 
@@ -81,8 +90,15 @@ public class TicketDAOImpl implements TicketDAO {
 
 	@Override
 	public TicketSale addTicket(TicketSale ticketSale) {
-		// TODO Auto-generated method stub
-		return null;
+		ticketSale.getPerformance().addTicket(ticketSale);
+		ticketSale.setUser(em.find(User.class, ticketSale.getUser().getId()));
+		em.persist(ticketSale);
+		if (ticketSale.getUser() != null) {
+			em.persist(ticketSale.getUser());
+		}
+		
+		em.flush();
+		return ticketSale;
 	}
 
 	/**
