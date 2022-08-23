@@ -23,18 +23,28 @@ if (session != null) {
 			<li class="nav-item active"><a class="nav-link" href="home.do">Home</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Tickets</a></li>
-			<li class="nav-item"><a class="nav-link" href="eventPage.do">Events</a>
+			<li class="nav-item"><a class="nav-link" href="eventPageAdmin.do">Events</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="showUser.do">Users</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Bands</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Venues</a></li>
+			<li class="nav-item"><a class="nav-link" href="bandListPage.do">Bands</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="venueAdmin.do">Venues</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Musicians</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Performance
 					Reviews</a></li>
 		</ul>
 
+				<div class="navbar-nav ms-auto text-white">
+					<p class="mr-3 text-center">${user.username}</p>
+					<a href="logout.do" type="submit" class="btn btn-warning"
+						data-toggle="button" aria-pressed="false"> Logout</a>
+
+				</div>
+				<%--  <div class="navbar-nav ms-auto text-white">
+>>>>>>> 31c28d3509791ecb21cd0ebec6e04739e2d07f6e
+=======
 		<div class="navbar-nav ms-auto text-white">
 			<p class="mr-5 text-center">${user.username}</p>
 			<a href="logout.do" type="submit" class="btn btn-warning"
@@ -43,6 +53,7 @@ if (session != null) {
 		</div>
 	</div>
 	<%--  <div class="navbar-nav ms-auto text-white">
+>>>>>>> 04f897b7456fa67b4b58cc95c805e500451bf0b3
     <c:out value="${user.username}"/>
     </div>
 	<div class="navbar-nav ms-auto">

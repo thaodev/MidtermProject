@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
@@ -32,10 +33,10 @@ class BandMemberTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		BandMemberId pid = new BandMemberId();
-		pid.setBandId(1);;
-		pid.setMusicianId(1);
-		bm = em.find(BandMember.class, pid);
+		BandMemberId bid = new BandMemberId();
+		bid.setBandId(1);;
+		bid.setMusicianId(1);
+		bm = em.find(BandMember.class, bid);
 		
 	}
 
@@ -44,8 +45,9 @@ class BandMemberTest {
 	}
 
 	@Test
-	void PerformaceReview_mapping() {
+	void BandMember_mapping() {
 		assertNotNull(bm);
+		assertEquals("Rocky Rockstar", bm.getStageName());
 	}
 
 }

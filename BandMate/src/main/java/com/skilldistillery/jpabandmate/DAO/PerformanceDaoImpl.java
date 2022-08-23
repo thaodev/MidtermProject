@@ -9,7 +9,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.Performance;
+import com.skilldistillery.jpabandmate.entities.Venue;
 
 @Service
 @Transactional
@@ -37,7 +39,15 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 	}
 	
 	@Override
-	public Performance createPerformance(Performance performance) {
+	public Performance createPerformance(Performance performance, int bandId, int venueId) {
+		Band band = em.find(Band.class, bandId);
+		if( band != null) {
+			performance.setBand(band);
+		}
+		Venue venue = em.find(Venue.class, venueId);
+		if( venue != null) {
+			performance.setVenue(venue);
+		}
 		em.persist(performance);
 		return performance;
 	}
@@ -56,11 +66,11 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 	public Performance editPerformance(Performance performance) {
 		Performance performanceToEdit = em.find(Performance.class, performance.getId());
 		if(performanceToEdit != null) {
-			performanceToEdit.getPerformanceDate();
-			performanceToEdit.getTicketPrice();
-			performanceToEdit.getName();
-			performanceToEdit.getStartTime();
-			performanceToEdit.getEndTime();
+			performanceToEdit.setPerformanceDate(performance.getPerformanceDate());
+			performanceToEdit.setTicketPrice(performance.getTicketPrice());
+			performanceToEdit.setName(performance.getName());
+			performanceToEdit.setStartTime(performance.getStartTime());
+			performanceToEdit.setEndTime(performance.getEndTime());
 			
 			
 		}

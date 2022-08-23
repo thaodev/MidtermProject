@@ -29,4 +29,54 @@ public class PerformanceController {
 		model.addAttribute("performances", performances);
 		return "event";
 	}
+	
+	@RequestMapping(path="eventPageAdmin.do")
+	public String eventCrudForAdmin(Model model) {
+		List<Performance> performances = dao.findAllPerformance();
+		model.addAttribute("performances", performances);
+		return "eventAdmin";
+	}
+	
+	@RequestMapping(path="deletePerformance.do")
+	public String deletePerformance(int performanceId, Model model) {
+		dao.deletePerformance(performanceId);
+		List<Performance> performance = dao.findAllPerformance();
+		model.addAttribute("performances", performance);
+		return "eventAdmin";
+	}
+	
+	
+	@RequestMapping(path="editPerformance.do")
+	public String editPerformance(int performanceId, Model model) {
+		Performance performance = dao.getPerformanceById(performanceId);
+		System.out.println("*****************INSIDE EDIT PERFORMANCE***********");
+		System.out.println(performance);
+		model.addAttribute("performance", performance);
+		return "editPerformance";
+	}
+	
+	
+	@RequestMapping(path="submitEditperformanceForm.do")
+	public String submitEditPerformance(Performance performance, Model model) {
+		performance = dao.editPerformance(performance);
+		System.out.println("----------------INSIDE SUBMIT EDIT PERFORMANCE-----------------");
+		System.out.println(performance);
+		List<Performance> performances = dao.findAllPerformance();
+		model.addAttribute("performances", performances);
+		return "eventAdmin";
+	}
+	
+	@RequestMapping(path="createPerformance.do")
+	public String createPerformance(Model model) {
+		return "createPerformance";
+	}
+	
+	
+	@RequestMapping(path="submitCreatePerformanceForm.do")
+	public String submitPerformance(Performance performance, int bandId, int venueId, Model model) {
+		performance = dao.createPerformance(performance, bandId, venueId);
+		List<Performance> performances = dao.findAllPerformance();
+		model.addAttribute("performances", performances);
+		return "eventAdmin";
+	}
 }
