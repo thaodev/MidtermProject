@@ -24,6 +24,7 @@
 					<th>ID</th>
 					<th>Date</th>
 					<th>Name</th>
+					<th>Venue</th>
 					<th>Ticket Price</th>
 					<th>Start Time</th>
 					<th>End Time</th>
@@ -38,6 +39,8 @@
 					<td>${performance.performanceDate}</td>
 					
 					<td>${performance.name}</td>
+					
+					<td>${performance.venue.name}</td>
 					
 					<td>${performance.ticketPrice}</td>
 					
