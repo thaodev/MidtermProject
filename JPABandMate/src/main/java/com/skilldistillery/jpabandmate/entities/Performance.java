@@ -1,7 +1,7 @@
 package com.skilldistillery.jpabandmate.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 @Entity
 public class Performance {
 
@@ -24,7 +22,6 @@ public class Performance {
 	private int id;
 	
 	@Column(name="performance_date")
-	@CreationTimestamp
 	private LocalDate performanceDate;
 	
 	@Column(name="ticket_price")
@@ -33,11 +30,10 @@ public class Performance {
 	private String name;
 	
 	@Column(name="start_time")
-	@CreationTimestamp
-	private LocalDateTime startTime;
+	private LocalTime startTime;
 	
 	@Column(name="end_time")
-	private LocalDateTime endTime;
+	private LocalTime endTime;
 
 	@ManyToOne
 	@JoinColumn(name="band_id")
@@ -93,19 +89,19 @@ public class Performance {
 		this.name = name;
 	}
 
-	public LocalDateTime getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 
@@ -159,11 +155,11 @@ public class Performance {
 		this.performanceComments = performanceComments;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Performance [id=" + id + ", performanceDate=" + performanceDate + ", ticketPrice=" + ticketPrice
-//				+ ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Performance [id=" + id + ", performanceDate=" + performanceDate + ", ticketPrice=" + ticketPrice
+				+ ", name=" + name + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+	}
 	
 	
 	
