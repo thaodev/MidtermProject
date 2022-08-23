@@ -28,7 +28,6 @@ public class Instrument {
 	public Instrument() {
 		super();
 	}
-
 	
 	//METHOD
 	public int getId() {

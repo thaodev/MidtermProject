@@ -27,7 +27,8 @@ if (session != null) {
 			</li>
 			<li class="nav-item"><a class="nav-link" href="showUser.do">Users</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Bands</a></li>
+			<li class="nav-item"><a class="nav-link" href="bandListPage.do">Bands</a>
+			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Venues</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Musicians</a>
 			</li>
@@ -35,6 +36,15 @@ if (session != null) {
 					Reviews</a></li>
 		</ul>
 
+				<div class="navbar-nav ms-auto text-white">
+					<p class="mr-3 text-center">${user.username}</p>
+					<a href="logout.do" type="submit" class="btn btn-warning"
+						data-toggle="button" aria-pressed="false"> Logout</a>
+
+				</div>
+				<%--  <div class="navbar-nav ms-auto text-white">
+>>>>>>> 31c28d3509791ecb21cd0ebec6e04739e2d07f6e
+=======
 		<div class="navbar-nav ms-auto text-white">
 			<p class="mr-5 text-center">${user.username}</p>
 			<a href="logout.do" type="submit" class="btn btn-warning"
