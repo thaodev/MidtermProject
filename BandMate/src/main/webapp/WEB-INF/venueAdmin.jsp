@@ -49,9 +49,12 @@
 					
 					<td>${venue.description}</td>
 					
-					<td>${venue.performances[0].name}</td>
-					
-					<td><a href="deleteVenue.do?venueId=${venue.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
+					<td>
+					<c:forEach var="p" items="${venue.performances}">
+					${p.name}<br>
+					</c:forEach>
+					</td>
+					<td><a href="deleteVenue.do?venueId=${venue.id}" type="button" class="btn btn-danger btn-sm" onclick="if(!(confirm('Are you sure you want to delete this venue?'))) return false">x</a></td>
 					<td><a href="editVenue.do?venueId=${venue.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
 					
 					

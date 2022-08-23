@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.jpabandmate.entities.Performance;
+import com.skilldistillery.jpabandmate.entities.Address;
 import com.skilldistillery.jpabandmate.entities.Venue;
 
 @Service
@@ -40,6 +40,13 @@ public class VenueDaoImpl implements VenueDAO {
 	
 	@Override
 	public Venue createVenue(Venue venue) {
+		if (venue.getAddress() != null) {
+			em.persist(venue.getAddress());
+		}
+		Address address = em.find(Address.class, venue.getAddress().getId());
+		if(address != null) {
+			venue.setAddress(address);
+		}
 		em.persist(venue);
 		return venue;
 	}
@@ -64,9 +71,22 @@ public class VenueDaoImpl implements VenueDAO {
 			VenueToEdit.setVenueImageUrl(venue.getVenueImageUrl());
 			VenueToEdit.setDescription(venue.getDescription());
 			
-			
+//			Address updatedAddress = em.find(Address.class, user.getAddress().getId());
+//			if (updatedAddress != null) {
+//				updatedAddress.setStreet(updatedUser.getAddress().getStreet());
+//				updatedAddress.setCity(updatedUser.getAddress().getCity());
+//				updatedAddress.setState(updatedUser.getAddress().getState());
+//				updatedAddress.setZipCode(updatedUser.getAddress().getZipCode());
+//			}
+//			if (updatedUser != null) {
+//				isUpdated = true;
+//			}
+//
+//			return isUpdated;
 		}
 		return VenueToEdit;
 	}
+	
+	
 	
 }

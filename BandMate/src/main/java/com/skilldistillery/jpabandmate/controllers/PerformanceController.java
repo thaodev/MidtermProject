@@ -8,25 +8,36 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabandmate.DAO.PerformanceDAO;
+import com.skilldistillery.jpabandmate.DAO.VenueDAO;
 import com.skilldistillery.jpabandmate.entities.Performance;
+import com.skilldistillery.jpabandmate.entities.Venue;
 
 @Controller
 public class PerformanceController {
 	
 	@Autowired
 	private PerformanceDAO dao;
+	@Autowired
+	private VenueDAO vdao;
 	
-	@RequestMapping(path="eventPage.do")
-	public String event(Model model) {
+	@RequestMapping(path="eventListPage.do")
+	public String eventList(Model model) {
 		List<Performance> performances = dao.findAllPerformance();
 		model.addAttribute("performances", performances);
-		return "event";
+		return "eventList";
 	}
 	
 	@RequestMapping(path="eventByKeyword.do")
 	public String eventsByKeyword(Model model, String keyword) {
 		List<Performance> performances = dao.findPerformanceByKeyword(keyword);
 		model.addAttribute("performances", performances);
+		return "eventList";
+	}
+	
+	@RequestMapping(path="eventPage.do")
+	public String event(Model model, int id) {
+		Performance performance = dao.getPerformanceById(id);
+		model.addAttribute("performance", performance);
 		return "event";
 	}
 	
@@ -51,10 +62,11 @@ public class PerformanceController {
 		Performance performance = dao.getPerformanceById(performanceId);
 		System.out.println("*****************INSIDE EDIT PERFORMANCE***********");
 		System.out.println(performance);
+		List<Venue> venues = vdao.findAllVenue();
+		model.addAttribute("venues", venues);
 		model.addAttribute("performance", performance);
 		return "editPerformance";
 	}
-	
 	
 	@RequestMapping(path="submitEditperformanceForm.do")
 	public String submitEditPerformance(Performance performance, Model model) {
@@ -70,7 +82,6 @@ public class PerformanceController {
 	public String createPerformance(Model model) {
 		return "createPerformance";
 	}
-	
 	
 	@RequestMapping(path="submitCreatePerformanceForm.do")
 	public String submitPerformance(Performance performance, int bandId, int venueId, Model model) {

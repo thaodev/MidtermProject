@@ -67,8 +67,9 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 		Performance performanceToEdit = em.find(Performance.class, performance.getId());
 		if(performanceToEdit != null) {
 			performanceToEdit.setPerformanceDate(performance.getPerformanceDate());
-			performanceToEdit.setTicketPrice(performance.getTicketPrice());
 			performanceToEdit.setName(performance.getName());
+			performanceToEdit.setVenue(em.find(Venue.class, performance.getVenue().getId()));
+			performanceToEdit.setTicketPrice(performance.getTicketPrice());
 			performanceToEdit.setStartTime(performance.getStartTime());
 			performanceToEdit.setEndTime(performance.getEndTime());
 			
