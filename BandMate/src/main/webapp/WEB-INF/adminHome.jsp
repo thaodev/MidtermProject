@@ -38,9 +38,8 @@ body {
 					<div class="card" style="width: 20rem;">
 						<div class="card-body bg-success">
 							<h4 class="card-title">Events</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Create your upcoming events and don't forget to delete the old ones...</p>
 							<a class="btn btn-outline-dark bg-white" href="eventPageAdmin.do">View Details</a>
 						</div>
 					</div>
@@ -56,7 +55,7 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="venueAdmin.do">View Details</a>
 						</div>
 					</div>
 				</div>

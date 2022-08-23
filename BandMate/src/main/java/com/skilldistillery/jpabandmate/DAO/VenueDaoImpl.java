@@ -27,7 +27,7 @@ public class VenueDaoImpl implements VenueDAO {
 	@Override
 	public List<Venue> findAllVenue(){
 		List<Venue> venues = null;
-		String jpql = "SELECT p FROM Performance p";
+		String jpql = "SELECT v FROM Venue v";
 		venues = em.createQuery(jpql, Venue.class).getResultList();
 		if(venues != null ) {
 			System.out.println(venues);

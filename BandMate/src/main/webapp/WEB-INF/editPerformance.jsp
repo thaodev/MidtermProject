@@ -27,6 +27,10 @@
     <input type="text" name="name" class="form-control" id="name" value="${performance.name}">
   </div>
   <div class="form-group">
+    <label for="venue"></label>
+    <input type="text" name="venue" class="form-control" id="venue" value="${performance.venue.name}">
+  </div>
+  <div class="form-group">
     <label for="ticketPrice"></label>
     <input type="text" name="ticketPrice" class="form-control" id="ticketPrice" value="${performance.ticketPrice}">
   </div>
