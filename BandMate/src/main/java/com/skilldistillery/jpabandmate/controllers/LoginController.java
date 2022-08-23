@@ -65,41 +65,5 @@ public class LoginController {
 		return "home";
 	}
 
-	// Sign Up
-	@RequestMapping(path = "signUp.do")
-	public String signUp() {
-		return "signUp";
-	}
-
-	// Sign Up Form- CREATE User
-	@RequestMapping(path = "addUser.do")
-	public String addUser(User user, Model model) {
-		boolean isUserAdded = false;
-
-		try {
-			User userAdded = dao.addUser(user);
-			if (userAdded != null) {
-				isUserAdded = true;
-
-				model.addAttribute("user", user);
-				model.addAttribute("isUserAdded", isUserAdded);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			if (e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
-				String errorMsg = "Unable to add since the username already exits. Please try again!";
-				model.addAttribute("errorMsg", errorMsg);
-			}
-			e.printStackTrace();
-			return "signUp.do";
-		}
-		return "redirect:userAdded.do";
-	}
-
-	@RequestMapping(path = "userAdded.do", method = RequestMethod.GET)
-	public String scheduleAdded() {
-		System.out.println("inside userAdded");
-		return "loginResult";
-	}
-
+	
 }

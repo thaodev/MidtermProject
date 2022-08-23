@@ -21,7 +21,7 @@
 		<!--  -->
 		<div class="col-md-3 offset-md-3"></div>
 		<div class="col-md-3 offset-md-3">
-			<form action="searchByUserLastName.do"
+			<form action="searchUserByName.do"
 				class="form-group mx-sm-3 mb-2 mt-2">
 				<input type="search" class="rounded" name="search"
 					placeholder="Search By Name" aria-label="Search"
@@ -31,11 +31,6 @@
 		</div>
 	</div>
 	<div class="container-fluid">
-		<!-- 	    <form action="searchByClient.do" class="form-inline float-left " >my-2 my-lg-0
-      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Type client name" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search By Client</button>
-    </form> -->
-
 		<div class="row text-center">
 			<h3>USER MASTER LIST</h3>
 		</div>

@@ -36,13 +36,13 @@ if (session != null) {
 		</ul>
 
 		<div class="navbar-nav ms-auto text-white">
-			<p class="mr-3 text-center">${user.username}</p>
-			 <a href="logout.do"
-				type="submit" class="btn btn-warning" data-toggle="button"
-				aria-pressed="false"> Logout</a>
+			<p class="mr-5 text-center">${user.username}</p>
+			<a href="logout.do" type="submit" class="btn btn-warning"
+				data-toggle="button" aria-pressed="false"> Logout</a>
 
 		</div>
-		<%--  <div class="navbar-nav ms-auto text-white">
+	</div>
+	<%--  <div class="navbar-nav ms-auto text-white">
     <c:out value="${user.username}"/>
     </div>
 	<div class="navbar-nav ms-auto">
