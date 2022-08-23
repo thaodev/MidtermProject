@@ -24,7 +24,7 @@
 			<form action="searchTicketByEvent.do"
 				class="form-group mx-sm-3 mb-2 mt-2">
 				<input type="search" class="rounded" name="search"
-					placeholder="Search By Event" aria-label="Search"
+					placeholder="Search By Event Or Venue" aria-label="Search"
 					aria-describedby="search-addon" />
 				<button type="submit" class="btn btn-secondary mb-2">Search</button>
 			</form>
@@ -38,19 +38,21 @@
 
 			<thead>
 
-				<tr class="table-info">
+				<tr class="table-danger">
 					<th scope="col">Event</th>
 					<th scope="col">Purchaser</th>
 					<th scope="col">Ticket Price</th>
 					<th scope="col">Sale Date</th>
+					<th scope="col">Event Date</th>
 					<th scope="col">Venue</th>
 					<th scope="col">Start Time</th>
 					<th scope="col">End Time</th>
-					<th scope="col">Duration</th>
+					<!-- <th scope="col">Duration</th> -->
+					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="tickets" items="${tickets}">
+				<c:forEach var="ticket" items="${ticketSales}">
 					<!-- construct an delete link with schedule id  -->
 					<c:url var="updateLink" value="updateUser">
 						<c:param name="id" value="${ticket.id}" />
@@ -62,14 +64,16 @@
 					<tr>
 						<td><c:out value="${ticket.performance.name}" /></td>
 						<td>${ticket.user.firstName} ${ticket.user.lastName}</td>
-						<td><c:out value="${ticket.price}" /></td>
+						<td><fmt:formatNumber type="currency" value="${ticket.ticketPrice}" /></td>
 						<td><c:out value="${ticket.saleDate}" /></td>
+						<td><c:out value="${ticket.performance.performanceDate}" /></td>
 						<td><c:out value="${ticket.performance.venue.name}" /></td>
 						<td><c:out value="${ticket.performance.startTime}" /></td>
 						<td><c:out value="${ticket.performance.endTime}" /></td>
-						<td><c:out value="${ticket.performance.endTime}-${ticket.performance.startTime}" /></td>
-						<td><a href="${updateLink}">Update</a>|<a
-							href="${deleteLink}"
+						<%-- <td><c:set var="duration" value="${ticket.performance.endTime-ticket.performance.startTime}" />
+						<c:out value="${duration}"/> 
+						</td>--%>
+						<td><a href="${deleteLink}"
 							onclick="if(!(confirm('Are you sure you want to delete this ticket?'))) return false">Delete</a></td>
 
 

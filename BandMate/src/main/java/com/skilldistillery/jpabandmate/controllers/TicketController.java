@@ -23,9 +23,11 @@ public class TicketController {
 	
 	
 	@RequestMapping(path = "showTicket.do")
-	public String schedule(Model model) {
+	public String tickets(Model model) {
 		List<TicketSale> ticketSales = dao.findAllTickets();
-		
+		if (ticketSales == null) {
+			System.out.println("inside ticketshow controller, ticket sales list is null");
+		}
 		model.addAttribute("ticketSales",ticketSales);
 		
 		return "showAllTickets";
@@ -78,73 +80,17 @@ public class TicketController {
 			return "loginResult";
 		}
 
-
+	/**
+	 * SEARCH
+	 */
+	@RequestMapping(path = "searchTicketByEvent.do" )
+	public String getTicketSaleByEventOrVenue(Model model, String search) {
+		List<TicketSale> TicketSales = dao.findTicketByEventOrVenue(search);
+		System.out.println("inside getTicketSaleByEvent");
+		model.addAttribute("TicketSales", TicketSales);
+		return "showAllTicketSales" ;
+	}
 	
-	
-//	/**
-//	 * UPDATE
-//	 */
-//	@RequestMapping(path = "updateTicketSale", method=RequestMethod.GET)
-//	public String showFormForUpdate(int id, Model model) {
-//		System.out.println("inside updateTicketSale");
-//		
-//		TicketSale TicketSale = dao.findById(id);
-//		
-//		model.addAttribute("TicketSale",TicketSale);
-//		
-//		return "updateTicketSale";
-//	}
-//	@RequestMapping(path = "updateTicketSale.do", method=RequestMethod.POST)
-//	public String updateTicketSale(TicketSale TicketSale, Model model) {
-//		System.out.println("inside updateTicketSale");
-//		
-//		model.addAttribute("TicketSale",TicketSale);
-//		try {
-//			boolean isUpdatedSuccess = dao.updateTicketSale(TicketSale);
-//			
-//			model.addAttribute("updateResult",isUpdatedSuccess);
-//			
-//			return "redirect:showTicketSale.do";
-//			
-//		} catch (DataIntegrityViolationException e) {
-//			System.out.println("cause" + e.getCause());
-//			String errorMsg = "Unable to update since the TicketSalename already exits. Please try again!";
-//			model.addAttribute("errorMsg", errorMsg);
-//			e.printStackTrace();
-//			return "updateTicketSale";
-//		}
-//	}
-////	@RequestMapping(path = "TicketSaleUpdated.do", method=RequestMethod.GET)
-////	public String TicketSaleUpdated(Model model) {
-////		List<TicketSale> TicketSales = dao.findAllTicketSales();
-////		
-////		model.addAttribute("TicketSales",TicketSales);
-////		return "showAllTicketSales";
-////	}
-//	
-//	/**
-//	 * SEARCH
-//	 */
-//	@RequestMapping(path = "searchTicketSaleByName.do" )
-//	public String getTicketSaleByName(Model model, String search) {
-//		List<TicketSale> TicketSales = dao.searchTicketSaleByName(search);
-//		System.out.println("inside getTicketSaleByName");
-//		model.addAttribute("TicketSales", TicketSales);
-//		return "showAllTicketSales" ;
-//	}
-//	
-//	/**
-//	 * VIEW 
-//	 * */
-//	@RequestMapping(path="viewProfile.do")
-//	public String viewProfile(HttpSession session, Model model) {
-//		 TicketSale TicketSale = (TicketSale) session.getAttribute("loggedInTicketSale");
-//		 if (TicketSale == null) {
-//			 System.out.println("TicketSale is null");
-//		 }
-//		 model.addAttribute("TicketSale", TicketSale);
-//		 System.out.println("Inside view profile page");
-//		 return "viewProfile";
-//	}
+//
 //	
 }

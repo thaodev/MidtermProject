@@ -6,10 +6,9 @@ import com.skilldistillery.jpabandmate.entities.TicketSale;
 
 public interface TicketDAO {
 	List<TicketSale> findAllTickets();
-	List<TicketSale>  findTicketByEvent(int eventId);
-	List<TicketSale>  findTicketByVenue(int venueId);
+	TicketSale  findTicketById(int ticketId);
+	List<TicketSale>  findTicketByEventOrVenue(String event);
 	TicketSale addTicket(TicketSale ticketSale);
-	TicketSale updateTicketSale(TicketSale ticketSale);
 	boolean deleteTicketSale(int ticketId);
 	
 	}

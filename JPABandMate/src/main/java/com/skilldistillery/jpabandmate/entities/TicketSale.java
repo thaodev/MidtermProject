@@ -1,6 +1,7 @@
 package com.skilldistillery.jpabandmate.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -38,13 +40,20 @@ public class TicketSale {
 	private User user;
 
 	// CONSTRUCTOR
-	public int getId() {
-		return id;
+	
+	public TicketSale() {
 	}
+	
+
 
 	// METHODS
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public int getId() {
+		return id;
 	}
 
 	public double getTicketPrice() {
@@ -58,6 +67,7 @@ public class TicketSale {
 	public LocalDateTime getSaleDate() {
 		return saleDate;
 	}
+	
 
 	public void setSaleDate(LocalDateTime saleDate) {
 		this.saleDate = saleDate;
