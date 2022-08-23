@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabandmate.DAO.MusicianDAO;
+import com.skilldistillery.jpabandmate.entities.Band;
+import com.skilldistillery.jpabandmate.entities.BandMember;
 import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
 import com.skilldistillery.jpabandmate.entities.User;
@@ -23,7 +25,11 @@ public class MusicianController {
 	@RequestMapping(path="musicianListPage.do")
 	public String bandList(Model model) {
 		List<Musician> musicians = dao.findAllMusicians();
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		List<Band> bands = dao.findAllBands();
 		model.addAttribute("musicians", musicians);
+		model.addAttribute("bandMembers", bandMembers);
+		model.addAttribute("bands", bands);
 		return "musicianList";
 	}
 	
@@ -38,8 +44,12 @@ public class MusicianController {
 	public String musician(Model model, Integer id) {
 		Musician musician = dao.getMusicianById(id);
 		List<Instrument> instruments = dao.findAllInstruments();
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		List<Band> bands = dao.findAllBands();
 		model.addAttribute("musician", musician);
 		model.addAttribute("instruments", instruments);
+		model.addAttribute("bandMembers", bandMembers);
+		model.addAttribute("bands", bands);
 		return "musician";
 	}
 	
@@ -54,6 +64,6 @@ public class MusicianController {
 		model.addAttribute("user", user);
 		model.addAttribute("musician", musician);
 		musician = dao.createMusician(musician);
-		return "newMusician";
+		return "redirect:musicianListPage.do";
 	}
 }
