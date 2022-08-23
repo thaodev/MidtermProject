@@ -1,6 +1,5 @@
 package com.skilldistillery.jpabandmate.controllers;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.http.HttpSession;
 
