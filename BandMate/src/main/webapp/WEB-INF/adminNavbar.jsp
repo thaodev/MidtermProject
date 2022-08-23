@@ -44,6 +44,16 @@ if (session != null) {
 				</div>
 				<%--  <div class="navbar-nav ms-auto text-white">
 >>>>>>> 31c28d3509791ecb21cd0ebec6e04739e2d07f6e
+=======
+		<div class="navbar-nav ms-auto text-white">
+			<p class="mr-5 text-center">${user.username}</p>
+			<a href="logout.do" type="submit" class="btn btn-warning"
+				data-toggle="button" aria-pressed="false"> Logout</a>
+
+		</div>
+	</div>
+	<%--  <div class="navbar-nav ms-auto text-white">
+>>>>>>> 04f897b7456fa67b4b58cc95c805e500451bf0b3
     <c:out value="${user.username}"/>
     </div>
 	<div class="navbar-nav ms-auto">

@@ -6,30 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Site</title>
+<title>Login Result Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%
-User user = (User) session.getAttribute("loggedInUser");
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose>
+
 </head>
 <body>
-	<c:choose>
-		<c:when test="${empty user }">
-			<c:out value="User wasn't being added"/>
-		</c:when>
-		<c:otherwise>
-		<c:out value="User is added successfully"/>
-		</c:otherwise>
-	</c:choose>
+<jsp:include page="navbarController.jsp" />
+<p>Outcome of adding user action</p>
+	<c:out value="${message}" />
 	
 <jsp:include page="bootstrapFoot.jsp" />
 <jsp:include page="footer.jsp" />

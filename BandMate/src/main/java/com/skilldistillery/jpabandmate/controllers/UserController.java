@@ -1,6 +1,5 @@
 package com.skilldistillery.jpabandmate.controllers;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.jpabandmate.DAO.UserDAO;
 import com.skilldistillery.jpabandmate.entities.User;
@@ -35,6 +35,53 @@ public class UserController {
 		return "showAllUsers";
 	}
 	
+	/**
+	 * CREATE
+	 */
+	// Sign Up
+		@RequestMapping(path = "signUp.do")
+		public String signUp() {
+			return "signUp";
+		}
+
+		// Sign Up Form- CREATE User
+		@RequestMapping(path = "addUser.do", method=RequestMethod.POST)
+		public String addUser(User user, Model model, RedirectAttributes redir) {
+			boolean isUserAdded = false;
+			String message = "";
+
+			try {
+				User userAdded = dao.addUser(user);
+				if (userAdded != null) {
+					isUserAdded = true;
+
+					//model.addAttribute("userAdded", userAdded);
+					redir.addFlashAttribute("userAdded", userAdded);
+					model.addAttribute("isUserAdded", isUserAdded);
+				}
+				message = "User is added successfully";
+				model.addAttribute("message", message);
+				redir.addFlashAttribute("message", message);
+				return "redirect:showUser.do";
+				
+				
+			} catch (DataIntegrityViolationException e) {
+				System.out.println("cause" + e.getCause());
+				message = "Unable to add user since the username already exits. Please try again!";
+				model.addAttribute("message", message);
+				e.printStackTrace();
+				return "loginResult";
+			}
+			
+		}
+
+		@RequestMapping(path = "userAdded.do", method = RequestMethod.GET)
+		public String userAdded(Model model) {
+//			model.addAttribute("message", "User is added successfully");
+			System.out.println("inside userAdded");
+			return "loginResult";
+		}
+
 
 	
 	
@@ -61,23 +108,33 @@ public class UserController {
 			
 			model.addAttribute("updateResult",isUpdatedSuccess);
 			
-			return "redirect:userUpdated.do";
+			return "redirect:showUser.do";
+			
 		} catch (DataIntegrityViolationException e) {
 			System.out.println("cause" + e.getCause());
-//			if (e.getCause() != null && e.getCause() instanceof SQLIntegrityConstraintViolationException) {
-			String errorMsg = "Unable to add since the username already exits. Please try again!";
+			String errorMsg = "Unable to update since the username already exits. Please try again!";
 			model.addAttribute("errorMsg", errorMsg);
-//			}
 			e.printStackTrace();
 			return "updateUser";
 		}
 	}
-	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
-	public String userUpdated(Model model) {
-		List<User> users = dao.findAllUsers();
-		
-		model.addAttribute("users",users);
-		return "showAllUsers";
+//	@RequestMapping(path = "userUpdated.do", method=RequestMethod.GET)
+//	public String userUpdated(Model model) {
+//		List<User> users = dao.findAllUsers();
+//		
+//		model.addAttribute("users",users);
+//		return "showAllUsers";
+//	}
+	
+	/**
+	 * SEARCH
+	 */
+	@RequestMapping(path = "searchUserByName.do" )
+	public String getUserByName(Model model, String search) {
+		List<User> users = dao.searchUserByName(search);
+		System.out.println("inside getUserByName");
+		model.addAttribute("users", users);
+		return "showAllUsers" ;
 	}
 	
 }
