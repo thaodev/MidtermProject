@@ -20,16 +20,16 @@ if (session != null) {
 	<div class="collapse navbar-collapse justify-content-between"
 		id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto ">
-			<li class="nav-item active"><a class="nav-link" href="#">Home</a>
+			<li class="nav-item active"><a class="nav-link" href="home.do">Home</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Tickets</a></li>
-			<li class="nav-item"><a class="nav-link" href="eventPage.do">Events</a>
+			<li class="nav-item"><a class="nav-link" href="eventPageAdmin.do">Events</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="showUser.do">Users</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="bandListPage.do">Bands</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Venues</a></li>
+			<li class="nav-item"><a class="nav-link" href="venueAdmin.do">Venues</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Musicians</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="#">Performance
