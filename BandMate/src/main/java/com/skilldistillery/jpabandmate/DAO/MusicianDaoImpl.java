@@ -31,7 +31,7 @@ public class MusicianDaoImpl implements MusicianDAO {
 
 	
 	@Override
-	public Musician getMusicianById(int id) {
+	public Musician getMusicianById(Integer id) {
 		return em.find(Musician.class, id);
 	}
 	
@@ -64,10 +64,11 @@ public class MusicianDaoImpl implements MusicianDAO {
 		Musician musicianToEdit = em.find(Musician.class, musician.getId());
 		if(musicianToEdit != null) {
 			musicianToEdit.setFirstName(musician.getFirstName());
-			musicianToEdit.setPhone(musician.getPhone());
+			musicianToEdit.setLastName(musician.getLastName());
 			musicianToEdit.setBio(musician.getBio());
 			musicianToEdit.setBandMemberImage(musician.getBandMemberImage());
 			musicianToEdit.setInstruments(musician.getInstruments());
+			musicianToEdit.setVocals(musician.getVocals());
 			
 			
 		}

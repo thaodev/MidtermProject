@@ -59,11 +59,33 @@ public class MusicianController {
 	}
 	
 	@RequestMapping(path="createNewMusician.do")
-	public String createNewMusician(HttpSession session, Musician musician, Model model) {
-		User user = (User) (session.getAttribute("loggedInUser"));
-		model.addAttribute("user", user);
+	public String createNewMusician(Musician musician, Model model) {
 		model.addAttribute("musician", musician);
 		musician = dao.createMusician(musician);
+		System.out.println("====INSIDE CREATE MUSICIAN====");
+		System.out.println(musician);
+		return "redirect:musicianListPage.do";
+	}
+	
+	@RequestMapping(path="editMusician.do")
+	public String editMusician(Integer musicianId, Model model) {
+		Musician musician = dao.getMusicianById(musicianId);
+		System.out.println(musician);
+		List<Instrument> instruments = dao.findAllInstruments();
+		model.addAttribute("musician", musician);
+		model.addAttribute("instruments", instruments);
+		return "editMusician";
+	}
+	
+	
+	@RequestMapping(path="submitEditMusician.do")
+	public String submitEditMusician(Musician musician, Model model) {
+		musician = dao.editMusician(musician);
+		System.out.println(musician);
+		List<Musician> musicians = dao.findAllMusicians();
+		List<Instrument> instruments = dao.findAllInstruments();
+		model.addAttribute("musicians", musicians);
+		model.addAttribute("instruments", instruments);
 		return "redirect:musicianListPage.do";
 	}
 }

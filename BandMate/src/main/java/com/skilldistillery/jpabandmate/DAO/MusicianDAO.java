@@ -9,7 +9,7 @@ import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
 
 public interface MusicianDAO {
-	Musician getMusicianById(int id);
+	Musician getMusicianById(Integer id);
 	List<Musician> findAllMusicians();
 	Musician createMusician(Musician musician);
 	boolean deleteMusician(int id);

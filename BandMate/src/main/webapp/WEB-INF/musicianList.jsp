@@ -25,6 +25,8 @@
 					<th>Musician</th>
 					<th>Bands</th>
 					<th>Bio</th>
+					<th>Delete</th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 			
@@ -48,6 +50,8 @@
 					</td> 
 					<td> ${musician.bio}</td>
 					
+					<td><a href="deleteMusician.do?musicianId=${musician.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
+					<td><a href="editMusician.do?musicianId=${musician.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
 					
 				</tr>
 				

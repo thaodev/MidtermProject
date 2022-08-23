@@ -57,9 +57,17 @@
 							</c:when>
 						</c:choose>
 					</c:forEach>
+					</td> 
 					<td> 
-					
-					
+					<c:choose>
+					<c:when test="${musician.vocals == 1 }">
+					Yes
+					</c:when>
+					<c:otherwise>
+					No
+					</c:otherwise>
+					</c:choose>
+					</td>
 				</tr>
 			
 			
