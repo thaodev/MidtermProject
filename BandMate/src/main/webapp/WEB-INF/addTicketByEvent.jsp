@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Ticket Sale</title>
+<title>Add Ticket Sale</title>
 
 <jsp:include page="bootstrapHead.jsp" />
 
@@ -21,16 +21,16 @@
 		<c:out value="${errorMsg }" />
 	</c:if>
 	<div class="container mt-3">
-		<h3 class="text-center">UPDATE TICKET INFORMATION</h3>
-		<form action="updateTicket.do" method="POST">
-			<input type="hidden" name="id" value="<c:out value= "${ticket.id}"/>" />
+		<h3 class="text-center">CREATE EVENT TICKET</h3>
+		<form action="showTicket.do" method="POST">
+			<%-- <input type="hidden" name="id" value="<c:out value= "${ticket.id}"/>" /> --%>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Event*</span>
 				</div>
-				<input class="form-control" type="text"
-					value="${ticket.performance.name }" required
-					name="performance.name">
+				<div>${performance.name }</div>
+<%-- 				<input class="form-control" type="text"
+					value="${performance.name }" required> --%>
 			</div>
 			<br>
 			<div class="input-group mb-3">
@@ -38,7 +38,7 @@
 					<span class="input-group-text">Purchaser First Name*</span>
 				</div>
 				<input class="form-control" type="text"
-					value="${ticket.user.firstName }" required name="user.firstName">
+	  	placeholder="Enter First Name" required name="user.firstName">
 			</div>
 			<br>
 			<div class="input-group mb-3">
@@ -46,7 +46,7 @@
 					<span class="input-group-text">Purchaser Last Name*</span>
 				</div>
 				<input class="form-control" type="text"
-					value="${ticket.user.lastName }" required name="user.firstName">
+					placeholder="Enter Last Name" required name="user.firstName">
 			</div>
 			<br>
 
@@ -54,19 +54,12 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Ticket Price*</span>
 				</div>
-				<input class="form-control" type="text"
-					value="${ticket.ticketPrice }" required name="username"
-					placeholder="Enter Username">
+				<input class="form-control" type="text" required name="performance.ticketPrice"
+					value="${performance.ticketPrice}">
 			</div>
 			<br>
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text">Sale Date</span>
-				</div>
-				<input class="form-control" type="date" value="${ticket.saleDate }"
-					required name="saleDate">
-			</div>
-			<br>
+			<input type="hidden" name="performance.id" value="${performance.id}"/>
+			<input type="hidden" name="user.id" value="${loggedInUser.id}"/>
 			<button class="btn btn-info btn-lg btn-block text-center"
 				type="submit">Submit</button>
 		</form>

@@ -8,7 +8,7 @@ import com.skilldistillery.jpabandmate.entities.TicketSale;
 
 public interface TicketDAO {
 	List<TicketSale> findAllTickets();
-	Map<Performance, Integer> findTicketSortByEvent();
+	Map<Performance, int[]> findTicketSortByEvent();
 	List<TicketSale> findTicketByGivenEvent(int eventId);
 	TicketSale  findTicketById(int ticketId);
 	List<TicketSale>  findTicketByEventOrVenue(String event);
