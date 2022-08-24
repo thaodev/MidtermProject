@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -62,8 +63,13 @@ public class BandController {
 	}
 	
 	@RequestMapping(path="createNewBand.do")
-	public String createNewBand(HttpSession session, Band band, int[] genreIds, Model model) {
+	public String createNewBand(HttpSession session, Band band, int[] genreIds, Model model, Integer yearFormed) {
 		User user = (User) (session.getAttribute("loggedInUser"));
+		band.setYearFormed((yearFormed));
+		System.out.println("+++++++++++++++++++++++");
+		System.out.println(band);
+		System.out.println(yearFormed);
+		System.out.println("+++++++++++++++++++++++");
 		model.addAttribute("user", user);
 		model.addAttribute("band", band);
 		band = dao.createBand(band, user, genreIds);

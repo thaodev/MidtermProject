@@ -44,7 +44,7 @@
 					${genre.name}<br>
 					</c:forEach>
 					</td> 
-					<td>${band.yearFormed.getYear()}</td>
+					<td>${band.yearFormed}</td>
 					
 					<td>
 					<c:forEach var="member" items="${bandMembers}">

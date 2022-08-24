@@ -82,7 +82,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Year Formed</span>
 				</div>
-				<input class="form-control" type="year" required name="yearFormed"
+				<input class="form-control" type="number" required name="yearFormed"
 					placeholder="Enter Year Formed">
 			</div>
 			<br>
