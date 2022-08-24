@@ -55,7 +55,6 @@ public class VenueDaoImpl implements VenueDAO {
 	public boolean deleteVenue(int id) {
 		Venue venueToDelete = em.find(Venue.class, id);
 		if(venueToDelete != null) {
-			venueToDelete.setPerformances(null);
 			em.remove(venueToDelete);
 			return true;
 		} else {
