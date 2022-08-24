@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabandmate.DAO.PerformanceDAO;
 import com.skilldistillery.jpabandmate.DAO.VenueDAO;
+import com.skilldistillery.jpabandmate.entities.Address;
 import com.skilldistillery.jpabandmate.entities.Performance;
 import com.skilldistillery.jpabandmate.entities.Venue;
 
@@ -31,11 +32,6 @@ public class VenueController {
 	public String deleteVenue(int venueId, Model model) {
 		Venue venue = dao.getVenueById(venueId);
 		System.out.println(venue.getPerformances());
-		List<Performance> performances = venue.getPerformances();
-		for(int i = 0; i < performances.size(); i++) {
-		venue.removePerformances(performances.get(i));
-		}
-		System.out.println(venue.getPerformances());
 		dao.deleteVenue(venueId);
 		List<Venue> venues = dao.findAllVenue();
 		model.addAttribute("venues", venues);
@@ -56,6 +52,20 @@ public class VenueController {
 		return "venueAdmin";
 	}
 	
+	@RequestMapping(path="editVenue.do")
+	public String editVenue(int venueId, Model model) {
+		Venue venue = dao.getVenueById(venueId);
+		List<Performance> performances = pdao.findAllPerformance();
+		model.addAttribute("performances", performances);
+		model.addAttribute("venue", venue);
+		return "editVenue";
+	}
 	
-	
+	@RequestMapping(path="submitEditVenueForm.do")
+	public String submitEditVenue(Venue venue, Model model) {
+		venue = dao.editVenue(venue);
+		List<Venue> venues = dao.findAllVenue();
+		model.addAttribute("venues", venues);
+		return "venueAdmin";
+	}
 }
