@@ -53,12 +53,14 @@ public class VenueDaoImpl implements VenueDAO {
 	
 	@Override
 	public boolean deleteVenue(int id) {
-		Venue VenueToDelete = em.find(Venue.class, id);
-		if(VenueToDelete != null) {
-			em.remove(VenueToDelete);
+		Venue venueToDelete = em.find(Venue.class, id);
+		if(venueToDelete != null) {
+			venueToDelete.setPerformances(null);
+			em.remove(venueToDelete);
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 	
 	@Override
