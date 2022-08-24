@@ -22,12 +22,14 @@ public class TicketController {
 	
 	@Autowired
 	private TicketDAO dao;
+	@Autowired
+	private PerformanceDAO eventDao;
 	
 	
 	@RequestMapping(path = "showTicket.do")
 	public String tickets(Model model) {
 		
-		Map<Performance, Integer> ticketByEvent = dao.findTicketSortByEvent();
+		Map<Performance, int[]> ticketByEvent = dao.findTicketSortByEvent();
 		
 
 		model.addAttribute("ticketByEvent",ticketByEvent);
@@ -56,43 +58,61 @@ public class TicketController {
 			return "createTicket";
 		}
 
-		// Sign Up Form- CREATE TicketSale
-		@RequestMapping(path = "addTicketSale.do", method=RequestMethod.POST)
-		public String addTicketSale(TicketSale TicketSale, Model model, RedirectAttributes redir) {
-			boolean isTicketSaleAdded = false;
-			String message = "";
-
-			try {
-				TicketSale TicketSaleAdded = dao.addTicket(TicketSale);
-				if (TicketSaleAdded != null) {
-					isTicketSaleAdded = true;
-
-					//model.addAttribute("TicketSaleAdded", TicketSaleAdded);
-					redir.addFlashAttribute("TicketSaleAdded", TicketSaleAdded);
-					model.addAttribute("isTicketSaleAdded", isTicketSaleAdded);
-				}
-				message = "TicketSale is added successfully";
-				model.addAttribute("message", message);
-				redir.addFlashAttribute("message", message);
-				return "redirect:showTicketSale.do";
-				
-				
-			} catch (DataIntegrityViolationException e) {
-				System.out.println("cause" + e.getCause());
-				message = "Unable to add TicketSale since the TicketSalename already exits. Please try again!";
-				model.addAttribute("message", message);
-				e.printStackTrace();
-				return "loginResult";
-			}
+//		@RequestMapping(path = "addTicketByEventForm")
+//		public String addTicketByEventIdForm(String eventId, Model model) {
+//			int id = Integer.parseInt(eventId);
+//			Performance performance = eventDao.getPerformanceById(id);
+//			
+//			model.addAttribute("performance", performance);
+//			
+//			return "addTicketByEvent";
+//		}
+		@RequestMapping(path = "addTicketByEvent.do")
+		public String addTicketByEventId(TicketSale ticket, Model model) {
 			
+			dao.addTicket(ticket);
+			System.out.println("inside add ticket by event id");
+			
+			return "redirect:showTicket.do";
 		}
-
-		@RequestMapping(path = "TicketSaleAdded.do", method = RequestMethod.GET)
-		public String TicketSaleAdded(Model model) {
-//			model.addAttribute("message", "TicketSale is added successfully");
-			System.out.println("inside TicketSaleAdded");
-			return "loginResult";
-		}
+//		// Sign Up Form- CREATE TicketSale
+//		@RequestMapping(path = "addTicketSale.do", method=RequestMethod.POST)
+//		public String addTicketSale(TicketSale TicketSale, Model model, RedirectAttributes redir) {
+//			boolean isTicketSaleAdded = false;
+//			String message = "";
+//
+//			try {
+//				TicketSale TicketSaleAdded = dao.addTicket(TicketSale);
+//				if (TicketSaleAdded != null) {
+//					isTicketSaleAdded = true;
+//
+//					//model.addAttribute("TicketSaleAdded", TicketSaleAdded);
+//					redir.addFlashAttribute("TicketSaleAdded", TicketSaleAdded);
+//					model.addAttribute("isTicketSaleAdded", isTicketSaleAdded);
+//				}
+//				message = "TicketSale is added successfully";
+//				model.addAttribute("message", message);
+//				redir.addFlashAttribute("message", message);
+//				return "redirect:showTicketSale.do";
+//				
+//				
+//			} catch (DataIntegrityViolationException e) {
+//				System.out.println("cause" + e.getCause());
+//				message = "Unable to add TicketSale since the TicketSalename already exits. Please try again!";
+//				model.addAttribute("message", message);
+//				e.printStackTrace();
+//				return "loginResult";
+//			}
+//			
+//		}
+//
+//		@RequestMapping(path = "TicketSaleAdded.do", method = RequestMethod.GET)
+//		public String TicketSaleAdded(Model model) {
+////			model.addAttribute("message", "TicketSale is added successfully");
+//			System.out.println("inside TicketSaleAdded");
+//			return "loginResult";
+//		}
+//		
 
 	/**
 	 * SEARCH

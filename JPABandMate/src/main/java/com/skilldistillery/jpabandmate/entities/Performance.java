@@ -3,7 +3,11 @@ package com.skilldistillery.jpabandmate.entities;
 import java.beans.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+import java.util.ArrayList;
+
 import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -55,6 +59,7 @@ public class Performance {
 	//CONSTRUCTOR
 	public Performance() {
 		super();
+		ticketSales = new ArrayList<>();
 	}
 
 	//METHODS
@@ -178,6 +183,10 @@ public class Performance {
 
 	public void setPerformanceComments(List<PerformanceComment> performanceComments) {
 		this.performanceComments = performanceComments;
+	}
+	
+	public void addTicket(TicketSale ticket) {
+		ticketSales.add(ticket);
 	}
 
 	@Override
