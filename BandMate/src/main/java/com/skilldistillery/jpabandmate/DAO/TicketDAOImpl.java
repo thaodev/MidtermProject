@@ -71,7 +71,7 @@ public class TicketDAOImpl implements TicketDAO {
 
 		List<TicketSale> tickets = null;
 		String jpql = "SELECT t FROM TicketSale t WHERE t.performance.name LIKE :search OR t.performance.venue.name LIKE :search ";
-		tickets = em.createQuery(jpql, TicketSale.class).setParameter("event", "%" + search + "%").getResultList();
+		tickets = em.createQuery(jpql, TicketSale.class).setParameter("search", "%" + search + "%").getResultList();
 		if (tickets != null) {
 			System.out.println(tickets);
 			return tickets;
@@ -116,7 +116,7 @@ public class TicketDAOImpl implements TicketDAO {
 		ticketSale.setUser(em.find(User.class, ticketSale.getUser().getId()));
 		ticketSale.setTicketPrice(ticketSale.getPerformance().getTicketPrice());
 		em.persist(ticketSale);
-		if (ticketSale.getUser() != null) {
+		if (ticketSale.getUser() != null) { 
 			em.persist(ticketSale.getUser());
 		}
 		
@@ -133,10 +133,13 @@ public class TicketDAOImpl implements TicketDAO {
 	public boolean deleteTicketSale(int ticketId) {
 		boolean isDeleted = false;
 		TicketSale ticketToDelete = em.find(TicketSale.class, ticketId);
-
+//		ticketToDelete.getPerformance().removeTicket(ticketToDelete);
+		
+		System.out.println("Inside deleteTicketSale in ticketDAO impl");
 		if (ticketToDelete != null) {
-			ticketToDelete.setPerformance(null);
-			ticketToDelete.setUser(null);
+//			ticketToDelete.setPerformance(null);
+//			ticketToDelete.setUser(null);
+			em.remove(ticketToDelete);
 			isDeleted = !em.contains(ticketToDelete);
 		}
 		return isDeleted;

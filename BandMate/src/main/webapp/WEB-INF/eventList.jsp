@@ -39,6 +39,7 @@
 							<td><a href="eventPage.do?id=${performance.id}">${performance.name}</a></td>
 
 							<td><p>$ ${performance.ticketPrice}</p></td>
+							<c:if test="${not empty loggedInUser}">
 							<td><form action="addTicketByEventByNonAdmin.do"
 									method="POST">
 									<input type="hidden" name="performance.id"
@@ -49,6 +50,7 @@
 									<button class="btn btn-secondary btn-sm btn-block text-center"
 										type="submit">Add Ticket</button>
 								</form></td>
+								</c:if>
 						</tr>
 
 					</c:forEach>

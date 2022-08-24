@@ -57,8 +57,8 @@
 					<tbody>
 						<c:forEach var="entry" items="${ticketSales}">
 							<c:if test="${entry.value[1] > 0}">
-								<c:url var="deleteLink" value="deleteTicket">
-									<c:param name="id" value="${ticket.id}" />
+								<c:url var="deleteLink" value="deleteTicketsInCard">
+									<c:param name="id" value="${entry.key.id}" />
 								</c:url>
 								<tr>
 									<td><c:out value="${entry.key.name}" /></td>

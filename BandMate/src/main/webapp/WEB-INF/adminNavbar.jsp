@@ -37,7 +37,7 @@ if (session != null) {
 		</ul>
 
 				<div class="navbar-nav ms-auto text-white">
-					<p class="mr-3 text-center">${user.username}</p>
+					<p class="mr-3 text-center">${sessionScope.loggedInUser.username}</p>
 					<a href="logout.do" type="submit" class="btn btn-warning"
 						data-toggle="button" aria-pressed="false"> Logout</a>
 

@@ -41,7 +41,7 @@
 			</div>
 			<br>
 			<c:choose>
-				<c:when test="${user.admin == false}">
+				<c:when test="${sessionScope.loggedInUser.admin == false}">
 
 				</c:when>
 				<c:otherwise>
@@ -81,7 +81,7 @@
 			</div>
 			<br>
 			<c:choose>
-				<c:when test="${user.admin == false}">
+				<c:when test="${sessionScope.loggedInUser.admin == false}">
 
 				</c:when>
 				<c:otherwise>
