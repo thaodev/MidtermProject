@@ -23,9 +23,15 @@
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
-	<form class="logout.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
+<!-- 	<form action="logout.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
   Logout
-</button> </form>
+</button> </form> -->
+<div class="navbar-nav ms-auto text-white">
+					<p class="mr-3 text-center">${sessionScope.loggedInUser.username}</p>
+					<a href="logout.do" type="submit" class="btn btn-warning"
+						data-toggle="button" aria-pressed="false"> Logout</a>
+
+				</div>
     </div>
   </div>
 </nav>
