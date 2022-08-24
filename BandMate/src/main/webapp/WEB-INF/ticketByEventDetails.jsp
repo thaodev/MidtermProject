@@ -54,8 +54,8 @@
 			<tbody>
 				<c:forEach var="ticket" items="${ticketSales}">
 					<!-- construct an delete link with schedule id  -->
-					<c:url var="deleteLink" value="deleteUser">
-						<c:param name="id" value="${ticketr.id}" />
+					<c:url var="deleteLink" value="deleteTicket">
+						<c:param name="id" value="${ticket.id}" />
 					</c:url>
 					<tr>
 						<td><c:out value="${ticket.performance.name}" /></td>

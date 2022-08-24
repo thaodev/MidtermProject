@@ -88,14 +88,24 @@ public class TicketDAOImpl implements TicketDAO {
 		return tickets;
 	}
 	
-	@Override
-	public List<TicketSale> findTicketsByUserId(int userId) {
-		List<TicketSale> tickets = null;
-		
-		String jpql = "SELECT t FROM TicketSale t WHERE t.userId = :userId";
-		tickets = em.createQuery(jpql, TicketSale.class).setParameter("userId", userId).getResultList();
-		return tickets;
-	}
+//	@Override
+//	public Map<Performance, Double> findTicketsByUserId(int userId) {
+//		List<TicketSale> tickets = null;
+//		List<Performance> eventsByUserId = performDao.findPerformanceByUserId(userId);
+//		String jpql = "SELECT t FROM TicketSale t WHERE t.user.id = :userId";
+//		tickets = em.createQuery(jpql, TicketSale.class).setParameter("userId", userId).getResultList();
+//		Map<Performance, Object[]> ticketsByEvent = new HashMap<Performance, Object[]>();
+//		for (TicketSale ticket : tickets) {
+//			Object[] items = new Object[2];
+//			double sum = 0;
+//			double price = ticket.getTicketPrice();
+//			sum += price;
+//			items[0] = ;
+//			items[1] = ;
+//			ticketsByEvent.put(ticket.getPerformance(), items);
+//		}
+//		return ticketsByEvent;
+//	}
 
 	/*CREATE
 	 * */
