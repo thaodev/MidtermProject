@@ -188,6 +188,10 @@ public class Performance {
 	public void addTicket(TicketSale ticket) {
 		ticketSales.add(ticket);
 	}
+	public void removeTicket(TicketSale ticket) {
+			ticket.setUser(null);
+			ticketSales.remove(ticket);
+	}
 
 	@Override
 	public String toString() {

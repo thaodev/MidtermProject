@@ -83,6 +83,12 @@ public class Venue {
 		this.description = description;
 	}
 
+	public void removePerformances(Performance performance) {
+		if (performances != null && performances.contains(performance)) {
+			performances.remove(performance);
+			performance.setVenue(this);
+		}
+	}
 	
 	@Override
 	public int hashCode() {

@@ -26,6 +26,7 @@
 					<th>Date</th>
 					<th>Name</th>
 					<th>Venue</th>
+					<th>Band</th>
 					<th>Ticket Price</th>
 					<th>Start Time</th>
 					<th>End Time</th>
@@ -44,6 +45,8 @@
 					<td>${performance.name}</td>
 					
 					<td>${performance.venue.name}</td>
+					
+					<td>${performance.band.name}</td>
 					
 					<td><p>$ ${performance.ticketPrice}</p></td>
 					

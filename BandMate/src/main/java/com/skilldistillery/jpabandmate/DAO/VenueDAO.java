@@ -10,5 +10,5 @@ public interface VenueDAO {
 	List<Venue> findAllVenue();
 	Venue createVenue(Venue venue);
 	boolean deleteVenue(int id);
-	Venue editVenue(Venue Venue);
+	Venue editVenue(Venue venue);
 }

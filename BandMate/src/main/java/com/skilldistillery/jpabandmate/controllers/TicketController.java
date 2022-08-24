@@ -117,19 +117,29 @@ public class TicketController {
 	/**
 	 * REMOVE
 	 */
-	 @RequestMapping(path="deleteTicket")
-	 public String removeTicket(String id) {
-		 int ticketId = Integer.parseInt(id);
-		 dao.deleteTicketSale(ticketId);
-		 
-		 return "showTicketByEventDetails.do";
-	 }
+//	 @RequestMapping(path="deleteTicket")
+//	 public String removeTicket(String id) {
+//		 int ticketId = Integer.parseInt(id);
+//		 dao.deleteTicketSale(ticketId);
+//		 
+//		 return "ticketsInCartByUser";
+//	 }
 	 @RequestMapping(path="deleteTicketsInCard")
-	 public String removeTicketsInCard(String id) {
-		 int ticketId = Integer.parseInt(id);
-		 dao.deleteTicketSale(ticketId);
+	 public String removeTicketsInCard(HttpSession session, String id) {
+		 int performanceId = Integer.parseInt(id);
+		 User loggedInUser = (User) session.getAttribute("loggedInUser");
+		 Performance performance = pDao.getPerformanceById(performanceId);
+		 for (TicketSale ticket : performance.getTicketSales() ) {
+			 if (ticket.getUser().getId() == loggedInUser.getId()) {
+				 dao.deleteTicketSale(ticket.getId());
+				 System.out.println("inside the if statement");
+			 }
+		 }
 		 
-		 return "ticketsInCartByUser";
+		 System.out.println("inside remove ticket in card");
+		 
+		 
+		 return "redirect:showTicketsInCart.do";
 	 }
 	 
 	 

@@ -17,7 +17,8 @@
 
 	<c:choose>
 		<c:when test="${! empty performances}">
-
+		<div class="h1 text-center">REGISTER TICKETS BEFORE THEY ARE GONE FOR OUR CONCERTS BELOW</div>
+		<c:if test="${empty loggedInUser}"><p class="text-center"> &#127927 Please log in or become our member in order to reserve tickets &#127928 </p></c:if>
 			<table class="table table-stripped mt-3">
 				<thead class="table-secondary">
 					<tr>
@@ -25,7 +26,7 @@
 						<th>Date</th>
 						<th>Name</th>
 						<th>Ticket Price</th>
-						<th>Action</th>
+						<c:if test="${not empty loggedInUser}"><th>Action</th></c:if>
 					</tr>
 				</thead>
 
@@ -39,6 +40,7 @@
 							<td><a href="eventPage.do?id=${performance.id}">${performance.name}</a></td>
 
 							<td><p>$ ${performance.ticketPrice}</p></td>
+							<c:if test="${not empty loggedInUser}">
 							<td><form action="addTicketByEventByNonAdmin.do"
 									method="POST">
 									<input type="hidden" name="performance.id"
@@ -49,6 +51,7 @@
 									<button class="btn btn-secondary btn-sm btn-block text-center"
 										type="submit">Add Ticket</button>
 								</form></td>
+								</c:if>
 						</tr>
 
 					</c:forEach>

@@ -27,9 +27,8 @@ body {
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-secondary">
 							<h4 class="card-title">Users</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">You can create, edit, or delete a User account through here.</p>
 							<a class="btn btn-outline-dark bg-white" href="showUser.do">View
 								Details</a>
 						</div>
@@ -55,9 +54,8 @@ body {
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-warning">
 							<h4 class="card-title">Venues</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Have a new spot to host an event? Create, edit, or delete a Venue through here.</p>
 							<a class="btn btn-outline-dark bg-white" href="venueAdmin.do">View
 								Details</a>
 						</div>
@@ -67,9 +65,8 @@ body {
 					<div class="card" style="width: 20rem;">
 						<div class="card-body" style="background-color: pink">
 							<h4 class="card-title">Musicians</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Take a closer look into our musicians. Create, edit, or delete a Musician account through here.</p>
 							<a class="btn btn-outline-dark bg-white" href="#">View
 								Details</a>
 						</div>
@@ -85,9 +82,8 @@ body {
 					<div class="card" style="width: 20rem;">
 						<div class="card-body bg-info">
 							<h4 class="card-title">Bands</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Manage band information and band accounts through here. Create, edit, or delete a Band account through here.</p>
 							<a class="btn btn-outline-dark bg-white" href="#">View
 								Details</a>
 						</div>
@@ -97,10 +93,9 @@ body {
 					<div class="card" style="width: 20rem;">
 						<div class="card-body">
 							<h4 class="card-title">Reviews</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-white" href="#">View Details</a>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Manage reviews through here.</p>
+							<a class="btn btn-outline-dark" href="#">View Details</a>
 						</div>
 					</div>
 				</div>
@@ -112,9 +107,8 @@ body {
 					<div class="card" style="width: 20rem;">
 						<div class="card-body" style="background-color: 255-102-102">
 							<h4 class="card-title">Tickets</h4>
-							<h6 class="card-subtitle text-muted">Card subtitle</h6>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Illo, quas.</p>
+							<h6 class="card-subtitle text-muted"></h6>
+							<p class="card-text">Look into our Ticket activity.</p>
 							<a class="btn btn-outline-dark bg-white" href="showTicket.do">View
 								Details</a>
 						</div>

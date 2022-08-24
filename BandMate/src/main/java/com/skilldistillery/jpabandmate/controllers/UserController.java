@@ -105,16 +105,20 @@ public class UserController {
 		return "updateUser";
 	}
 	@RequestMapping(path = "updateUser.do", method=RequestMethod.POST)
-	public String updateUser(User user, Model model) {
+	public String updateUser(HttpSession session, User user, Model model) {
 		System.out.println("inside updateUser");
-		
+		User userLoggedIn = (User) session.getAttribute("loggedInUser");
 		model.addAttribute("user",user);
 		try {
 			boolean isUpdatedSuccess = dao.updateUser(user);
 			
 			model.addAttribute("updateResult",isUpdatedSuccess);
+			if (userLoggedIn.getAdmin() == true) {
 			
 			return "redirect:showUser.do";
+			} else {
+				return "viewProfile";
+			}
 			
 		} catch (DataIntegrityViolationException e) {
 			System.out.println("cause" + e.getCause());
