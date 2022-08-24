@@ -87,11 +87,24 @@ public class TicketDAOImpl implements TicketDAO {
 		tickets = em.createQuery(jpql, TicketSale.class).setParameter("eventId", eventId).getResultList();
 		return tickets;
 	}
+	
+	@Override
+	public List<TicketSale> findTicketsByUserId(int userId) {
+		List<TicketSale> tickets = null;
+		
+		String jpql = "SELECT t FROM TicketSale t WHERE t.userId = :userId";
+		tickets = em.createQuery(jpql, TicketSale.class).setParameter("userId", userId).getResultList();
+		return tickets;
+	}
+
+	/*CREATE
+	 * */
 
 	@Override
 	public TicketSale addTicket(TicketSale ticketSale) {
 		ticketSale.getPerformance().addTicket(ticketSale);
 		ticketSale.setUser(em.find(User.class, ticketSale.getUser().getId()));
+		ticketSale.setTicketPrice(ticketSale.getPerformance().getTicketPrice());
 		em.persist(ticketSale);
 		if (ticketSale.getUser() != null) {
 			em.persist(ticketSale.getUser());
@@ -100,6 +113,8 @@ public class TicketDAOImpl implements TicketDAO {
 		em.flush();
 		return ticketSale;
 	}
+	
+	
 
 	/**
 	 * DELETE
@@ -116,6 +131,7 @@ public class TicketDAOImpl implements TicketDAO {
 		}
 		return isDeleted;
 	}
+
 
 
 

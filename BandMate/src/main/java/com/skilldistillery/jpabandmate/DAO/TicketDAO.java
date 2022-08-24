@@ -10,6 +10,7 @@ public interface TicketDAO {
 	List<TicketSale> findAllTickets();
 	Map<Performance, int[]> findTicketSortByEvent();
 	List<TicketSale> findTicketByGivenEvent(int eventId);
+	List<TicketSale> findTicketsByUserId(int userId);
 	TicketSale  findTicketById(int ticketId);
 	List<TicketSale>  findTicketByEventOrVenue(String event);
 	TicketSale addTicket(TicketSale ticketSale);
