@@ -176,8 +176,7 @@ public class MusicianController {
 		System.out.println("-------REMOVE FROM BAND--------");
 		System.out.println(musicianId);
 		System.out.println(bandId);
-		List<BandMemberId> bmis = dao.findAllBandMemberIds();
-		dao.removeMusicianFromBand(bmis, musicianId);
+		dao.removeMusicianFromBand(bandId, musicianId);
 		
 		return "redirect:musicianListPage.do";
 	}

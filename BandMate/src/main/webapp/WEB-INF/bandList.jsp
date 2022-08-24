@@ -44,7 +44,7 @@
 					${genre.name}<br>
 					</c:forEach>
 					</td> 
-					<td>${band.yearFormed}</td>
+					<td>${band.yearFormed.getYear()}</td>
 					
 					<td>
 					<c:forEach var="member" items="${bandMembers}">
@@ -56,11 +56,17 @@
 					</c:forEach>
 					</td> 
 					
-					
+					<c:choose>
+					<c:when test="${sessionScope.loggedInUser == band.manager || sessionScope.loggedInUser.admin == true}">
+					 
 					<td><a href="deleteBand.do?bandId=${band.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
 					<td><a href="editBand.do?bandId=${band.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+					</c:when>
+					<c:otherwise>
 					
 					
+					</c:otherwise>
+					</c:choose>
 				</tr>
 				
 				
@@ -76,12 +82,12 @@
 		<h3>No Bands Found</h3>
 	</c:otherwise>
 </c:choose>
-
+<c:if test="${not empty loggedInUser}">
 <form action="addBand.do">
 <button class="btn btn-info btn-lg btn-block text-center" type="submit" value="Add New Band">
 Add New Band </button>
 				</form>
-
+ </c:if>
 <jsp:include page="bootstrapFoot.jsp" />
 
 </body>
