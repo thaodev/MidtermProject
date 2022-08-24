@@ -29,7 +29,7 @@ body {
 							<h4 class="card-title">Users</h4>
 							<h6 class="card-subtitle text-muted"></h6>
 							<p class="card-text">You can create, edit, or delete a User account through here.</p>
-							<a class="btn btn-outline-dark bg-white" href="showUser.do">View
+							<a class="btn btn-outline-dark bg-white" href="showAllUserBy1stPage.do">View
 								Details</a>
 						</div>
 					</div>

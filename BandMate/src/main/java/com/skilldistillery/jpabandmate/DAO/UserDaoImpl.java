@@ -69,6 +69,19 @@ public class UserDaoImpl implements UserDAO {
 			return null;
 		}
 	}
+	
+	@Override
+	public List<User> findAllUsers(int pageStart) {
+		List<User> users = null;
+		String jpql = "SELECT u FROM User u";
+		users = em.createQuery(jpql, User.class).setFirstResult(pageStart).setMaxResults(10).getResultList();
+		if (users != null) {
+			System.out.println(users);
+			return users;
+		} else {
+			return null;
+		}
+	}
 
 	@Override
 	public List<User> searchUserByName(String keyword) {
