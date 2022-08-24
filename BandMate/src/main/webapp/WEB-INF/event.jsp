@@ -19,7 +19,7 @@
 	<c:when test="${! empty performance}">
 	
 		<table class="table table-stripped mt-3">
-			<thead class="table-secondary"> 
+			<thead style="background-color:#a3a3c2"> 
 				<tr>
 					<!-- <th>ID</th> -->
 					<th>Date</th>
@@ -56,6 +56,20 @@
 			</tbody>
 		</table>
 		
+		<table class="table table-stripped mt-3">
+			<thead style="background-color:#a3a3c2" > 
+			<tr>
+				<th style="text-align:center">Venue</th>
+			</tr>
+				
+		</table>
+				<div style="text-align: center;" >
+				<img src="${performance.venue.venueImageUrl}"width="autopx" height="350px"/>
+				</div>
+				
+				
+			    
+			
 		
 	</c:when>
 	
