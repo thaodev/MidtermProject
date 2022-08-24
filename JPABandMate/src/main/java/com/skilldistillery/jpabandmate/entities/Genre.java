@@ -1,8 +1,10 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -69,6 +71,31 @@ public class Genre {
 			return false;
 		Genre other = (Genre) obj;
 		return id == other.id;
+	}
+
+
+	public List<Band> getBands() {
+		return bands;
+	}
+
+
+	public void setBands(List<Band> bands) {
+		this.bands = bands;
+	}
+	
+	public void addBand(Band band) {
+		if (bands == null) {bands = new ArrayList<>(); }
+		if (! bands.contains(band)) {
+			bands.add(band);
+			band.addGenre(this);
+		}
+	}
+	
+	public void removeBand(Band band) {
+		if ( bands != null && bands.contains(band) ) {
+			bands.remove(band);
+			band.removeGenre(this);
+		}
 	}
 
 //	@Override

@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,35 +18,34 @@ public class Musician {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String phone;
-	
+
 	private String bio;
-	
+
 	private int vocals;
-	
-	@Column(name="band_member_image_url")
+
+	@Column(name = "band_member_image_url")
 	private String bandMemberImage;
 
 	@ManyToMany(mappedBy = "followedMusicians")
 	private List<User> followers;
-	
-	@OneToMany(mappedBy="musician")
+
+	@OneToMany(mappedBy = "musician")
 	private List<Instrument> instruments;
-	
-	//CONSTRUCTOR
+
+	// CONSTRUCTOR
 	public Musician() {
 		super();
 	}
-	
-	
-	//METHODS
+
+	// METHODS
 	public int getId() {
 		return id;
 	}
@@ -69,7 +69,6 @@ public class Musician {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 
 	public String getPhone() {
 		return phone;
@@ -103,16 +102,13 @@ public class Musician {
 		this.bandMemberImage = bandMemberImage;
 	}
 
-	
 	public List<User> getFollowers() {
 		return followers;
 	}
 
-
 	public void setFollowers(List<User> followers) {
 		this.followers = followers;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -134,20 +130,35 @@ public class Musician {
 	@Override
 	public String toString() {
 		return "Musician [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", instrument="
-				 + ", phone=" + phone + ", bio=" + bio + ", vocals=" + vocals + ", bandMemberImage="
-				+ bandMemberImage + "]";
+				+ ", phone=" + phone + ", bio=" + bio + ", vocals=" + vocals + ", bandMemberImage=" + bandMemberImage
+				+ "]";
 	}
-
 
 	public List<Instrument> getInstruments() {
 		return instruments;
 	}
 
-
 	public void setInstruments(List<Instrument> instruments) {
 		this.instruments = instruments;
 	}
-	
-	
-	
+	 public void addInstrument(Instrument instrument) {
+	        if (instruments == null) {
+	            instruments = new ArrayList<>();
+	        }
+	        if (!instruments.contains(instrument)) {
+	            instruments.add(instrument);
+	            if (instrument.getMusician() != null) {
+	                instrument.getMusician().getInstruments().remove(instrument);
+	            }
+	            instrument.setMusician(this);
+	            ;
+	        }
+	    }
+
+	    public void removeInstrument(Instrument instrument) {
+	        instrument.setMusician(null);
+	        if (instruments != null) {
+	            instruments.remove(instrument);
+	        }
+	    }
 }

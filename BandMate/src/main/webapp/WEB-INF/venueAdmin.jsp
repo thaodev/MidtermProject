@@ -41,7 +41,7 @@
 					
 					<td>${venue.name}</td>
 					
-					<td>${venue.venueImageUrl}</td>
+					<td><img src="${venue.venueImageUrl}" width="75px" height="75px"/></td>
 					
 					<td>${venue.capacity}</td>
 					
