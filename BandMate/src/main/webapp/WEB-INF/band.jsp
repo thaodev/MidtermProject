@@ -22,6 +22,7 @@
 			<thead class="table-secondary"> 
 				<tr>
 					<th></th>
+					<th>Id</th>
 					<th>Band</th>
 					<th>Description</th>
 					<th>Genre</th>
@@ -33,7 +34,7 @@
 			<tbody>
 				<tr>
 					<td><img src="${band.bandImage}" width="200px" height="200px"/></td>
-					
+					<td>${band.id}</td>
 					<td>${band.name}</td>
 					<td>${band.description}</td>
 					<td>

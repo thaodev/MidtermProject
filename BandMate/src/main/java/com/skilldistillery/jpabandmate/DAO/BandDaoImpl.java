@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
 import com.skilldistillery.jpabandmate.entities.BandMemberId;
+import com.skilldistillery.jpabandmate.entities.Genre;
 import com.skilldistillery.jpabandmate.entities.User;
 
 
@@ -23,8 +24,17 @@ public class BandDaoImpl implements BandDAO {
 	private EntityManager em;
 	
 	@Override
-	public Band createBand(Band band, User user) {
+	public Band createBand(Band band, User user, int[] genreIds) {
 		band.setManager(user);
+		
+		List<Genre> genres = new ArrayList<>();
+		for (int id : genreIds) {
+			Genre g = em.find(Genre.class, id);
+			if (g != null) {
+				genres.add(g);
+			}
+		}
+		band.setGenres(genres);
 		em.persist(band);
 		System.out.println("testing create band method");
 		return band;
@@ -39,9 +49,14 @@ public class BandDaoImpl implements BandDAO {
 	@Override
 	public List<Band> findBandByKeyword(String keyword) {
 		List<Band> bands = new ArrayList<>();
-		String jpql = "SELECT b FROM Band b WHERE b.name LIKE :kw";
+		String jpql = "";
+		System.out.println("---------IN BAND DAOIMPL------");
+		System.out.println(bands);
+		jpql = "SELECT b FROM Band b WHERE b.name LIKE :kw";
 		bands = em.createQuery(jpql, Band.class).setParameter("kw", "%" + keyword + "%")
 				.getResultList();
+		System.out.println("---------IN BAND DAOIMPL------");
+		System.out.println(bands);
 		
 		return bands;
 	}
@@ -86,7 +101,8 @@ public class BandDaoImpl implements BandDAO {
 	}
 	
 	@Override
-	public Band editBand(Band band) {
+	public Band editBand(Band band, int[] genreIds) {
+		BandDaoImpl dao = new BandDaoImpl();
 		Band bandToEdit = em.find(Band.class, band.getId());
 		if(bandToEdit != null) {
 			bandToEdit.setName(band.getName());
@@ -94,15 +110,23 @@ public class BandDaoImpl implements BandDAO {
 			bandToEdit.setYearFormed(band.getYearFormed());
 			bandToEdit.setBandImage(band.getBandImage());
 			bandToEdit.setBandLogo(band.getBandLogo());
-			bandToEdit.setGenres(band.getGenres());
-			
+
+			List<Genre> genres = new ArrayList<>();
+			for (int id : genreIds) {
+				Genre g = em.find(Genre.class, id);
+				if (g != null) {
+					genres.add(g);
+				}
+			}
+			bandToEdit.setGenres(genres);
+				
 			
 		}
 		return bandToEdit;
 	}
 	
 	@Override
-	public boolean deleteBand(int id) {
+	public boolean deleteBand(Integer id) {
 		Band bandToDelete = em.find(Band.class, id);
 		if(bandToDelete != null) {
 			em.remove(bandToDelete);
@@ -112,6 +136,16 @@ public class BandDaoImpl implements BandDAO {
 	}
 
 
+	@Override
+	public List<Genre> findAllGenres() {
+		List<Genre> genres = null;
+		String jpql = "SELECT g FROM Genre g ORDER BY g.name";
+		genres = em.createQuery(jpql, Genre.class).getResultList();
+		
+		return genres;
+	}
+
+	
 	
 
 	

@@ -9,15 +9,18 @@ import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
 
 public interface MusicianDAO {
-	Musician getMusicianById(int id);
+	Musician getMusicianById(Integer id);
 	List<Musician> findAllMusicians();
 	Musician createMusician(Musician musician);
-	boolean deleteMusician(int id);
+	boolean deleteMusician(Integer id);
 	Musician editMusician(Musician musician);
 	List<Musician> findMusicianByKeyword(String keyword);
 	List<Instrument> findAllInstruments();
 	List<BandMember> findAllBandMembers();
 	List<BandMemberId> findAllBandMemberIds();
+	BandMember createBandMember(Integer musicianId, Integer bandId, String stageName);
 	List<Band> findAllBands();
+	Musician addInstruments(Musician musician, List<Instrument> instruments);
+	boolean removeMusicianFromBand(List<BandMemberId> bmis, Integer musicianId);
 	
 }

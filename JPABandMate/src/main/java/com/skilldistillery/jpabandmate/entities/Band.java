@@ -1,8 +1,10 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -110,6 +112,21 @@ public class Band {
 		this.genres = genres;
 	}
 
+	public void addGenre(Genre genre) {
+		if (genres == null) {genres = new ArrayList<>(); }
+		if (! genres.contains(genre)) {
+			genres.add(genre);
+			genre.addBand(this);
+		}
+	}
+	
+	public void removeGenre(Genre genre) {
+		if ( genres != null && genres.contains(genre) ) {
+			genres.remove(genre);
+			genre.removeBand(this);
+		}
+	}
+	
 
 	@Override
 	public int hashCode() {

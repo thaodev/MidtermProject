@@ -106,7 +106,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `instrument` ;
 
 CREATE TABLE IF NOT EXISTS `instrument` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `price` DECIMAL NULL,
   `musician_id` INT NOT NULL,
@@ -492,9 +492,22 @@ START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (1, 'Rocky', 'Rockerson', '555-300-1129', 'I am the lead singer of my awesome band', 1, 'https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80');
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (2, 'Billy', 'Hammer', '555-300-1128', 'I am the lead guitarist of my awesome band', 0, 'https://images.unsplash.com/photo-1566937169390-7be4c63b8a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80');
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (3, 'Frank', 'Freeman', NULL, 'Singer and banjo player for Flock Freeman', 1, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (4, 'Fran', 'Freeman', NULL, 'Drummer for Flock Freeman', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (5, 'Follie', 'Freeman', NULL, 'Guitarist for Flock Freeman', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (3, 'Frank', 'Freeman', NULL, 'Singer and banjo player for Flock Freeman', 1, 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (4, 'Fran', 'Freeman', NULL, 'Drummer for Flock Freeman', 0, 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (5, 'Follie', 'Freeman', NULL, 'Guitarist for Flock Freeman', 0, 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (6, 'Tevin', 'Edmonds', NULL, 'Sax player for The Sandbox', 0, 'https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (7, 'Shona', 'Cartwright', NULL, 'Drummer for The Sandbox', 0, 'https://images.unsplash.com/photo-1571327073757-71d13c24de30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (8, 'Aila', 'Alexander', NULL, 'DJ for The Correction Screens', 1, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (9, 'Brody', 'Powers', NULL, 'Lamb Commander lead guitarist', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (10, 'Christian', 'Zamora', NULL, 'Lamb Commander drummer', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (11, 'Amos', 'Donalds', NULL, 'Lamb Commander bassist', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (12, 'Roseanne', 'Tucker', NULL, 'Hook Offense solo guitarist', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (13, 'Victor', 'Hodge', NULL, 'Lilacs Locus organ player', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (14, 'Kaylum', 'Leach', NULL, 'Lilacs Locus drummer', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (15, 'Alan', 'McAndy', NULL, 'Lilacs Locus guitarist', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (16, 'Phillip', 'Lim', NULL, 'Honeybee Races DJ', 0, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (17, 'Mac', 'Stein', NULL, 'Honeybee Races pianist', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (18, 'Sam', 'Cornish', NULL, 'Jam Accentuate lead singer', 1, NULL);
 
 COMMIT;
 
@@ -557,6 +570,19 @@ INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUE
 INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 3, 'Frank Freeman', 'Lead Singer');
 INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 4, 'Fran Freeman', 'Drummer');
 INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (5, 5, 'Follie Freeman', 'Guitarist');
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (2, 6, 'Tevin Edmonds', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (2, 7, 'Shona Cartwright', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (4, 8, 'Aila Alexander', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (3, 9, 'Brody Powers', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (3, 10, 'Christian Zamora', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (3, 11, 'Amos Donalds', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (6, 12, 'Roseanne Tucker', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (7, 13, 'Victor Hodge', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (7, 14, 'Kaylum Leach', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (7, 15, 'Alan McAndy', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (9, 16, 'Phillip Lim', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (9, 17, 'Mac Stein', NULL);
+INSERT INTO `band_member` (`band_id`, `musician_id`, `stage_name`, `role`) VALUES (11, 18, 'Sam Cornish', NULL);
 
 COMMIT;
 
