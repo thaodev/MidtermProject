@@ -17,7 +17,7 @@
 <body>
 
 <jsp:include page="navbarController.jsp" />
-	<p>Checkout message</p>
+
 	<p class="h1 text-center">&#128079<c:out value="${message}"/></p>
 
 	<jsp:include page="bootstrapFoot.jsp" />

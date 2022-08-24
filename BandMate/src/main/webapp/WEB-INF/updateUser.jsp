@@ -15,9 +15,6 @@
 <body>
 	<jsp:include page="navbarController.jsp" />
 	<c:if test="${not empty errorMsg }">
-		<%-- 		<p style="font-size: 10px; font-color: red">
-			<c:out value="${errorMsg}" />
-		</p> --%>
 		<c:out value="${errorMsg }" />
 	</c:if>
 	<div class="container mt-3">

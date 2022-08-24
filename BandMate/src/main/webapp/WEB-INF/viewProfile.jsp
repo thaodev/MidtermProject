@@ -14,13 +14,7 @@
 
 </head>
 <body>
-	<c:choose>
-		<c:when test="${not empty sessionScope.loggedInUser}">
-			<c:out value="${ sessionScope.loggedInUser.getUsername()}" />
-			out.println("user is " + sessionScope.loggedInUser.getUsername());
-		</c:when>
-		<c:otherwise></c:otherwise>
-	</c:choose>
+
 
 	<jsp:include page="navbarController.jsp" />
 
@@ -66,7 +60,7 @@
 			</tr>
 		</table>
 
-		<form action="updateUser.do" method="POST">
+		<form action="updateUser" method="GET">
 			<input type="hidden" name="id" value="<c:out value= "${user.id}"/>" />
 			<button class="btn btn-info btn-lg btn-block text-center"
 				type="submit">Update profile</button>
