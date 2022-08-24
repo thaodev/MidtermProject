@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +29,7 @@ public class Band {
 	private String description;
 	
 	@Column(name="year_formed")
-	private String yearFormed;
+	private LocalDate yearFormed;
 	
 	@Column(name="band_image_url")
 	private String bandImage;
@@ -79,11 +80,11 @@ public class Band {
 		this.description = description;
 	}
 
-	public String getYearFormed() {
+	public LocalDate getYearFormed() {
 		return yearFormed;
 	}
 
-	public void setYearFormed(String yearFormed) {
+	public void setYearFormed(LocalDate yearFormed) {
 		this.yearFormed = yearFormed;
 	}
 

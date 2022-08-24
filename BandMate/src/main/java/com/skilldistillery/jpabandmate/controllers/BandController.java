@@ -26,7 +26,7 @@ public class BandController {
 	private GenreDAO genreDao;
 	
 	@RequestMapping(path="bandListPage.do")
-	public String bandList(Model model) {
+	public String bandList(Model model, HttpSession session) {
 		List<Band> bands = dao.findAllBands();
 		List<BandMember> bandMembers = dao.findAllBandMembers();
 		model.addAttribute("bands", bands);

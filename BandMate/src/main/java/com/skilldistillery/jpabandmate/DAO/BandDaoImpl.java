@@ -66,12 +66,7 @@ public class BandDaoImpl implements BandDAO {
 		List<Band> bands = null;
 		String jpql = "SELECT b FROM Band b";
 		bands = em.createQuery(jpql, Band.class).getResultList();
-		if(bands != null ) {
-			System.out.println(bands);
 			return bands;
-		} else {
-			return null;
-		}
 	}
 	
 	@Override
@@ -79,12 +74,8 @@ public class BandDaoImpl implements BandDAO {
 		List<BandMember> bandMembers = null;
 		String jpql = "SELECT bm FROM BandMember bm";
 		bandMembers = em.createQuery(jpql, BandMember.class).getResultList();
-		if (bandMembers != null) {
-			System.out.println(bandMembers);
+		System.out.println("******************" + bandMembers);
 			return bandMembers;
-		} else {
-			return null;
-		}
 	}
 	
 	@Override
@@ -92,12 +83,7 @@ public class BandDaoImpl implements BandDAO {
 		List<BandMemberId> bandMemberIds = null;
 		String jpql = "SELECT bmi FROM BandMemberId bmi";
 		bandMemberIds = em.createQuery(jpql, BandMemberId.class).getResultList();
-		if (bandMemberIds != null) {
-			System.out.println(bandMemberIds);
 			return bandMemberIds;
-		} else {
-			return null;
-		}
 	}
 	
 	@Override
@@ -129,6 +115,18 @@ public class BandDaoImpl implements BandDAO {
 	public boolean deleteBand(Integer id) {
 		Band bandToDelete = em.find(Band.class, id);
 		if(bandToDelete != null) {
+			
+			List<Genre> genres = new ArrayList<>(bandToDelete.getGenres());
+			
+			for (Genre genre : genres) {
+				bandToDelete.removeGenre(genre);
+				
+			}
+			for (BandMember bm : findAllBandMembers()) {
+				if (bm.getId().getBandId() == bandToDelete.getId()) {
+					em.remove(bm);
+				}
+			}
 			em.remove(bandToDelete);
 			return true;
 		}

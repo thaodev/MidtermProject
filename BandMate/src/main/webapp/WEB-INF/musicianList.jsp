@@ -50,9 +50,18 @@
 					</c:forEach>
 					</td> 
 					<td> ${musician.bio}</td>
+					<c:choose>
+					<c:when test="${sessionScope.loggedInUser.admin == true}">
 					
 					<td><a href="deleteMusician.do?musicianId=${musician.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
 					<td><a href="editMusician.do?musicianId=${musician.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+					
+					</c:when>
+					<c:otherwise>
+					
+					
+					</c:otherwise>
+					</c:choose>
 					<td><a href="addMusicianToBand.do?musicianId=${musician.id}" type="button" class="btn btn-secondary btn-sm">Add to Band</a></td>
 					
 				</tr>
@@ -70,12 +79,12 @@
 		<h3>No Musicians Found</h3>
 	</c:otherwise>
 </c:choose>
-
+<c:if test="${not empty loggedInUser}">
 <form action="addMusician.do">
 <button class="btn btn-info btn-lg btn-block text-center" type="submit" value="Add New Musician">
 Add New Musician </button>
 				</form>
-
+</c:if>
 <jsp:include page="bootstrapFoot.jsp" />
 
 </body>

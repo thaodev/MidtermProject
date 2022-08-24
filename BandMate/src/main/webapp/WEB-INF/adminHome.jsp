@@ -67,7 +67,7 @@ body {
 							<h4 class="card-title">Musicians</h4>
 							<h6 class="card-subtitle text-muted"></h6>
 							<p class="card-text">Take a closer look into our musicians. Create, edit, or delete a Musician account through here.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View
+							<a class="btn btn-outline-dark bg-white" href="musicianListPage.do">View
 								Details</a>
 						</div>
 
@@ -84,7 +84,7 @@ body {
 							<h4 class="card-title">Bands</h4>
 							<h6 class="card-subtitle text-muted"></h6>
 							<p class="card-text">Manage band information and band accounts through here. Create, edit, or delete a Band account through here.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View
+							<a class="btn btn-outline-dark bg-white" href="bandListPage.do">View
 								Details</a>
 						</div>
 					</div>
