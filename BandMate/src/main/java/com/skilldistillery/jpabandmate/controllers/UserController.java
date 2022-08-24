@@ -38,7 +38,7 @@ public class UserController {
 		
 		model.addAttribute("users",users);
 		
-		return "showAllUsers";
+		return "paginationTest";
 	}
 	
 	/**

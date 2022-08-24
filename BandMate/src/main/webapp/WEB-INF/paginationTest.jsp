@@ -2,13 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.util.*, java.time.format.DateTimeFormatter, com.skilldistillery.jpabandmate.entities.User" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page
+	import="java.util.*, java.time.format.DateTimeFormatter, com.skilldistillery.jpabandmate.entities.User"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>showAllUsers</title>
+<title>Sign Up Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
 
@@ -16,7 +17,7 @@
 </head>
 <body>
 
-<jsp:include page="navbarController.jsp" />
+	<jsp:include page="navbarController.jsp" />
 	<div class="row">
 		<!--  -->
 		<div class="col-md-3 offset-md-3"></div>
@@ -62,7 +63,7 @@
 						<c:param name="id" value="${user.id}" />
 					</c:url>
 					<tr>
-						<td>${user.firstName} ${user.lastName}</td>
+						<td>${user.firstName}${user.lastName}</td>
 						<td><c:out value="${user.dobFormatted}" /></td>
 						<td><c:out value="${user.username}" /></td>
 						<td><c:out value="${user.address.street}" /></td>
@@ -80,6 +81,20 @@
 				</c:forEach>
 			</tbody>
 		</table>
+
+		<ul class="pagination">
+			<c:set var="startIndex" value="${page*10 + 1}" />
+			<c:if test="${currentIndex > 10}"><li class="page-item"><a class="page-link"
+				href="showAllUserByPage.do?startIndex=${currentIndex-10}">Previous</a></li></c:if>
+			<c:forEach var="page" begin="0" end="${ numOfPages-1}">
+			<c:set var="startIndex" value="${page*10 + 1}" />
+				<li class="page-item"><a class="page-link"
+					href="showAllUserByPage.do?startIndex=${startIndex}">${page + 1}</a></li>
+			</c:forEach>
+			<c:if test="${currentIndex < (numOfPages*10)-10}"><li class="page-item"><a class="page-link"
+				href="showAllUserByPage.do?startIndex=${currentIndex+10}">Next</a></li></c:if>
+
+		</ul>
 		<div class="row ">
 			<div class="col-sm text-center ">
 				<a href="signUp.do" class="btn btn-warning" role="button"
