@@ -27,6 +27,7 @@
 					<th>Bio</th>
 					<th>Delete</th>
 					<th>Edit</th>
+					<th>Add to Band</th>
 				</tr>
 			</thead>
 			
@@ -52,6 +53,7 @@
 					
 					<td><a href="deleteMusician.do?musicianId=${musician.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
 					<td><a href="editMusician.do?musicianId=${musician.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+					<td><a href="addMusicianToBand.do?musicianId=${musician.id}" type="button" class="btn btn-secondary btn-sm">Add to Band</a></td>
 					
 				</tr>
 				

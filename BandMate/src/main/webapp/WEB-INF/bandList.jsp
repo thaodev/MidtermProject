@@ -27,6 +27,8 @@
 					<th>Genre</th>
 					<th>Year Formed</th>
 					<th>Band Members</th>
+					<th>Delete</th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 			

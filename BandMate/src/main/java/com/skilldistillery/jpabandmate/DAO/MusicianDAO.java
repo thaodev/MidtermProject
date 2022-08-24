@@ -18,7 +18,9 @@ public interface MusicianDAO {
 	List<Instrument> findAllInstruments();
 	List<BandMember> findAllBandMembers();
 	List<BandMemberId> findAllBandMemberIds();
+	BandMember createBandMember(Integer musicianId, Integer bandId, String stageName);
 	List<Band> findAllBands();
 	Musician addInstruments(Musician musician, List<Instrument> instruments);
+	boolean removeMusicianFromBand(List<BandMemberId> bmis, Integer musicianId);
 	
 }

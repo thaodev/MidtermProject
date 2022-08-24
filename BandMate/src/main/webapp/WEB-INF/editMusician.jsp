@@ -45,7 +45,7 @@
     <label for="bandMemberImage"></label>
     <input type="text" name="bandMemberImage" class="form-control" id="bandMemberImage" value="${musician.bandMemberImage}">
   </div>
-  
+  <%-- 
   <c:forEach var="instrument" items="${instruments}">
 						<c:choose>
 							<c:when test="${instrument.getMusician().id == musician.id}">
@@ -62,7 +62,7 @@
 					</c:forEach>
   
   <div class="input-group mb-3">
-  
+   --%>
 			 <span class="input-group-text">Vocals</span>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="vocals"
@@ -80,7 +80,11 @@
 			<br>
   <button type="submit" class="btn btn-secondary">Submit</button>
 </form>
-
+<br>
+<form action="removeFromBand.do" method="POST">
+<input type="hidden" name="id" value="${musician.id}">
+<a href="removeFromBand.do?musicianId=${musician.id}" type="button" class="btn btn-secondary btn-sm">Remove from Band</a>
+</form>
 </main>
 
 <jsp:include page="bootstrapFoot.jsp" />

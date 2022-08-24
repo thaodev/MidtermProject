@@ -11,10 +11,11 @@ import com.skilldistillery.jpabandmate.entities.User;
 public interface BandDAO {
 	Band getBandById(int id);
 	List<Band> findAllBands();
-	Band createBand(Band band, User user, Genre genre);
+	Band createBand(Band band, User user, int[] genreIds);
 	boolean deleteBand(Integer id);
-	Band editBand(Band band, Genre genre);
+	Band editBand(Band band, int[] genreIds);
 	List<Band> findBandByKeyword(String keyword);
 	List<BandMember> findAllBandMembers();
 	List<BandMemberId> findAllBandMemberIds();
+	List<Genre> findAllGenres();
 }

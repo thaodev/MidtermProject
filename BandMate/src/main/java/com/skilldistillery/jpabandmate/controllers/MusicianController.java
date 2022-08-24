@@ -1,6 +1,5 @@
 package com.skilldistillery.jpabandmate.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,10 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.jpabandmate.DAO.BandDAO;
 import com.skilldistillery.jpabandmate.DAO.InstrumentDAO;
 import com.skilldistillery.jpabandmate.DAO.MusicianDAO;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
+import com.skilldistillery.jpabandmate.entities.BandMemberId;
 import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
 
@@ -25,6 +26,9 @@ public class MusicianController {
 	
 	@Autowired
 	private InstrumentDAO instrumentDao;
+
+	@Autowired
+	private BandDAO bandDao;
 	
 	@RequestMapping(path="musicianListPage.do")
 	public String bandList(Model model) {
@@ -137,6 +141,44 @@ public class MusicianController {
 		
 		List<Musician> musicians = dao.findAllMusicians();
 		model.addAttribute("musiciains", musicians);
+		return "redirect:musicianListPage.do";
+	}
+	
+	@RequestMapping(path="addMusicianToBand.do")
+	public String addMusicianToBand(Integer musicianId, Model model) {
+		Musician musician = dao.getMusicianById(musicianId);
+		System.out.println(musician);
+		model.addAttribute("musician", musician);
+		return "addMusicianToBand";
+	}
+	
+	@RequestMapping(path="submitAddMusicianToBand.do")
+	public String submitAddMusicianToBand(Integer musicianId, Integer bandId, String stageName, Model model) {
+		System.out.println("-------ADD MUSICIAN TO BAND--------");
+		System.out.println(musicianId);
+		System.out.println(bandId);
+		
+		dao.createBandMember(musicianId, bandId, stageName);
+		
+		return "redirect:musicianListPage.do";
+	}
+	
+	@RequestMapping(path="removeFromBand.do")
+	public String removeFromBand(Integer musicianId, Model model) {
+		Musician musician = dao.getMusicianById(musicianId);
+		System.out.println(musician);
+		model.addAttribute("musician", musician);
+		return "removeFromBand";
+	}
+	
+	@RequestMapping(path="submitRemoveFromBand.do")
+	public String submitRemoveFromBand(Integer musicianId, Integer bandId, String stageName, Model model) {
+		System.out.println("-------REMOVE FROM BAND--------");
+		System.out.println(musicianId);
+		System.out.println(bandId);
+		List<BandMemberId> bmis = dao.findAllBandMemberIds();
+		dao.removeMusicianFromBand(bmis, musicianId);
+		
 		return "redirect:musicianListPage.do";
 	}
 }

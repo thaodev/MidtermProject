@@ -38,6 +38,7 @@
 					placeholder="Enter Description">
 			</div>
 			<br>
+			<!-- 
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Genre*</span>
@@ -60,6 +61,22 @@
 						</select> <br><br>
 				</div>
 			</div>
+			 -->
+			
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Select genres</span>
+					<c:forEach varStatus="n" var="genre" items="${genres}">
+						<input type="checkbox"
+							<c:if test="${band.genres.contains(genre)}">checked</c:if>
+							id="genre${n.index}" name="genreIds" value="${genre.id}">
+						<label for="genre${n.index}">${genre.name}</label>
+					</c:forEach>
+
+				</div>
+			</div>
+			
+			
 			<br>
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
