@@ -61,7 +61,7 @@ table.table-fit tbody td, table.table-fit tfoot td {
 			</thead>
 			<tbody>
 				<c:forEach var="entry" items="${ticketByEvent.entrySet()}">
-<%-- 					<!-- construct an add link with schedule id  -->
+					<%-- 					<!-- construct an add link with schedule id  -->
 					<c:url var="addLink" value="addTicketByEvent.do">
 						<c:param name="eventId" value="${entry.key.id}" />
 					</c:url> --%>
@@ -75,11 +75,9 @@ table.table-fit tbody td, table.table-fit tfoot td {
 						<%-- <td><a href="${addLink}">Add Ticket</a></td> --%>
 						<td><form action="addTicketByEvent.do" method="POST">
 								<input type="hidden" name="performance.id"
-									value="${entry.key.id}" />
-								<input type="hidden" name="performance.ticketPrice"
-									value="${entry.key.ticketPrice}" />
-									 <input type="hidden"
-									name="user.id" value="${loggedInUser.id}" />
+									value="${entry.key.id}" /> <input type="hidden"
+									name="performance.ticketPrice" value="${entry.key.ticketPrice}" />
+								<input type="hidden" name="user.id" value="${loggedInUser.id}" />
 								<button class="btn btn-secondary btn-sm btn-block text-center"
 									type="submit">Add Ticket</button>
 							</form></td>
@@ -88,7 +86,12 @@ table.table-fit tbody td, table.table-fit tfoot td {
 				</c:forEach>
 			</tbody>
 		</table>
-
+		<div class="row ">
+			<div class="col-sm text-center ">
+				<a href="showTicketsInCart.do" class="btn btn-warning" role="button"
+					aria-pressed="true">Show All Purchase Tickets</a>
+			</div>
+		</div>
 	</div>
 
 	<jsp:include page="bootstrapFoot.jsp" />

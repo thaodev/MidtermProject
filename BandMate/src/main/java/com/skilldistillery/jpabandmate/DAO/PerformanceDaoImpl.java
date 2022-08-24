@@ -1,7 +1,9 @@
 package com.skilldistillery.jpabandmate.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.Performance;
+import com.skilldistillery.jpabandmate.entities.TicketSale;
 import com.skilldistillery.jpabandmate.entities.Venue;
 
 @Service
@@ -87,6 +90,29 @@ public class PerformanceDaoImpl implements PerformanceDAO {
 				.getResultList();
 		
 		return performances;
+	}
+
+	@Override
+	public Map<Performance, Object[]> findPerformanceByUserId(int userId) {
+		List<Performance> allPerformances = findAllPerformance();
+		
+		Map<Performance, Object[]> performancesByUserId = new HashMap<>();
+		for (Performance performance : allPerformances) {
+			List<TicketSale> numberOfTickets = new ArrayList<>();
+			Object[] items = new Object[2];
+			int sum = 0;
+			for (TicketSale ticket : performance.getTicketSales()) {
+				if (ticket.getUser().getId() == userId) {
+					numberOfTickets.add(ticket);
+					sum += ticket.getTicketPrice();
+				}
+				
+			}
+			items[0] = numberOfTickets.size();
+			items[1] = sum;
+			performancesByUserId.put(performance, items);
+		}
+		return performancesByUserId;
 	}
 	
 }

@@ -157,4 +157,14 @@ public class UserController {
 		 return "viewProfile";
 	}
 	
+	/**
+	 * VIEW 
+	 * */
+	@RequestMapping(path="deleteUser")
+	public String deleteUser(int id) {
+		 dao.deleteUser(id);
+		
+		return "redirect:showUser.do";
+		
+	}
 }
