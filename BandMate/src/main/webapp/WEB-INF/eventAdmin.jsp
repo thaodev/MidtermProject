@@ -39,20 +39,21 @@
 				<tr>
 					<td>${performance.id}</td>
 					
-					<td>${performance.performanceDate}</td>
+					<td>${performance.dateFormatted}</td>
 					
 					<td>${performance.name}</td>
 					
 					<td>${performance.venue.name}</td>
 					
-					<td>${performance.ticketPrice}</td>
+					<td><p>$ ${performance.ticketPrice}</p></td>
 					
 					<td>${performance.startTime.hour%12}:<fmt:formatNumber pattern="00" value="${performance.startTime.minute}"/></td>
 					
 					<td>${performance.endTime.hour%12}:<fmt:formatNumber pattern="00" value="${performance.endTime.minute}"/></td>
 					
 					
-					<td><a href="deletePerformance.do?performanceId=${performance.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
+					<td><a href="deletePerformance.do?performanceId=${performance.id}" type="button" class="btn btn-danger btn-sm"onclick="if(!(confirm('Are you sure you want to delete this event?'))) return false">x</a></td>
+					
 					<td><a href="editPerformance.do?performanceId=${performance.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
 					
 					

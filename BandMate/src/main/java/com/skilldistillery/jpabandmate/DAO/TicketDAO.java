@@ -1,15 +1,19 @@
 package com.skilldistillery.jpabandmate.DAO;
 
 import java.util.List;
+import java.util.Map;
 
+import com.skilldistillery.jpabandmate.entities.Performance;
 import com.skilldistillery.jpabandmate.entities.TicketSale;
 
 public interface TicketDAO {
 	List<TicketSale> findAllTickets();
-	List<TicketSale>  findTicketByEvent(int eventId);
-	List<TicketSale>  findTicketByVenue(int venueId);
+	Map<Performance, int[]> findTicketSortByEvent();
+	List<TicketSale> findTicketByGivenEvent(int eventId);
+	//Map<Performance, Double> findTicketsByUserId(int userId);
+	TicketSale  findTicketById(int ticketId);
+	List<TicketSale>  findTicketByEventOrVenue(String event);
 	TicketSale addTicket(TicketSale ticketSale);
-	TicketSale updateTicketSale(TicketSale ticketSale);
 	boolean deleteTicketSale(int ticketId);
 	
 	}

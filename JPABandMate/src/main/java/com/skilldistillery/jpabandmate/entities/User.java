@@ -56,11 +56,11 @@ public class User {
 	private String bio;
 
 	@ManyToMany
-	@JoinTable(name = "follow_musician", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "musician_id"))
+	@JoinTable(name = "followed_musician", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "musician_id"))
 	private List<Musician> followedMusicians;
 
 	@ManyToMany
-	@JoinTable(name = "follow_band", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "band_id"))
+	@JoinTable(name = "followed_band", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "band_id"))
 	private List<Band> bands;
 
 	@OneToMany(mappedBy = "manager")

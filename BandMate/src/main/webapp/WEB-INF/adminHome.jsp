@@ -22,7 +22,7 @@ body {
 	<div class=container>
 		<div class="card-columns">
 			<div class="row">
-				<div class = "col"></div>
+				<div class="col"></div>
 				<div class="col	">
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-secondary">
@@ -30,7 +30,8 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="showUser.do">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="showUser.do">View
+								Details</a>
 						</div>
 					</div>
 				</div>
@@ -39,15 +40,17 @@ body {
 						<div class="card-body bg-success">
 							<h4 class="card-title">Events</h4>
 							<h6 class="card-subtitle text-muted"></h6>
-							<p class="card-text">Create your upcoming events and don't forget to delete the old ones...</p>
-							<a class="btn btn-outline-dark bg-white" href="eventPageAdmin.do">View Details</a>
+							<p class="card-text">Create your upcoming events and don't
+								forget to delete the old ones...</p>
+							<a class="btn btn-outline-dark bg-white" href="eventPageAdmin.do">View
+								Details</a>
 						</div>
 					</div>
 				</div>
 				<div class="col"></div>
 			</div>
 			<div class="row">
-			<div class="col"></div>
+				<div class="col"></div>
 				<div class="col">
 					<div class="card float-right" style="width: 20rem;">
 						<div class="card-body bg-warning">
@@ -55,27 +58,29 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="venueAdmin.do">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="venueAdmin.do">View
+								Details</a>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
-						<div class="card-body" style="background-color:pink">
+						<div class="card-body" style="background-color: pink">
 							<h4 class="card-title">Musicians</h4>
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View
+								Details</a>
 						</div>
 
 					</div>
-					
+
 				</div>
 				<div class="col"></div>
 			</div>
 			<div class="row">
-			<div class="col"></div>
+				<div class="col"></div>
 				<div class="col">
 					<div class="card" style="width: 20rem;">
 						<div class="card-body bg-info">
@@ -83,7 +88,8 @@ body {
 							<h6 class="card-subtitle text-muted">Card subtitle</h6>
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipisicing elit. Illo, quas.</p>
-							<a class="btn btn-outline-dark bg-white" href="#">View Details</a>
+							<a class="btn btn-outline-dark bg-white" href="#">View
+								Details</a>
 						</div>
 					</div>
 				</div>
@@ -98,6 +104,26 @@ body {
 						</div>
 					</div>
 				</div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">
+					<div class="card" style="width: 20rem;">
+						<div class="card-body" style="background-color: 255-102-102">
+							<h4 class="card-title">Tickets</h4>
+							<h6 class="card-subtitle text-muted">Card subtitle</h6>
+							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+								adipisicing elit. Illo, quas.</p>
+							<a class="btn btn-outline-dark bg-white" href="showTicket.do">View
+								Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+				<div class="card" style="width: 20rem;"></div>
+				</div>
+
 				<div class="col"></div>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +21,23 @@
   <div class="form-group">
   <input type="hidden" name="id" value="${performance.id}">
     <label for="performanceDate"></label>
-    <input type="text" name="performanceDate" class="form-control" id="performanceDate" value="${performance.performanceDate}">
+    <input type="date" name="performanceDate" class="form-control" id="performanceDate" value="${performance.performanceDate}">
   </div>
   <div class="form-group">
     <label for="name"></label>
     <input type="text" name="name" class="form-control" id="name" value="${performance.name}">
   </div>
+  <br>
   <div class="form-group">
-    <label for="venue"></label>
-    <input type="text" name="venue" class="form-control" id="venue" value="${performance.venue.name}">
+  <select class="form-select" aria-label="Default select example" id="venueId" name="venue.id">
+  <c:forEach var="venue" items="${venues}" >
+ 
+  <option value="${venue.id}">${venue.name} </option>
+  
+  </c:forEach>
+  
+</select>
+  
   </div>
   <div class="form-group">
     <label for="ticketPrice"></label>
@@ -38,12 +47,12 @@
   
   <div class="form-group">
     <label for="startTime"></label>
-    <input type="time" name="startTime" class="form-control" id="startTime" value="${performance.startTime}">
+    <input type="time" name="startTime" class="form-control" id="startTime" step="1" value="${performance.startTimeFull}">
   </div>
   
   <div class="form-group">
     <label for="endTime"></label>
-    <input type="time" name="endTime" class="form-control" id="endTime" value="${performance.endTime}">
+    <input type="time" name="endTime" class="form-control" id="endTime" step="1" value="${performance.endTimeFull}">
   </div>
   
   

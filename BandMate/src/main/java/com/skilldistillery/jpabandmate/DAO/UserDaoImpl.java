@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Address;
+import com.skilldistillery.jpabandmate.entities.TicketSale;
 import com.skilldistillery.jpabandmate.entities.User;
 
 @Service
@@ -122,6 +123,16 @@ public class UserDaoImpl implements UserDAO {
 
 		if (userToDelete != null) {
 			userToDelete.setAddress(null);
+			userToDelete.setFollowedMusicians(null);
+			userToDelete.setBands(null);
+			userToDelete.setManagedBands(null);
+			
+			for (TicketSale ticket : userToDelete.getTicketPurchases()) {
+				em.remove(ticket);
+			}
+			userToDelete.setTicketPurchases(null);
+			userToDelete.setPerformanceComments(null);
+			
 			em.remove(userToDelete);
 			isDeleted = !em.contains(userToDelete);
 		}

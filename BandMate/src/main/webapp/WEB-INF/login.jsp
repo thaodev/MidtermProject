@@ -9,7 +9,7 @@
 <title>Login Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%
+<%-- <%
 User user = (User) session.getAttribute("loggedInUser");
 %>
 <c:choose>
@@ -19,9 +19,10 @@ User user = (User) session.getAttribute("loggedInUser");
 	<c:otherwise>
 		<jsp:include page="navbarWUserLoggedIn.jsp" />
 	</c:otherwise>
-</c:choose>
+</c:choose> --%>
 </head>
 <body>
+<jsp:include page="navbarController.jsp" />
 	<section class="vh-100" style="background-color: #9A616D;">
 		<div class="container py-5 h-100">
 			<div
