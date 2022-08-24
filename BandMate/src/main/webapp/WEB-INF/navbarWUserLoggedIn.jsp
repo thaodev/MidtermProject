@@ -23,9 +23,7 @@
       </li>
     </ul>
 	<div class="navbar-nav ms-auto">
-<!-- 	<form action="logout.do" method="POST"><button type="submit" class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Logout
-</button> </form> -->
+
 <div class="navbar-nav ms-auto text-white">
 					<p class="mr-3 text-center">${sessionScope.loggedInUser.username}</p>
 					<a href="logout.do" type="submit" class="btn btn-warning"
@@ -36,9 +34,3 @@
   </div>
 </nav>
 
-
-
-
-<!--  <div class="navbar-nav ms-auto">
-     <a href="">Login</a>|<a href="">Sign Up</a>
-    </div> -->
