@@ -12,12 +12,13 @@ public interface MusicianDAO {
 	Musician getMusicianById(Integer id);
 	List<Musician> findAllMusicians();
 	Musician createMusician(Musician musician);
-	boolean deleteMusician(int id);
+	boolean deleteMusician(Integer id);
 	Musician editMusician(Musician musician);
 	List<Musician> findMusicianByKeyword(String keyword);
 	List<Instrument> findAllInstruments();
 	List<BandMember> findAllBandMembers();
 	List<BandMemberId> findAllBandMemberIds();
 	List<Band> findAllBands();
+	Musician addInstruments(Musician musician, List<Instrument> instruments);
 	
 }

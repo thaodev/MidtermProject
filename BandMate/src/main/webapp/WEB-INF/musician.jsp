@@ -22,6 +22,7 @@
 			<thead class="table-secondary"> 
 				<tr>
 						<th></th>
+					<th>Id</th>
 					<th>Musician</th>
 					<th>Bands</th>
 					<th>Bio</th>
@@ -34,8 +35,8 @@
 			
 				
 				<tr>
-					<td><img src="${musician.bandMemberImage}" width="75px" height="75px"/></td>
-					
+					<td><img src="${musician.bandMemberImage}" width="200px" height="200px"/></td>
+					<td>${musician.id}</td>
 					<td>${musician.firstName} ${musician.lastName}</td>
 					<td>
 					<c:forEach var="member" items="${bandMembers}">

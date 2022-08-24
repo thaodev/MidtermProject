@@ -41,22 +41,22 @@
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Genre*</span>
-						<select name="genre" id="dropdown" required>
-							<option value="Hard Rock">Hard Rock</option>
-							<option value="Metal">Metal</option>
-							<option value="Pop">Pop</option>
-							<option value="Country">Country</option>
-							<option value="Jazz">Jazz</option>
-							<option value="Blues">Blues</option>
-							<option value="EDM">EDM</option>
-							<option value="Disco">Disco</option>
-							<option value="Grunge">Grunge</option>
-							<option value="Alternative">Alternative</option>
-							<option value="Folk">Folk</option>
-							<option value="Psychedelic Rock">Psychedelic Rock</option>
-							<option value="Death Metal">Death Metal</option>
-							<option value="Post-Grunge">Post-Grunge</option>
-							<option value="Classical">Classical</option>
+						<select name="genreId" id="dropdown" required>
+							<option value="1">Hard Rock</option>
+							<option value="2">Metal</option>
+							<option value="3">Pop</option>
+							<option value="4">Country</option>
+							<option value="5">Jazz</option>
+							<option value="6">Blues</option>
+							<option value="7">EDM</option>
+							<option value="8">Disco</option>
+							<option value="9">Grunge</option>
+							<option value="10">Alternative</option>
+							<option value="11">Folk</option>
+							<option value="12">Psychedelic Rock</option>
+							<option value="13">Death Metal</option>
+							<option value="14">Post-Grunge</option>
+							<option value="15">Classical</option>
 						</select> <br><br>
 				</div>
 			</div>

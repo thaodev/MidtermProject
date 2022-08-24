@@ -25,6 +25,13 @@ public class MusicianDaoImpl implements MusicianDAO {
 	
 	@Override
 	public Musician createMusician(Musician musician) {
+		
+		em.persist(musician);
+		return musician;
+	}
+	
+	public Musician addInstruments(Musician musician, List<Instrument> instruments) {
+		musician.setInstruments(instruments);
 		em.persist(musician);
 		return musician;
 	}
@@ -76,9 +83,13 @@ public class MusicianDaoImpl implements MusicianDAO {
 	}
 	
 	@Override
-	public boolean deleteMusician(int id) {
+	public boolean deleteMusician(Integer id) {
 		Musician musicianToDelete = em.find(Musician.class, id);
 		if(musicianToDelete != null) {
+			
+			for (Instrument instrument : musicianToDelete.getInstruments()) {
+				em.remove(instrument);
+			}
 			em.remove(musicianToDelete);
 			return true;
 		}

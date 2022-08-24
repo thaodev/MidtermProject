@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -42,6 +43,7 @@
 					</c:forEach>
 					</td> 
 					<td>${band.yearFormed}</td>
+					
 					<td>
 					<c:forEach var="member" items="${bandMembers}">
 						<c:choose>
@@ -51,6 +53,11 @@
 						</c:choose>
 					</c:forEach>
 					</td> 
+					
+					
+					<td><a href="deleteBand.do?bandId=${band.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
+					<td><a href="editBand.do?bandId=${band.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+					
 					
 				</tr>
 				

@@ -46,6 +46,14 @@
 					placeholder="Enter Musician Bio">
 			</div>
 			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Instrument</span>
+				</div>
+				<input class="form-control" type="text" name="instrumentName"
+					placeholder="Enter Instrument">
+			</div>
+			<br>
 			
 			
 			
@@ -68,16 +76,30 @@
 			<br>
 				
 				
+			<%-- 	
+				
+				
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Instrument</span>
+				</div>
+				<input class="form-control" type="text" name="${musician.setInstruments(instrument)}"
+					placeholder="Instrument name">
+			</div>
+			<br> 
+				
+				 --%>
 				
 				
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Musician Image(URL)</span>
 				</div>
-				<input class="form-control" type="text" name="bandImage"
+				<input class="form-control" type="text" name="bandMemberImage"
 					placeholder="Enter URL of an image of the musician">
 			</div>
 			<br>
+				
 				
 
 			<button class="btn btn-info btn-lg btn-block text-center"

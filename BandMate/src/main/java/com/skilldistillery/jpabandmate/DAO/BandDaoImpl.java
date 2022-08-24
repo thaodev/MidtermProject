@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
 import com.skilldistillery.jpabandmate.entities.BandMemberId;
+import com.skilldistillery.jpabandmate.entities.Genre;
 import com.skilldistillery.jpabandmate.entities.User;
 
 
@@ -23,8 +24,9 @@ public class BandDaoImpl implements BandDAO {
 	private EntityManager em;
 	
 	@Override
-	public Band createBand(Band band, User user) {
+	public Band createBand(Band band, User user, Genre genre) {
 		band.setManager(user);
+		band.addGenre(genre);
 		em.persist(band);
 		System.out.println("testing create band method");
 		return band;
@@ -86,7 +88,7 @@ public class BandDaoImpl implements BandDAO {
 	}
 	
 	@Override
-	public Band editBand(Band band) {
+	public Band editBand(Band band, Genre genre) {
 		Band bandToEdit = em.find(Band.class, band.getId());
 		if(bandToEdit != null) {
 			bandToEdit.setName(band.getName());
@@ -94,7 +96,7 @@ public class BandDaoImpl implements BandDAO {
 			bandToEdit.setYearFormed(band.getYearFormed());
 			bandToEdit.setBandImage(band.getBandImage());
 			bandToEdit.setBandLogo(band.getBandLogo());
-			bandToEdit.setGenres(band.getGenres());
+			bandToEdit.addGenre(genre);
 			
 			
 		}
@@ -102,7 +104,7 @@ public class BandDaoImpl implements BandDAO {
 	}
 	
 	@Override
-	public boolean deleteBand(int id) {
+	public boolean deleteBand(Integer id) {
 		Band bandToDelete = em.find(Band.class, id);
 		if(bandToDelete != null) {
 			em.remove(bandToDelete);

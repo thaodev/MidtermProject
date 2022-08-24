@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabandmate.DAO.BandDAO;
+import com.skilldistillery.jpabandmate.DAO.GenreDAO;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
+import com.skilldistillery.jpabandmate.entities.Genre;
 import com.skilldistillery.jpabandmate.entities.User;
 
 @Controller
@@ -19,6 +21,9 @@ public class BandController {
 	
 	@Autowired
 	private BandDAO dao;
+	
+	@Autowired
+	private GenreDAO genreDao;
 	
 	@RequestMapping(path="bandListPage.do")
 	public String bandList(Model model) {
@@ -51,12 +56,46 @@ public class BandController {
 	}
 	
 	@RequestMapping(path="createNewBand.do")
-	public String createNewBand(HttpSession session, Band band, Model model) {
+	public String createNewBand(HttpSession session, Band band, Integer genreId, Model model) {
 		User user = (User) (session.getAttribute("loggedInUser"));
 		model.addAttribute("user", user);
 		model.addAttribute("band", band);
-		band = dao.createBand(band, user);
+		Genre genre = genreDao.getGenreById(genreId);
+		model.addAttribute("genre", genre);
+		band = dao.createBand(band, user, genre);
 		System.out.println("Testing create new band - controller");
+		return "redirect:bandListPage.do";
+	}
+	
+	@RequestMapping(path="editBand.do")
+	public String editBand(Integer bandId, Integer genreId, Model model) {
+		Band band = dao.getBandById(bandId);
+		System.out.println(band);
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		model.addAttribute("band", band);
+		model.addAttribute("bandMembers", bandMembers);
+		return "editBand";
+	}
+	
+	
+	@RequestMapping(path="submitEditBand.do")
+	public String submitEditBand(Band band, Integer genreId, Model model) {
+		Genre genre = genreDao.getGenreById(genreId);
+		model.addAttribute("genre", genre);
+		band = dao.editBand(band, genre);
+		System.out.println(band);
+		List<Band> bands = dao.findAllBands();
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		model.addAttribute("bands", bands);
+		model.addAttribute("bandMembers", bandMembers);
+		return "redirect:bandListPage.do";
+	}
+	
+	@RequestMapping(path="deleteBand.do")
+	public String deleteBand(Integer bandId, Model model) {
+		dao.deleteBand(bandId);
+		List<Band> bands = dao.findAllBands();
+		model.addAttribute("bands", bands);
 		return "redirect:bandListPage.do";
 	}
 }

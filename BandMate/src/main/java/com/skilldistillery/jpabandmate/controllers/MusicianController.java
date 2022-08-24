@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabandmate.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,18 +10,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.jpabandmate.DAO.InstrumentDAO;
 import com.skilldistillery.jpabandmate.DAO.MusicianDAO;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
 import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
-import com.skilldistillery.jpabandmate.entities.User;
 
 @Controller
 public class MusicianController {
 	
 	@Autowired
 	private MusicianDAO dao;
+	
+	@Autowired
+	private InstrumentDAO instrumentDao;
 	
 	@RequestMapping(path="musicianListPage.do")
 	public String bandList(Model model) {
@@ -59,12 +63,49 @@ public class MusicianController {
 	}
 	
 	@RequestMapping(path="createNewMusician.do")
-	public String createNewMusician(Musician musician, Model model) {
-		model.addAttribute("musician", musician);
+	public String createNewMusician(Musician musician, String instrumentName,  Model model) {
 		musician = dao.createMusician(musician);
+		Instrument instrument = instrumentDao.createInstrument(instrumentName, musician);
+		musician.addInstrument(instrument);
+		System.out.println(instrumentName);
+		model.addAttribute("musician", musician);
 		System.out.println("====INSIDE CREATE MUSICIAN====");
 		System.out.println(musician);
 		return "redirect:musicianListPage.do";
+	}
+	
+//	@RequestMapping(path="createNewInstrument.do")
+//	public String CreateNewInstrument(Musician musician, Model model) {
+//		List<Instrument> instruments = new ArrayList<>();
+//		model.addAttribute("instruments", instruments);
+//		musician = dao.addInstruments(musician, instruments);
+//		System.out.println("====INSIDE CREATE INSTRUMENT====");
+//		System.out.println(musician);
+//		return "redirect:submitCreateNewInstrument.do";
+//	}
+	
+	
+	@RequestMapping(path="getInstrumentName.do")
+	public String getInstrumentName(Integer musicianId, Model model) {
+		Musician musician = dao.getMusicianById(musicianId);
+		model.addAttribute("musician", musician);
+		
+		return "addInstrument";
+		
+	}
+	
+	@RequestMapping(path="submitCreateNewInstrument.do")
+	public String submitCreateNewInstrument(String instrumentName, Model model, Musician musician) {
+//		Musician musician = dao.getMusicianById(musicianId);
+//		Instrument instrument = instrumentDao.createInstrument(instrument, musician);
+//		List<Instrument> instruments = new ArrayList<>();
+//		model.addAttribute("musician", musician);
+//		model.addAttribute("instruments", instruments);
+//		musician = dao.addInstruments(musician, instruments);
+//		System.out.println("====INSIDE SUBMIT INSTRUMENT====");
+//		System.out.println(musician);
+		System.out.println(model.getAttribute("musician"));
+		return "addInstrument";
 	}
 	
 	@RequestMapping(path="editMusician.do")
@@ -86,6 +127,16 @@ public class MusicianController {
 		List<Instrument> instruments = dao.findAllInstruments();
 		model.addAttribute("musicians", musicians);
 		model.addAttribute("instruments", instruments);
+		return "redirect:musicianListPage.do";
+	}
+	
+	@RequestMapping(path="deleteMusician.do")
+	public String deleteMusician(Integer musicianId, Model model) {
+		
+		dao.deleteMusician(musicianId);
+		
+		List<Musician> musicians = dao.findAllMusicians();
+		model.addAttribute("musiciains", musicians);
 		return "redirect:musicianListPage.do";
 	}
 }
