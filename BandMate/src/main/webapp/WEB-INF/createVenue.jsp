@@ -44,6 +44,7 @@
 						<input type="text" name="address.city" class="form-control" id="address.city" placeholder="CITY:" required>
 					</div>
 				</div>
+				</div>
 				<div class="col">
 					<div class="form-outline">
 						<input type="text" name="address.state" class="form-control" id="address.state" placeholder="STATE:" required>
@@ -52,6 +53,7 @@
 				<div class="col">
 					<div class="form-outline">
 					<input type="text" name="address.zipCode" class="form-control" id="address.zipCode" placeholder="ZIP CODE:" required>
+					</div>
 					</div>
   <br>
   <button type="submit" class="btn btn-primary">Submit</button>

@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Address;
+import com.skilldistillery.jpabandmate.entities.Performance;
 import com.skilldistillery.jpabandmate.entities.Venue;
 
 @Service
@@ -53,40 +54,38 @@ public class VenueDaoImpl implements VenueDAO {
 	
 	@Override
 	public boolean deleteVenue(int id) {
-		Venue VenueToDelete = em.find(Venue.class, id);
-		if(VenueToDelete != null) {
-			em.remove(VenueToDelete);
+		Venue venueToDelete = em.find(Venue.class, id);
+		if(venueToDelete != null) {
+			for(Performance performance : venueToDelete.getPerformances()) {
+				em.remove(performance);
+			}
+			venueToDelete.setPerformances(null);
+			em.remove(venueToDelete);
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 	
 	@Override
 	public Venue editVenue(Venue venue) {
-		Venue VenueToEdit = em.find(Venue.class, venue.getId());
-		if(VenueToEdit != null) {
-			VenueToEdit.setName(venue.getName());
-			VenueToEdit.setCapacity(venue.getCapacity());
-			VenueToEdit.setAddress(venue.getAddress());
-			VenueToEdit.setVenueImageUrl(venue.getVenueImageUrl());
-			VenueToEdit.setDescription(venue.getDescription());
-			
-//			Address updatedAddress = em.find(Address.class, user.getAddress().getId());
-//			if (updatedAddress != null) {
-//				updatedAddress.setStreet(updatedUser.getAddress().getStreet());
-//				updatedAddress.setCity(updatedUser.getAddress().getCity());
-//				updatedAddress.setState(updatedUser.getAddress().getState());
-//				updatedAddress.setZipCode(updatedUser.getAddress().getZipCode());
-//			}
-//			if (updatedUser != null) {
-//				isUpdated = true;
-//			}
-//
-//			return isUpdated;
+		Venue venueToEdit = em.find(Venue.class, venue.getId());
+		if(venueToEdit != null) {
+			venueToEdit.setName(venue.getName());
+			venueToEdit.setCapacity(venue.getCapacity());
+			Address address = em.find(Address.class, venue.getAddress().getId());
+			address.setStreet(venue.getAddress().getStreet());
+			address.setCity(venue.getAddress().getCity());
+			address.setState(venue.getAddress().getState());
+			address.setZipCode(venue.getAddress().getZipCode());
+			venueToEdit.setAddress(address);
+			venueToEdit.setVenueImageUrl(venue.getVenueImageUrl());
+			venueToEdit.setDescription(venue.getDescription());
+			em.persist(venueToEdit);
+				
 		}
-		return VenueToEdit;
+		return venueToEdit;
 	}
-	
-	
+
 	
 }
