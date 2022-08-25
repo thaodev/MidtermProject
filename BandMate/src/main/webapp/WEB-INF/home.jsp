@@ -11,7 +11,7 @@
 <jsp:include page="bootstrapHead.jsp" />
 <!-- Custom styles for this template -->
 <link href="css/myStyleSheet.css" rel="stylesheet">
-
+<%-- 
 <%
 User user = (User) session.getAttribute("loggedInUser");
 %>
@@ -22,7 +22,9 @@ User user = (User) session.getAttribute("loggedInUser");
 	<c:otherwise>
 		<jsp:include page="navbarWUserLoggedIn.jsp" />
 	</c:otherwise>
-</c:choose>
+</c:choose> --%>
+
+<jsp:include page="navbarController.jsp" />
 
 </head>
 <body>
