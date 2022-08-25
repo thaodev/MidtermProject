@@ -41,10 +41,10 @@
 				<tr class="table-warning">
 					<th scope="col">Event</th>
 					<!-- <th scope="col">Review</th> -->
-					<th scope="col" >Number of Tickets sold</th>
+					<th scope="col">Number of Tickets sold</th>
 					<th colspan="3" class="text-cent">Reviews</th>
 				</tr>
-			<!-- 	<tr class="table-warning">
+				<!-- 	<tr class="table-warning">
 					<th scope="col">Username</th>
 					<th scope="col">Rating</th>
 					<th scope="col">Comment</th>
@@ -65,8 +65,9 @@
 								<tbody>
 									<c:forEach var="review" items="${entry.key.reviews }">
 										<tr>
-											<td> <c:out value="${review.user.username}" /></td>
-											<td><c:out value="${review.rating}" /></td>
+											<td><c:out value="${review.user.username}" /></td>
+											<td><c:out value="Rating: " /> <c:forEach var="star"
+													begin="1" end="${review.rating}">&#11088</c:forEach></td>
 											<td><c:out value="${review.ratingComment}" /></td>
 										</tr>
 									</c:forEach>

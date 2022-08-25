@@ -39,7 +39,7 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							
+
 						</tr>
 					</thead>
 
@@ -62,19 +62,26 @@
 
 							<td>${performance.endTime.hour%12}:<fmt:formatNumber
 									pattern="00" value="${performance.endTime.minute}" /></td>
-									
+
 
 							<c:choose>
-							<c:when test="${sessionScope.loggedInUser == performance.band.manager}">
-								<td><a href="deletePerformance.do?performanceId=${performance.id}" type="button" class="btn btn-danger btn-sm"onclick="if(!(confirm('Are you sure you want to delete this event?'))) return false">x</a></td>
-					
-								<td><a href="editPerformance.do?performanceId=${performance.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
-								
-								<td><a href="createPerformance.do" type="button" class="btn btn-secondary">CREATE EVENT</a></td>
-								
-							</c:when>
+								<c:when
+									test="${sessionScope.loggedInUser == performance.band.manager}">
+									<td><a
+										href="deletePerformance.do?performanceId=${performance.id}"
+										type="button" class="btn btn-danger btn-sm"
+										onclick="if(!(confirm('Are you sure you want to delete this event?'))) return false">x</a></td>
+
+									<td><a
+										href="editPerformance.do?performanceId=${performance.id}"
+										type="button" class="btn btn-primary btn-sm">Edit</a></td>
+
+									<td><a href="createPerformance.do" type="button"
+										class="btn btn-secondary">CREATE EVENT</a></td>
+
+								</c:when>
 							</c:choose>
-						
+
 						</tr>
 
 
@@ -91,13 +98,13 @@
 					<img src="${performance.venue.venueImageUrl}" width="autopx"
 						height="350px" />
 				</div>
-				
+
 				<div>
-				<table class="table table-stripped mt-3">
-					<thead style="background-color: #a3a3c2">
-					<tr>
-							<th style="text-align: center">Rating</th>
-						</tr>
+					<table class="table table-stripped mt-3">
+						<thead style="background-color: #a3a3c2">
+							<tr>
+								<th style="text-align: center">Rating</th>
+							</tr>
 					</table>
 				</div>
 				<c:choose>
@@ -105,43 +112,52 @@
 
 						<h1 class="justify-content-center">Rate: ${performance.name }</h1>
 						<c:forEach var="review" items="${performance.reviews}">
-							<strong><c:out value="${review.user.username }"/>:</strong> <br>
-							<c:out value="Rating: ${review.rating} / Comment: ${review.ratingComment} / Time: ${review.reviewDate}"/><br>
-						</c:forEach>
-						<c:if test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
-
-						<form action="performanceReview.do" method="POST">
-							<input type="hidden" name="id.performanceId" value="${performance.id}"/>
-							<input type="hidden" name="id.userId" value="${loggedInUser.id}"/>
-							<input type="hidden" name="performance.id" value="${performance.id}"/>
-							<input type="hidden" name="user.id" value="${loggedInUser.id}"/>
-							<!-- <input type="hidden" name="id" value="performanceReview.id"/> -->
-							<div class="rating">
-
-								<input type="radio" name="rating" value="5" id="5"><label
-									for="5">☆</label> <input type="radio" name="rating" value="4"
-									id="4"><label for="4">☆</label> <input type="radio"
-									name="rating" value="3" id="3"><label for="3">☆</label>
-								<input type="radio" name="rating" value="2" id="2"><label
-									for="2">☆</label> <input type="radio" name="rating" value="1"
-									id="1"><label for="1">☆</label>
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-								</div>
-								<input class="form-control" type="text" required
-									name="ratingComment"
-									value="${performanceReview.ratingComment }" style="height:100px; margin:5px"
-								placeholder="Write review comment here">
-							</div>
+							<strong><c:out value="${review.user.username }" />:</strong>
 							<br>
-							<div>
-								<button type="submit" class="btn btn-warning"
-									data-toggle="button" aria-pressed="false"> Submit </button>
+							<c:out value="Rating: " />
+							<c:forEach var="star" begin="1" end="${review.rating}">
+								&#11088
+							</c:forEach>
+							<c:out
+								value="/ Comment: ${review.ratingComment} / Time: ${review.reviewDate}" />
+							<br>
+						</c:forEach>
+						<c:if
+							test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
+
+							<form action="performanceReview.do" method="POST">
+								<input type="hidden" name="id.performanceId"
+									value="${performance.id}" /> <input type="hidden"
+									name="id.userId" value="${loggedInUser.id}" /> <input
+									type="hidden" name="performance.id" value="${performance.id}" />
+								<input type="hidden" name="user.id" value="${loggedInUser.id}" />
+								<!-- <input type="hidden" name="id" value="performanceReview.id"/> -->
+								<div class="rating">
+
+									<input type="radio" name="rating" value="5" id="5"><label
+										for="5">☆</label> <input type="radio" name="rating" value="4"
+										id="4"><label for="4">☆</label> <input type="radio"
+										name="rating" value="3" id="3"><label for="3">☆</label>
+									<input type="radio" name="rating" value="2" id="2"><label
+										for="2">☆</label> <input type="radio" name="rating" value="1"
+										id="1"><label for="1">☆</label>
+								</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend"></div>
+									<input class="form-control" type="text" required
+										name="ratingComment"
+										value="${performanceReview.ratingComment }"
+										style="height: 100px; margin: 5px"
+										placeholder="Write review comment here">
+								</div>
+								<br>
+								<div>
+									<button type="submit" class="btn btn-warning"
+										data-toggle="button" aria-pressed="false">Submit</button>
 
 
-							</div>
-						</form>
+								</div>
+							</form>
 						</c:if>
 					</c:when>
 					<c:otherwise>
