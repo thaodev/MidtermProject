@@ -13,8 +13,8 @@
 </head>
 <body>
 <jsp:include page="navbarController.jsp" />
-<p>Outcome of adding user action</p>
-	<c:out value="${message}" />
+<p class="text-center h1">
+	&#127808 <c:out value="${message}" />. Please log in! &#127808</p>
 	
 <jsp:include page="bootstrapFoot.jsp" />
 <jsp:include page="footer.jsp" />

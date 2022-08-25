@@ -33,12 +33,13 @@ public class UserController {
 	
 	
 	@RequestMapping(path = "showUser.do")
-	public String schedule(Model model) {
+	public String schedule(Model model, HttpSession session) {
 		List<User> users = dao.findAllUsers();
-		
+		String message = "You are signed up successfully";
 		model.addAttribute("users",users);
 		
-		return "paginationTest";
+		model.addAttribute("message", message);
+		return ((User) session.getAttribute("loggedInUser")) != null ? "redirect:showAllUserBy1stPage.do" : "signUpResult";
 	}
 	
 	/**
@@ -52,7 +53,7 @@ public class UserController {
 
 		// Sign Up Form- CREATE User
 		@RequestMapping(path = "addUser.do", method=RequestMethod.POST)
-		public String addUser(User user, Model model, RedirectAttributes redir) {
+		public String addUser(HttpSession session, User user, Model model, RedirectAttributes redir) {
 			boolean isUserAdded = false;
 			String message = "";
 
@@ -65,9 +66,9 @@ public class UserController {
 					redir.addFlashAttribute("userAdded", userAdded);
 					model.addAttribute("isUserAdded", isUserAdded);
 				}
-				message = "User is added successfully";
-				model.addAttribute("message", message);
-				redir.addFlashAttribute("message", message);
+				
+				
+				
 				return "redirect:showUser.do";
 				
 				

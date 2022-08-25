@@ -78,8 +78,17 @@
 				<c:choose>
 					<c:when test="${not empty sessionScope.loggedInUser }">
 						<h1 class="justify-content-center">Rating ${performance.name }</h1>
+						<c:forEach var="review" items="${performance.reviews}">
+							<c:out value="${review.user.username }"/>: 
+							<c:out value="${review.rating} ${review.ratingComment}"/><br>
+						</c:forEach>
+						<c:if test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
 						<form action="performanceReview.do" method="POST">
-							<input type="hidden" name="id"/>
+							<input type="hidden" name="id.performanceId" value="${performance.id}"/>
+							<input type="hidden" name="id.userId" value="${loggedInUser.id}"/>
+							<input type="hidden" name="performance.id" value="${performance.id}"/>
+							<input type="hidden" name="user.id" value="${loggedInUser.id}"/>
+							<!-- <input type="hidden" name="id" value="performanceReview.id"/> -->
 							<div class="rating">
 
 								<input type="radio" name="rating" value="5" id="5"><label
@@ -92,7 +101,7 @@
 							</div>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text">Leave Comments</span>
+									<span class="input-group-text">Leave Review</span>
 								</div>
 								<input class="form-control" type="text" required
 									name="ratingComment"
@@ -107,6 +116,7 @@
 
 							</div>
 						</form>
+						</c:if>
 					</c:when>
 					<c:otherwise>
 						<p class="text-center">Please login to leave review!</p>

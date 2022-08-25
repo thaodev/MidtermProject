@@ -71,6 +71,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<PerformanceComment> performanceComments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<PerformanceReview> performanceReviews;
 
 	// CONSTRUCTOR
 	public User() {
@@ -173,6 +176,14 @@ public class User {
 		return profileImage;
 	}
 
+	public List<PerformanceReview> getPerformanceReviews() {
+		return performanceReviews;
+	}
+
+	public void setPerformanceReviews(List<PerformanceReview> performanceReviews) {
+		this.performanceReviews = performanceReviews;
+	}
+
 	public void setProfileImage(String profileImage) {
 		this.profileImage = profileImage;
 	}
@@ -207,6 +218,16 @@ public class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public boolean hasPerformanceReview(int id) {
+		for (PerformanceReview review : performanceReviews) {
+			if (review.getId().getPerformanceId() == id) {
+				return true;
+			}
+			
+		}
+		return false;
 	}
 
 	@Override

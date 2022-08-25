@@ -83,16 +83,16 @@
 		</table>
 
 		<ul class="pagination">
-			<c:set var="startIndex" value="${page*10 + 1}" />
-			<c:if test="${currentIndex > 10}"><li class="page-item"><a class="page-link"
-				href="showAllUserByPage.do?startIndex=${currentIndex-10}">Previous</a></li></c:if>
+			<c:set var="startIndex" value="${page*noUsersPerPage + 1}" />
+			<c:if test="${currentIndex > noUsersPerPage}"><li class="page-item"><a class="page-link"
+				href="showAllUserByPage.do?startIndex=${currentIndex-noUsersPerPage}">Previous</a></li></c:if>
 			<c:forEach var="page" begin="0" end="${ numOfPages-1}">
-			<c:set var="startIndex" value="${page*10 + 1}" />
+			<c:set var="startIndex" value="${page*noUsersPerPage + 1}" />
 				<li class="page-item"><a class="page-link"
 					href="showAllUserByPage.do?startIndex=${startIndex}">${page + 1}</a></li>
 			</c:forEach>
-			<c:if test="${currentIndex < (numOfPages*10)-10}"><li class="page-item"><a class="page-link"
-				href="showAllUserByPage.do?startIndex=${currentIndex+10}">Next</a></li></c:if>
+			<c:if test="${currentIndex < (numOfPages*noUsersPerPage)-noUsersPerPage}"><li class="page-item"><a class="page-link"
+				href="showAllUserByPage.do?startIndex=${currentIndex+noUsersPerPage}">Next</a></li></c:if>
 
 		</ul>
 		<div class="row ">
