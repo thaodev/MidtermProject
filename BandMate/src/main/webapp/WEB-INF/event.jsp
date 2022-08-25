@@ -79,8 +79,8 @@
 					<c:when test="${not empty sessionScope.loggedInUser }">
 						<h1 class="justify-content-center">Rating ${performance.name }</h1>
 						<c:forEach var="review" items="${performance.reviews}">
-							<c:out value="${review.user.username }"/>: 
-							<c:out value="${review.rating} ${review.ratingComment}"/><br>
+							<strong><c:out value="${review.user.username }"/>:</strong> <br>
+							<c:out value="Rating: ${review.rating} / Comment: ${review.ratingComment}"/><br>
 						</c:forEach>
 						<c:if test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
 						<form action="performanceReview.do" method="POST">
