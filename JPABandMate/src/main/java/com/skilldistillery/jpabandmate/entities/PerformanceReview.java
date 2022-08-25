@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="performance_review")
 public class PerformanceReview {
@@ -23,6 +25,7 @@ public class PerformanceReview {
 	private String ratingComment;
 	
 	@Column(name="review_date")
+	@CreationTimestamp
 	private LocalDateTime reviewDate;
 	
 	@ManyToOne

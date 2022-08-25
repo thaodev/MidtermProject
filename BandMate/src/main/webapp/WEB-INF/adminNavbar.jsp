@@ -32,7 +32,7 @@ if (session != null) {
 			<li class="nav-item"><a class="nav-link" href="venueAdmin.do">Venues</a></li>
 			<li class="nav-item"><a class="nav-link" href="musicianListPage.do">Musicians</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Performance
+			<li class="nav-item"><a class="nav-link" href="performanceReviewList.do">Performance
 					Reviews</a></li>
 		</ul>
 

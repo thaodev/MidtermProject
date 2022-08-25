@@ -89,7 +89,7 @@
 						<h1 class="justify-content-center">Rate: ${performance.name }</h1>
 						<c:forEach var="review" items="${performance.reviews}">
 							<strong><c:out value="${review.user.username }"/>:</strong> <br>
-							<c:out value="Rating: ${review.rating} / Comment: ${review.ratingComment}"/><br>
+							<c:out value="Rating: ${review.rating} / Comment: ${review.ratingComment} / Time: ${review.reviewDate}"/><br>
 						</c:forEach>
 						<c:if test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
 
