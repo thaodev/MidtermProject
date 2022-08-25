@@ -74,15 +74,28 @@
 					<img src="${performance.venue.venueImageUrl}" width="autopx"
 						height="350px" />
 				</div>
+				
+				<div>
+				<table class="table table-stripped mt-3">
+					<thead style="background-color: #a3a3c2">
+					<tr>
+							<th style="text-align: center">Rating</th>
+						</tr>
+					</table>
+				</div>
 
 				<c:choose>
 					<c:when test="${not empty sessionScope.loggedInUser }">
+<<<<<<< HEAD
+						<h1 class="justify-content-center">Rate: ${performance.name }</h1>
+=======
 						<h1 class="justify-content-center">Rating ${performance.name }</h1>
 						<c:forEach var="review" items="${performance.reviews}">
 							<strong><c:out value="${review.user.username }"/>:</strong> <br>
 							<c:out value="Rating: ${review.rating} / Comment: ${review.ratingComment}"/><br>
 						</c:forEach>
 						<c:if test="${ !loggedInUser.hasPerformanceReview(performance.id)}">
+>>>>>>> 03c864471c93ad5fad153deb8e8ef9057820cdc7
 						<form action="performanceReview.do" method="POST">
 							<input type="hidden" name="id.performanceId" value="${performance.id}"/>
 							<input type="hidden" name="id.userId" value="${loggedInUser.id}"/>
