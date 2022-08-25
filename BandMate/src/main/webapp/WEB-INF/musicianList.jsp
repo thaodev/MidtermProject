@@ -45,7 +45,7 @@
 										<c:choose>
 											<c:when
 												test="${member.getId().musicianId == musician.id && member.getId().bandId == band.id}">
-							${band.name}
+							${band.name}<br>
 										</c:when>
 										</c:choose>
 
