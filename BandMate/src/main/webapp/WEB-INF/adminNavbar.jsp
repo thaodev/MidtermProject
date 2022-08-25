@@ -25,7 +25,7 @@ if (session != null) {
 			<li class="nav-item"><a class="nav-link" href="showTicket.do">Tickets</a></li>
 			<li class="nav-item"><a class="nav-link" href="eventPageAdmin.do">Events</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="showUser.do">Users</a>
+			<li class="nav-item"><a class="nav-link" href="showAllUserBy1stPage.do">Users</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="bandListPage.do">Bands</a>
 			</li>
