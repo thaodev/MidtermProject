@@ -95,7 +95,7 @@ body {
 							<h4 class="card-title">Reviews</h4>
 							<h6 class="card-subtitle text-muted"></h6>
 							<p class="card-text">Manage reviews through here.</p>
-							<a class="btn btn-outline-dark" href="#">View Details</a>
+							<a class="btn btn-outline-dark" href="performanceReviewList.do">View Details</a>
 						</div>
 					</div>
 				</div>
