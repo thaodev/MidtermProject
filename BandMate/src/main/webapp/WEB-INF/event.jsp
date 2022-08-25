@@ -35,6 +35,11 @@
 							<th>Ticket Price</th>
 							<th>Start Time</th>
 							<th>End Time</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							
 						</tr>
 					</thead>
 
@@ -57,7 +62,19 @@
 
 							<td>${performance.endTime.hour%12}:<fmt:formatNumber
 									pattern="00" value="${performance.endTime.minute}" /></td>
+									
 
+							<c:choose>
+							<c:when test="${sessionScope.loggedInUser == performance.band.manager}">
+								<td><a href="deletePerformance.do?performanceId=${performance.id}" type="button" class="btn btn-danger btn-sm"onclick="if(!(confirm('Are you sure you want to delete this event?'))) return false">x</a></td>
+					
+								<td><a href="editPerformance.do?performanceId=${performance.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+								
+								<td><a href="createPerformance.do" type="button" class="btn btn-secondary">CREATE EVENT</a></td>
+								
+							</c:when>
+							</c:choose>
+						
 						</tr>
 
 
