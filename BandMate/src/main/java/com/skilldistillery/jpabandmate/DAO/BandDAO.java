@@ -18,4 +18,5 @@ public interface BandDAO {
 	List<BandMember> findAllBandMembers();
 	List<BandMemberId> findAllBandMemberIds();
 	List<Genre> findAllGenres();
+	boolean checkBandManager(User user);
 }

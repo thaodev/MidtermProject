@@ -111,12 +111,11 @@
 							</div>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text">Leave Review</span>
 								</div>
 								<input class="form-control" type="text" required
 									name="ratingComment"
-									value="${performanceReview.ratingComment }" style="height:200px"
-								placeholder="Writing comments here">
+									value="${performanceReview.ratingComment }" style="height:100px; margin:5px"
+								placeholder="Write review comment here">
 							</div>
 							<br>
 							<div>
