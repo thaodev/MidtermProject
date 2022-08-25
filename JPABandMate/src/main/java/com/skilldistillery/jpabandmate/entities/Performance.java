@@ -3,11 +3,8 @@ package com.skilldistillery.jpabandmate.entities;
 import java.beans.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-import java.util.ArrayList;
-
 import java.time.format.DateTimeFormatter;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,6 +52,8 @@ public class Performance {
 	@OneToMany(mappedBy="performance")
 	private List<PerformanceComment> performanceComments;
 	
+	@OneToMany(mappedBy="performance")
+	private List<PerformanceReview> reviews;
 	
 	//CONSTRUCTOR
 	public Performance() {
@@ -171,6 +170,14 @@ public class Performance {
 
 	public List<TicketSale> getTicketSales() {
 		return ticketSales;
+	}
+
+	public List<PerformanceReview> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<PerformanceReview> reviews) {
+		this.reviews = reviews;
 	}
 
 	public void setTicketSales(List<TicketSale> ticketSales) {

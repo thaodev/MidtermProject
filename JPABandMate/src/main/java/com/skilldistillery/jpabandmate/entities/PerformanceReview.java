@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +24,16 @@ public class PerformanceReview {
 	
 	@Column(name="review_date")
 	private LocalDateTime reviewDate;
-
+	
+	@ManyToOne
+	@JoinColumn(name="performance_id")
+	@MapsId(value="performanceId")
+	private Performance performance;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	@MapsId(value="userId")
+	private User user;
 	
 	public PerformanceReview() {
 	}
@@ -56,6 +68,22 @@ public class PerformanceReview {
 
 	public void setReviewDate(LocalDateTime reviewDate) {
 		this.reviewDate = reviewDate;
+	}
+
+	public Performance getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(Performance performance) {
+		this.performance = performance;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

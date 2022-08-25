@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabandmate.entities.Address;
+import com.skilldistillery.jpabandmate.entities.PerformanceComment;
+import com.skilldistillery.jpabandmate.entities.PerformanceReview;
 import com.skilldistillery.jpabandmate.entities.TicketSale;
 import com.skilldistillery.jpabandmate.entities.User;
 
@@ -25,9 +27,11 @@ public class UserDaoImpl implements UserDAO {
 
 	// Add User
 	@Override
-	public User addUser(User user){
-			// add user to user table
-			em.persist(user);
+	public User addUser(User user) {
+		user.setAdmin(false);
+		// add user to user table
+		em.persist(user);
+		
 		if (user.getAddress() != null) {
 			em.persist(user.getAddress());
 		}
@@ -49,12 +53,15 @@ public class UserDaoImpl implements UserDAO {
 				break;
 			}
 		}
+		u.getPerformanceReviews().size();
 		return u;
 	}
 
 	@Override
 	public User findById(int userId) {
-		return em.find(User.class, userId);
+		User user = em.find(User.class, userId);
+		user.getPerformanceReviews().size();
+		return user;
 	}
 
 	@Override
@@ -69,12 +76,13 @@ public class UserDaoImpl implements UserDAO {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public List<User> findAllUsers(int pageStart) {
 		List<User> users = null;
-		String jpql = "SELECT u FROM User u";
-		users = em.createQuery(jpql, User.class).setFirstResult(pageStart).setMaxResults(10).getResultList();
+		String jpql = "SELECT u FROM User u ORDER BY u.firstName";
+		int noUsersPerPage = 15;
+		users = em.createQuery(jpql, User.class).setFirstResult(pageStart).setMaxResults(noUsersPerPage).getResultList();
 		if (users != null) {
 			System.out.println(users);
 			return users;
@@ -86,8 +94,8 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public List<User> searchUserByName(String keyword) {
 		List<User> users = null;
-		String jpql="SELECT u FROM User u WHERE u.firstName LIKE  :keyword OR u.lastName LIKE :keyword";
-		users = em.createQuery(jpql, User.class).setParameter("keyword", "%" +keyword+"%").getResultList();
+		String jpql = "SELECT u FROM User u WHERE u.firstName LIKE  :keyword OR u.lastName LIKE :keyword";
+		users = em.createQuery(jpql, User.class).setParameter("keyword", "%" + keyword + "%").getResultList();
 		return users;
 	}
 
@@ -139,13 +147,19 @@ public class UserDaoImpl implements UserDAO {
 			userToDelete.setFollowedMusicians(null);
 			userToDelete.setBands(null);
 			userToDelete.setManagedBands(null);
-			
+
 			for (TicketSale ticket : userToDelete.getTicketPurchases()) {
 				em.remove(ticket);
 			}
+			for (PerformanceComment comment: userToDelete.getPerformanceComments()) {
+				em.remove(comment);
+			}
+			for (PerformanceReview review: userToDelete.getPerformanceReviews()) {
+				em.remove(review);
+			}
 			userToDelete.setTicketPurchases(null);
 			userToDelete.setPerformanceComments(null);
-			
+
 			em.remove(userToDelete);
 			isDeleted = !em.contains(userToDelete);
 		}
