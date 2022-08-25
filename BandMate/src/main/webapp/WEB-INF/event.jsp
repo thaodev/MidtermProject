@@ -74,10 +74,19 @@
 					<img src="${performance.venue.venueImageUrl}" width="autopx"
 						height="350px" />
 				</div>
+				
+				<div>
+				<table class="table table-stripped mt-3">
+					<thead style="background-color: #a3a3c2">
+					<tr>
+							<th style="text-align: center">Rating</th>
+						</tr>
+					</table>
+				</div>
 
 				<c:choose>
 					<c:when test="${not empty sessionScope.loggedInUser }">
-						<h1 class="justify-content-center">Rating ${performance.name }</h1>
+						<h1 class="justify-content-center">Rate: ${performance.name }</h1>
 						<form action="performanceReview.do" method="POST">
 							<input type="hidden" name="id"/>
 							<div class="rating">
