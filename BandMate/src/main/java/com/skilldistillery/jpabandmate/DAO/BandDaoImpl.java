@@ -143,8 +143,24 @@ public class BandDaoImpl implements BandDAO {
 		return genres;
 	}
 
-	
-	
+	@Override
+	public boolean checkBandManager(User user) {
+		List<Band> bands = findAllBands();
+		List<User> managers = new ArrayList<>();
+		for (Band band : bands) {
+			managers.add(band.getManager());
+			
+			
+		}
+		
+		for (User manager : managers) {
+			if (manager.getId() == user.getId()) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
 
 	
 }
