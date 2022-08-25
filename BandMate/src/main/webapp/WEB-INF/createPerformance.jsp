@@ -7,7 +7,7 @@
 <title>Create Performance</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp"/>
-<jsp:include page="navbar.jsp"/>
+<jsp:include page="navbarController.jsp" />
 </head>
 <body>
 <main class="container-fluid">
