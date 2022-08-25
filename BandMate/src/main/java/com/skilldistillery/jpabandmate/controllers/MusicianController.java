@@ -14,9 +14,9 @@ import com.skilldistillery.jpabandmate.DAO.InstrumentDAO;
 import com.skilldistillery.jpabandmate.DAO.MusicianDAO;
 import com.skilldistillery.jpabandmate.entities.Band;
 import com.skilldistillery.jpabandmate.entities.BandMember;
-import com.skilldistillery.jpabandmate.entities.BandMemberId;
 import com.skilldistillery.jpabandmate.entities.Instrument;
 import com.skilldistillery.jpabandmate.entities.Musician;
+import com.skilldistillery.jpabandmate.entities.User;
 
 @Controller
 public class MusicianController {
@@ -31,19 +31,32 @@ public class MusicianController {
 	private BandDAO bandDao;
 	
 	@RequestMapping(path="musicianListPage.do")
-	public String bandList(Model model) {
+	public String bandList(HttpSession session, Model model) {
 		List<Musician> musicians = dao.findAllMusicians();
 		List<BandMember> bandMembers = dao.findAllBandMembers();
 		List<Band> bands = dao.findAllBands();
+		User user = (User) session.getAttribute("loggedInUser");
+		boolean managerCheck = bandDao.checkBandManager(user);
 		model.addAttribute("musicians", musicians);
+		model.addAttribute("managerCheck", managerCheck);
 		model.addAttribute("bandMembers", bandMembers);
 		model.addAttribute("bands", bands);
 		return "musicianList";
 	}
 	
 	@RequestMapping(path="musicianByKeyword.do")
-	public String musicianByKeyword(Model model, String search) {
+	public String musicianByKeyword(HttpSession session, Model model, String search) {
 		List<Musician> musicians = dao.findMusicianByKeyword(search);
+		List<Band> bands = dao.findAllBands();
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			boolean managerCheck = bandDao.checkBandManager(user);
+			System.out.println("manager check" + managerCheck);
+			model.addAttribute("managerCheck", managerCheck);
+		}
+		model.addAttribute("bands", bands);
+		model.addAttribute("bandMembers", bandMembers);
 		model.addAttribute("musicians", musicians);
 		return "musicianList";
 	}
