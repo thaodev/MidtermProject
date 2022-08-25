@@ -29,7 +29,7 @@ public class Band {
 	private String description;
 	
 	@Column(name="year_formed")
-	private LocalDate yearFormed;
+	private Integer yearFormed;
 	
 	@Column(name="band_image_url")
 	private String bandImage;
@@ -80,11 +80,11 @@ public class Band {
 		this.description = description;
 	}
 
-	public LocalDate getYearFormed() {
+	public Integer getYearFormed() {
 		return yearFormed;
 	}
 
-	public void setYearFormed(LocalDate yearFormed) {
+	public void setYearFormed(Integer yearFormed) {
 		this.yearFormed = yearFormed;
 	}
 

@@ -16,7 +16,7 @@
         <a class="nav-link" href="eventListPage.do">Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Your Band</a>
+        <a class="nav-link" href="yourBandListPage.do">Your Band</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="viewProfile.do">Your Profile</a>

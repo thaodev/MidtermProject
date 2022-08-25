@@ -33,8 +33,10 @@
 				</tr>
 			</thead>
 			
-			<tbody>
 			<c:forEach var="band" items="${bands}">
+			<c:choose>
+			<c:when test="${sessionScope.loggedInUser == band.manager}">
+			<tbody>
 				
 				<tr>
 					<td><img src="${band.bandImage}" width="75px" height="75px"/></td>
@@ -71,9 +73,11 @@
 				</tr>
 				
 				
-			</c:forEach>
 			
 			</tbody>
+		</c:when>
+		</c:choose>
+			</c:forEach>
 		</table>
 		
 		
