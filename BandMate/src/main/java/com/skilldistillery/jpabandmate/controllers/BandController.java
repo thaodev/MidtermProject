@@ -35,6 +35,15 @@ public class BandController {
 		return "bandList";
 	}
 	
+	@RequestMapping(path="yourBandListPage.do")
+	public String yourBandList(Model model, HttpSession session) {
+		List<Band> bands = dao.findAllBands();
+		List<BandMember> bandMembers = dao.findAllBandMembers();
+		model.addAttribute("bands", bands);
+		model.addAttribute("bandMembers", bandMembers);
+		return "yourBandList";
+	}
+	
 	@RequestMapping(path="bandByKeyword.do")
 	public String bandByKeyword(Model model, String search) {
 		List<Band> bands = dao.findBandByKeyword(search);

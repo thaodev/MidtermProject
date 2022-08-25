@@ -111,13 +111,11 @@ User user = (User) session.getAttribute("loggedInUser");
 							src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 							alt="">
 						<div class="card-body">
-							<h4 class="card-title">Card title that wraps to a new line</h4>
-							<p class="card-text">This is a longer card with supporting
-								text below as a natural lead-in to additional content. This
-								content is a little bit longer.</p>
+							<h4 class="card-title">Find a Musician</h4>
+							<p class="card-text">Search for your favorite musicians or just browse some lesser-known talent...</p>
 						</div>
 						<div class="text-center">
-							<form action="" class="form-group mx-sm-3 mb-2">
+							<form action="musicianByKeyword.do" class="form-group mx-sm-3 mb-2">
 								<input type="search" class="rounded" name="search"
 									placeholder="" aria-label="Search"
 									aria-describedby="search-addon" />

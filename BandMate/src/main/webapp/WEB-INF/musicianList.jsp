@@ -25,9 +25,9 @@
 					<th>Musician</th>
 					<th>Bands</th>
 					<th>Bio</th>
-					<th>Delete</th>
-					<th>Edit</th>
-					<th>Add to Band</th>
+					<th> </th>
+					<th> </th>
+					<th> </th>
 				</tr>
 			</thead>
 			
@@ -62,8 +62,9 @@
 					
 					</c:otherwise>
 					</c:choose>
+<c:if test="${not empty loggedInUser}">
 					<td><a href="addMusicianToBand.do?musicianId=${musician.id}" type="button" class="btn btn-secondary btn-sm">Add to Band</a></td>
-					
+					</c:if>
 				</tr>
 				
 				
