@@ -99,18 +99,17 @@ public class MusicianDaoImpl implements MusicianDAO {
 	
 	@Override
 	public boolean deleteMusician(Integer id) {
-		MusicianDaoImpl dao = new MusicianDaoImpl();
 		Musician musicianToDelete = em.find(Musician.class, id);
-		List<BandMemberId> bmis = dao.findAllBandMemberIds();
+		List<BandMember> bms = findAllBandMembers();
 		if(musicianToDelete != null) {
 			
 			for (Instrument instrument : musicianToDelete.getInstruments()) {
 				em.remove(instrument);
 			}
 			
-			for (BandMemberId bmi : bmis) {
-				if (bmi.getMusicianId() == musicianToDelete.getId()) {
-					em.remove(bmi);
+			for (BandMember bm : bms) {
+				if (bm.getId().getMusicianId() == musicianToDelete.getId()) {
+					em.remove(bm);
 				}
 			}
 			em.remove(musicianToDelete);
@@ -176,13 +175,9 @@ public class MusicianDaoImpl implements MusicianDAO {
 		List<BandMemberId> bandMemberIds = null;
 		String jpql = "SELECT bm FROM BandMember bm";
 		bandMemberIds = em.createQuery(jpql, BandMemberId.class).getResultList();
-		if (bandMemberIds != null) {
-			System.out.println(bandMemberIds);
-			return bandMemberIds;
-		} else {
 			System.out.println("ALL BAND MEMBER IDS=======" + bandMemberIds);
-			return null;
+			return bandMemberIds;
 		}
-	}
+	
 	
 }

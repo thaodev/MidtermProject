@@ -42,8 +42,8 @@ public class MusicianController {
 	}
 	
 	@RequestMapping(path="musicianByKeyword.do")
-	public String musicianByKeyword(Model model, String keyword) {
-		List<Musician> musicians = dao.findMusicianByKeyword(keyword);
+	public String musicianByKeyword(Model model, String search) {
+		List<Musician> musicians = dao.findMusicianByKeyword(search);
 		model.addAttribute("musicians", musicians);
 		return "musicianList";
 	}

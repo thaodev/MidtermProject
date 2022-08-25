@@ -471,7 +471,7 @@ COMMIT;
 START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (1, 'Hammer of Rock', 'Classic hard rock, a good time for all!', 2018, 3, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80', NULL);
-INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', 'The smootheset of experimental free-form jazz, you\'re gonna love it.', 2013, 3, 'https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80', NULL);
+INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (2, 'The Sandbox', 'The smoothest of experimental free-form jazz, you\'re gonna love it.', 2013, 3, 'https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80', NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (3, 'The Lamb Commander', 'Straight out of Dallas, Texas, we are bringing southern metal to a town near you!', 2021, 3, 'https://images.unsplash.com/photo-1523311964370-42ac336c878b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (4, 'The Correction Screens', 'We will keep you dancing all night long with our sick beats and unparalleled energy.', 2012, 3, 'https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80', NULL);
 INSERT INTO `band` (`id`, `name`, `description`, `year_formed`, `manager_id`, `band_image_url`, `band_logo_url`) VALUES (5, 'Flock Freeman', 'A three piece country band like you\'ve never heard or seen before.', 1998, 3, 'https://images.unsplash.com/photo-1563019826-3016b0ddc9db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80', NULL);
@@ -498,16 +498,16 @@ INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (6, 'Tevin', 'Edmonds', NULL, 'Sax player for The Sandbox', 0, 'https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (7, 'Shona', 'Cartwright', NULL, 'Drummer for The Sandbox', 0, 'https://images.unsplash.com/photo-1571327073757-71d13c24de30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
 INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (8, 'Aila', 'Alexander', NULL, 'DJ for The Correction Screens', 1, 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (9, 'Brody', 'Powers', NULL, 'Lamb Commander lead guitarist', 1, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (10, 'Christian', 'Zamora', NULL, 'Lamb Commander drummer', 1, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (11, 'Amos', 'Donalds', NULL, 'Lamb Commander bassist', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (12, 'Roseanne', 'Tucker', NULL, 'Hook Offense solo guitarist', 1, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (13, 'Victor', 'Hodge', NULL, 'Lilacs Locus organ player', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (14, 'Kaylum', 'Leach', NULL, 'Lilacs Locus drummer', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (15, 'Alan', 'McAndy', NULL, 'Lilacs Locus guitarist', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (16, 'Phillip', 'Lim', NULL, 'Honeybee Races DJ', 0, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (17, 'Mac', 'Stein', NULL, 'Honeybee Races pianist', 1, NULL);
-INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (18, 'Sam', 'Cornish', NULL, 'Jam Accentuate lead singer', 1, NULL);
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (9, 'Brody', 'Powers', NULL, 'Lamb Commander lead guitarist', 1, 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=362&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (10, 'Christian', 'Zamora', NULL, 'Lamb Commander drummer', 1, 'https://images.unsplash.com/photo-1580198144214-2a555ab6e793?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (11, 'Amos', 'Donalds', NULL, 'Lamb Commander bassist', 0, 'https://images.unsplash.com/photo-1603838254880-2cdbb7a0c5ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=416&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (12, 'Roseanne', 'Tucker', NULL, 'Hook Offense solo guitarist', 1, 'https://images.unsplash.com/flagged/photo-1566220978828-14849ad915d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (13, 'Victor', 'Hodge', NULL, 'Lilacs Locus organ player', 0, 'https://images.unsplash.com/photo-1605466153192-eadb02570ff3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (14, 'Kaylum', 'Leach', NULL, 'Lilacs Locus drummer', 0, 'https://images.unsplash.com/photo-1593915451045-064bf8007a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (15, 'Alan', 'McAndy', NULL, 'Lilacs Locus guitarist', 0, 'https://images.unsplash.com/photo-1568062916840-9d6bf3f09b87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (16, 'Phillip', 'Lim', NULL, 'Honeybee Races DJ', 0, 'https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (17, 'Mac', 'Stein', NULL, 'Honeybee Races pianist', 1, 'https://images.unsplash.com/photo-1455274111113-575d080ce8cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80');
+INSERT INTO `musician` (`id`, `first_name`, `last_name`, `phone`, `bio`, `vocals`, `band_member_image_url`) VALUES (18, 'Sam', 'Cornish', NULL, 'Jam Accentuate lead singer', 1, 'https://images.unsplash.com/photo-1618979251882-0b40ef3617f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
 
 COMMIT;
 
@@ -518,6 +518,19 @@ COMMIT;
 START TRANSACTION;
 USE `bandmatedb`;
 INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (1, 'guitar', 750.00, 2);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (2, 'banjo', 600.00, 3);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (3, 'drum', 1200.00, 4);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (4, 'guitar', 350.00, 5);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (5, 'saxaphone', 900.00, 6);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (6, 'drums', 780.00, 7);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (7, 'guitar', 1300.00, 9);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (8, 'drums', 1150.00, 10);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (9, 'bass', 625.00, 11);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (10, 'guitar', 700.00, 12);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (11, 'organ', 4000.00, 13);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (12, 'drums', 450.00, 14);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (13, 'guitar', 600.00, 15);
+INSERT INTO `instrument` (`id`, `name`, `price`, `musician_id`) VALUES (14, 'piano', 3400.00, 17);
 
 COMMIT;
 
@@ -527,16 +540,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `bandmatedb`;
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (1, 'Palace of Fine Arts', 200, 1, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (2, 'TheSan Francisco Mint', 300, 2, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (3, 'The Midway', 400, 3, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (4, 'The Montgomery', 1000, 4, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (5, 'Blue Theater', 200, 5, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (6, 'Jones', 100, 6, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (7, 'Sports Castle', 500, 10, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (8, 'Denver Post', 300, 8, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (9, 'The Broadway', 100, 9, 'url to fill', 'description to fill');
-INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (10, 'Wild Goose Saloon', 100, 7, 'url to fill', 'description to fill');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (1, 'Palace of Fine Arts', 200, 1, 'https://images.unsplash.com/photo-1566527899457-add2c6c00f3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80', 'The Palace of Fine Arts is a monumental structure located in the Marina District of San Francisco, California, originally constructed for the 1915 Panama–Pacific International Exposition to exhibit works of art. Completely rebuilt from 1964 to 1974, it is the only structure from the exposition that survives on site.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (2, 'The San Francisco Mint', 300, 2, 'https://www.ggcatering.com/system/uploads/fae/image/asset/3141/TheSanFranciscoMint_Both_.jpg', 'The San Francisco Mint is a historical venue which has been renovated as a beautiful venue for private events and conferences.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (3, 'The Midway', 400, 3, 'https://eventective-media.azureedge.net/2584021_lg.jpg', 'Humble joint offering cocktails in small, brick-lined quarters with bottles of liquor for sale.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (4, 'The Montgomery', 1000, 4, 'https://cdn0.weddingwire.com/vendor/826285/3_2/640/jpg/1449605424360-fellowship8.webp', 'We feature a bright, newly-renovated ballroom that has a breathtaking view of our gorgeous golf course and is affordable for events of all sizes.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (5, 'Blue Theater', 200, 5, 'https://images.unsplash.com/photo-1522776203873-e4961ae6e07d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', 'The Blue Note is a beautifully renovated, historic concert venue and private event space.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (6, 'Jones', 100, 6, 'https://images.unsplash.com/photo-1521543387600-c745f8e83d77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80', 'This beautiful waterfront facility has everything you need to make your next event truly special!');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (7, 'Sports Castle', 500, 10, 'https://wp-denverite.s3.amazonaws.com/wp-content/uploads/sites/4/2021/08/Chrysler-building.png', 'Denver\'s previously premier automobile showroom is a three-story Deco Gothic building dressed in terracotta.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (8, 'Denver Post', 300, 8, 'https://www.denverpost.com/wp-content/uploads/2022/06/TDP-Z-ratiopatio-01-1.jpg?w=863', 'The new and renovated Denver venues are available for corporate parties, weddings, fundraisers, outdoor functions, business dinners, and music events.');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (9, 'The Broadway', 100, 9, 'https://images.unsplash.com/photo-1562329265-95a6d7a83440?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80', 'The Broadway is a multi-story bar and music venue');
+INSERT INTO `venue` (`id`, `name`, `capacity`, `address_id`, `venue_image_url`, `description`) VALUES (10, 'Wild Goose Saloon', 100, 7, 'https://images.unsplash.com/photo-1560840881-4bbcd415a9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', 'Parker\'s newest music bar & restaurant. Featuring all genres of live music regional and national. Also, great food as well as patio dining.');
 
 COMMIT;
 
@@ -607,6 +620,15 @@ INSERT INTO `genre` (`id`, `name`, `description`) VALUES (12, 'Psychedelic Rock'
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (13, 'Death Metal', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (14, 'Post-Grunge', NULL);
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (15, 'Classical', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (16, 'Neo-Classical Speed Metal', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (17, 'Math Rock', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (18, 'Indie', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (19, 'Metalcore', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (20, 'Hip-Hop', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (21, 'Rap', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (22, 'Soul', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (23, 'Industrial', NULL);
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (24, 'Melodic Death Metal', NULL);
 
 COMMIT;
 
