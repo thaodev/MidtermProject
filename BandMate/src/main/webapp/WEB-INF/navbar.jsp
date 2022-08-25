@@ -28,8 +28,6 @@ if (session != null) {
 			</li>
 			<li class="nav-item"><a href="eventListPage.do" class="nav-link">Events</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="#">Your Band</a>
-			</li>
 		</ul>
 		<div class="navbar-nav ms-auto text-white">
 			<c:out value="${user.username}" />
