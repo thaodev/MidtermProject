@@ -144,22 +144,21 @@
 								</div>
 								<div class="input-group mb-3">
 									<div class="input-group-prepend"></div>
-									<input class="form-control" type="text" required
+									<input class="form-control" id="reviewBox" type="text" required
 										name="ratingComment"
 										value="${performanceReview.ratingComment }"
 										style="height: 100px; margin: 5px"
 										placeholder="Write review comment here">
 								</div>
-								<br>
-								<div>
+								<div class="text-center m-1">
 									<button type="submit" class="btn btn-warning"
 										data-toggle="button" aria-pressed="false">Submit</button>
-
-
 								</div>
 							</form>
 						</c:if>
 					</c:when>
+					
+					
 					<c:otherwise>
 						<p class="text-center">Please login to leave review!</p>
 					</c:otherwise>
@@ -174,6 +173,7 @@
 		</c:choose>
 
 	</div>
+	<br>
 	<jsp:include page="bootstrapFoot.jsp" />
 
 </body>

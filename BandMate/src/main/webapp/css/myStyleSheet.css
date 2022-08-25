@@ -58,3 +58,11 @@ body {
 	}
 }
 
+#reviewBox {
+  border-radius: 25px;
+  border: 2px solid #ad62eb;
+  padding: 20px; 
+  width: 200px;
+  height: 150px;  
+}
+
