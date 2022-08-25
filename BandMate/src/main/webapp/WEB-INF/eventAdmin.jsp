@@ -79,6 +79,6 @@
 
 
 <jsp:include page="bootstrapFoot.jsp" />
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

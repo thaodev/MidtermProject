@@ -50,6 +50,7 @@
 						<input type="text" name="address.state" class="form-control" id="address.state" placeholder="STATE:" required>
 					</div>
 				</div>
+				<br>
 				<div class="col">
 					<div class="form-outline">
 					<input type="text" name="address.zipCode" class="form-control" id="address.zipCode" placeholder="ZIP CODE:" required>
@@ -63,5 +64,6 @@
 </main>
 
 <jsp:include page="bootstrapFoot.jsp" />
+<jsp:include page="footer.jsp" />
 </body>
 </html>
