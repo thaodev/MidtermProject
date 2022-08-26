@@ -126,7 +126,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `venue` ;
 
 CREATE TABLE IF NOT EXISTS `venue` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NULL,
   `capacity` INT NULL,
   `address_id` INT NOT NULL,
