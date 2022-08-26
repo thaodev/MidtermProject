@@ -75,7 +75,7 @@
 	</c:otherwise>
 </c:choose>
 
-<a href="createPerformance.do" type="button" class="btn btn-secondary">CREATE EVENT</a>
+<a href="createPerformance.do" type="button"  class="btn btn-secondary">CREATE EVENT</a>
 
 
 <jsp:include page="bootstrapFoot.jsp" />
