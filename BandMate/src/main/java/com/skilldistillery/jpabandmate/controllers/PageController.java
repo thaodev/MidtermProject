@@ -41,6 +41,7 @@ public class PageController {
 		} else {
 			numOfPages = allUsers.size() / noUsersPerPage + 1;
 		}
+		
 		List<User> users = dao.findAllUsers(0);
 		model.addAttribute("users",users);
 		model.addAttribute("numOfPages", numOfPages);

@@ -18,7 +18,7 @@
 	<c:choose>
 		<c:when test="${! empty performances}">
 		<div class="h1 text-center">REGISTER TICKETS BEFORE THEY ARE GONE FOR OUR CONCERTS BELOW</div>
-		<c:if test="${empty loggedInUser}"><p class="text-center"> &#127927 Please log in or become our member in order to reserve tickets &#127928 </p></c:if>
+		<c:if test="${empty loggedInUser}"><p class="text-center"> <span style="font-size:50px">&#127927</span> Please log in or become our member in order to reserve tickets <span style="font-size:50px">&#127928 </span></p></c:if>
 			<table class="table table-stripped mt-3">
 				<thead class="table-secondary">
 					<tr>
