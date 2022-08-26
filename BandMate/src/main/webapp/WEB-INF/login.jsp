@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<jsp:include page="navbarController.jsp" />
+	<jsp:include page="navbarController.jsp" />
 	<section class="vh-100" style="background-color: #9A616D;">
 		<div class="container py-5 h-100">
 			<div
@@ -49,6 +49,13 @@
 												class="form-control form-control-lg" /> <label
 												class="form-label" for="form2Example27">Password</label>
 										</div>
+										<c:choose>
+											<c:when test="${not empty error}">
+												<p class="text-danger">${error }</p>
+											</c:when>
+											<c:otherwise>
+											</c:otherwise>
+										</c:choose>
 
 										<div class="pt-1 mb-4">
 											<button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
@@ -60,13 +67,7 @@
 									</p>
 									<a href="#!" class="small text-muted">Terms of use.</a> <a
 										href="#!" class="small text-muted">Privacy policy</a>
-									<c:choose>
-										<c:when test="${not empty error}">
-											<p>${error }</p>
-										</c:when>
-										<c:otherwise>
-										</c:otherwise>
-									</c:choose>
+
 
 								</div>
 							</div>
