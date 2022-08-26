@@ -47,16 +47,15 @@
 					<th scope="col">Venue</th>
 					<th scope="col">Start Time</th>
 					<th scope="col">End Time</th>
-					<!-- <th scope="col">Duration</th> -->
-					<th scope="col">Action</th>
+
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="ticket" items="${ticketSales}">
-					<!-- construct an delete link with schedule id  -->
+					<%-- <!-- construct an delete link with schedule id  -->
 					<c:url var="deleteLink" value="deleteTicket">
 						<c:param name="id" value="${ticket.id}" />
-					</c:url>
+					</c:url> --%>
 					<tr>
 						<td><c:out value="${ticket.performance.name}" /></td>
 						<td>${ticket.user.firstName} ${ticket.user.lastName}</td>
@@ -69,20 +68,15 @@
 						<%-- <td><c:set var="duration" value="${ticket.performance.endTime-ticket.performance.startTime}" />
 						<c:out value="${duration}"/> 
 						</td>--%>
-						<td><a href="${deleteLink}"
+						<%-- <td><a href="${deleteLink}"
 							onclick="if(!(confirm('Are you sure you want to delete this ticket?'))) return false">Delete</a></td>
-
+ --%>
 
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="row ">
-			<div class="col-sm text-center ">
-				<a href="addTicket.do" class="btn btn-warning" role="button"
-					aria-pressed="true">Add Ticket</a>
-			</div>
-		</div>
+		
 	</div>
 
 	<jsp:include page="bootstrapFoot.jsp" />

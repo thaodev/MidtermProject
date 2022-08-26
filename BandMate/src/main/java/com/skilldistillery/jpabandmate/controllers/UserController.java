@@ -61,23 +61,17 @@ public class UserController {
 				User userAdded = dao.addUser(user);
 				if (userAdded != null) {
 					isUserAdded = true;
-
 					//model.addAttribute("userAdded", userAdded);
 					redir.addFlashAttribute("userAdded", userAdded);
 					model.addAttribute("isUserAdded", isUserAdded);
 				}
-				
-				
-				
 				return "redirect:showUser.do";
-				
-				
 			} catch (DataIntegrityViolationException e) {
 				System.out.println("cause" + e.getCause());
 				message = "Unable to add user since the username already exits. Please try again!";
-				model.addAttribute("message", message);
+				model.addAttribute("errorMsg", message);
 				e.printStackTrace();
-				return "loginResult";
+				return "signUp";
 			}
 			
 		}
