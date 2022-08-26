@@ -56,7 +56,7 @@
 								<c:when test="${(not empty loggedInUser && managerCheck) || (loggedInUser.admin)}">
 
 									<td><a href="deleteMusician.do?musicianId=${musician.id}"
-										type="button" class="btn btn-danger btn-sm">x</a></td>
+										type="button" class="btn btn-danger btn-sm" onclick="if(!(confirm('Are you sure you want to delete this musician?'))) return false">x</a></td>
 									<td><a href="editMusician.do?musicianId=${musician.id}"
 										type="button" class="btn btn-primary btn-sm">Edit</a></td>
 									<td><a

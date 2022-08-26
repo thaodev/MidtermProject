@@ -60,7 +60,7 @@
 					<c:choose>
 					<c:when test="${sessionScope.loggedInUser == band.manager || sessionScope.loggedInUser.admin == true}">
 					 
-					<td><a href="deleteBand.do?bandId=${band.id}" type="button" class="btn btn-danger btn-sm">x</a></td>
+					<td><a href="deleteBand.do?bandId=${band.id}" type="button" class="btn btn-danger btn-sm" onclick="if(!(confirm('Are you sure you want to delete this band?'))) return false">x</a></td>
 					<td><a href="editBand.do?bandId=${band.id}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
 					</c:when>
 					<c:otherwise>
