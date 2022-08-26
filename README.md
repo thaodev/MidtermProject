@@ -21,7 +21,7 @@
 * EC2
 * SpringBoot
 
-## Lessons Learnt
+## Lessons Learned
 ### Thao Nguyen
 #### - Working with date and time for JSP, Java, and MySQL
 ####  - Using Map, HashMap, and Array of objects to create collection of data from multiple entities
@@ -36,3 +36,7 @@
 #### - Handling merge conflicts and working with a team on git hub
 
 ### Jordy Castorena
+### - Collaborating with date and time.
+### - Keeping plans in an organized flow for our build, by reverting to the schema diagram in my daily overview.
+### - Having an insight to branching and executing tasks on various files concurrently.
+### - Keeping an active interaction amongst the group.
