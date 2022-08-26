@@ -9,17 +9,7 @@
 <title>Login Site</title>
 
 <jsp:include page="bootstrapHead.jsp" />
-<%-- <%
-User user = (User) session.getAttribute("loggedInUser");
-%>
-<c:choose>
-	<c:when test="${empty user}">
-		<jsp:include page="navbar.jsp" />
-	</c:when>
-	<c:otherwise>
-		<jsp:include page="navbarWUserLoggedIn.jsp" />
-	</c:otherwise>
-</c:choose> --%>
+
 </head>
 <body>
 <jsp:include page="navbarController.jsp" />
@@ -70,7 +60,13 @@ User user = (User) session.getAttribute("loggedInUser");
 									</p>
 									<a href="#!" class="small text-muted">Terms of use.</a> <a
 										href="#!" class="small text-muted">Privacy policy</a>
-
+									<c:choose>
+										<c:when test="${not empty error}">
+											<p>${error }</p>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
 
 								</div>
 							</div>

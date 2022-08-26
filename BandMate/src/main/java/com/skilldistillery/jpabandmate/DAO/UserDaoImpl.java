@@ -50,10 +50,11 @@ public class UserDaoImpl implements UserDAO {
 		for (User user : allUsers) {
 			if (user.getUsername().equals(userName) && user.getPassword().equals(password)) {
 				u = user;
+				u.getPerformanceReviews().size();//to force eager loading of the review list
 				break;
 			}
 		}
-		u.getPerformanceReviews().size();
+		
 		return u;
 	}
 

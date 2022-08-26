@@ -43,9 +43,12 @@ public class LoginController {
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(User user, HttpSession session, Model model) {
 		user = dao.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
-		System.out.println(user + " inside login.do POST method");
+		
 		if (user == null) {
-			return "home";
+			System.out.println(user + " inside login.do POST method");
+			String error = "Either username or password doesn't match. Please try again!";
+			model.addAttribute("error", error);
+			return "login";
 		} else {
 			session.setAttribute("loggedInUser", user);
 			if (user.getAdmin()) {
