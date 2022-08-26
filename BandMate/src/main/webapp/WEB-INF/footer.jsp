@@ -15,7 +15,7 @@
 	<div class="row justify-content-center" >
 		<h1 class="sentence text-white float-left">Stellar Spasm</h1>
 		<h2 class="pushEffect">
-			<span>Jordy</span> <span>Wyatt</span> <span>Thao</span>
+			<span>Jordy</span> <span>Wyatt </span> <span>Thao</span>
 		</h2>
 
 	</div>

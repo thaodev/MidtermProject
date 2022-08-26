@@ -7,9 +7,9 @@
 <title>Create Venue</title>
 <!-- CSS only -->
 <jsp:include page="bootstrapHead.jsp"/>
-<jsp:include page="navbar.jsp"/>
 </head>
 <body>
+<jsp:include page="navbarController.jsp" />
 <main class="container-fluid">
 <br>
 <h1>Create A VENUE</h1>
