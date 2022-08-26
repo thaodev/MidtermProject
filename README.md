@@ -16,8 +16,12 @@
 
 ## Lessions Learnt
 ### Thao Nguyen
-#### Working with date and time for JSP, Java, and MySQL
-#### Using Map, HashMap, and Array of objects to create collection of data from multiple entities
-#### Catching Hibernate and MySQL exceptions
-#### Using jpa query to create pagination
-#### Using for each to create table inside table
+#### - Working with date and time for JSP, Java, and MySQL
+####  - Using Map, HashMap, and Array of objects to create collection of data from multiple entities
+#### - Catching Hibernate and MySQL exceptions
+#### - Using jpa query to create pagination
+#### - Using for each to create table inside table
+
+### Wyatt
+
+### Jordy
